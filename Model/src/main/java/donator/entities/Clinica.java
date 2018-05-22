@@ -1,10 +1,30 @@
 package donator.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Clienti")
 public class Clinica {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private int IdClinica;
+
+    @OneToMany(mappedBy = "clinici", fetch = FetchType.EAGER)
+    @JsonBackReference
     private int IdPersonal;
+
+    @Column(name = "Contact")
     private String Contact;
+
+    @Column(name = "Adresa")
     private String Adresa;
+
+    @OneToMany(mappedBy = "centre", fetch = FetchType.EAGER)
+    @JsonBackReference
     private int IdSange;
 
     public Clinica(int IdClinica, int IdPersonal, String Contact, String Adresa, int IdSange){

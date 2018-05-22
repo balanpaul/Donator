@@ -1,26 +1,78 @@
 package donator.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Donatori")
 public class Donator {
-    private int Cnp;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "donatorId")
+    private int IdDonator;
+
+    @Column(name = "CNP")
+    private String Cnp;
+
+    @Column(name = "Nume")
     private String Nume;
+
+    @Column(name = "Prenume")
     private String Prenume;
+
+    @Column(name = "Data_Nasterii")
     private String DataNasterii;
+
+    @Column(name = "nrTelefon")
     private String NrTelefon;
+
+    @Column(name = "email")
     private String Email;
+
+    @OneToMany(mappedBy = "donatori", fetch = FetchType.EAGER)
+    @JsonBackReference
     private int IdSange;
+
+    @Column(name = "Judet")
     private String Judet;
+
+    @Column(name = "Oras")
     private String Oras;
+
+    @Column(name = "Strada")
     private String Strada;
+
+    @Column(name = "Apartament")
     private String Apartament;
+
+    @Column(name = "Bloc")
     private String Bloc;
+
+    @Column(name = "Scara")
     private String Scara;
+
+    @Column(name = "Numar")
     private String Numar;
 
-    public int getCnp() {
+    @Column(name = "CodPostal")
+    private int CodPostal;
+
+    public int getIdDonator() {
+        return IdDonator;
+    }
+
+    public void setIdDonator(int idDonator) {
+        IdDonator = idDonator;
+    }
+
+
+    public String getCnp() {
         return Cnp;
     }
 
-    public void setCnp(int cnp) {
+    public void setCnp(String cnp) {
         Cnp = cnp;
     }
 
@@ -128,16 +180,16 @@ public class Donator {
         Numar = numar;
     }
 
-    public String getCodPostal() {
+    public int getCodPostal() {
         return CodPostal;
     }
 
-    public void setCodPostal(String codPostal) {
+    public void setCodPostal(int codPostal) {
         CodPostal = codPostal;
     }
 
-    public Donator(int cnp, String nume, String prenume, String dataNasterii, String nrTelefon, String email, int idSange, String judet, String oras, String strada, String apartament, String bloc, String scara, String numar, String codPostal) {
-
+    public Donator(int idDonator, String cnp, String nume, String prenume, String dataNasterii, String nrTelefon, String email, int idSange, String judet, String oras, String strada, String apartament, String bloc, String scara, String numar, int codPostal) {
+        IdDonator = idDonator;
         Cnp = cnp;
         Nume = nume;
         Prenume = prenume;
@@ -155,5 +207,4 @@ public class Donator {
         CodPostal = codPostal;
     }
 
-    private String CodPostal;
 }
