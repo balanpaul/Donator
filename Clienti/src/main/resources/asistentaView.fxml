@@ -10,6 +10,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
@@ -42,31 +43,38 @@
             <Image url="@home_logo_white_v2.png" />
          </image>
       </ImageView>
-      <ListView layoutX="322.0" layoutY="90.0" prefHeight="283.0" prefWidth="536.0" />
-      <TextField layoutX="900.0" layoutY="143.0" prefHeight="26.0" prefWidth="315.0" />
-      <Label layoutX="899.0" layoutY="117.0" prefHeight="28.0" prefWidth="331.0" text="Cautare dupa nume si prenume:">
+      <ListView layoutX="292.0" layoutY="90.0" prefHeight="283.0" prefWidth="536.0" />
+      <TextField layoutX="900.0" layoutY="156.0" prefHeight="26.0" prefWidth="315.0" />
+      <Label layoutX="899.0" layoutY="129.0" prefHeight="28.0" prefWidth="331.0" text="Căutare după nume și prenume:">
          <font>
             <Font name="Calibri" size="24.0" />
          </font></Label>
-      <DatePicker layoutX="965.0" layoutY="197.0" />
-      <CheckBox layoutX="931.0" layoutY="201.0" mnemonicParsing="false" />
-      <ListView layoutX="623.0" layoutY="491.0" prefHeight="131.0" prefWidth="462.0" />
-      <Label layoutX="652.0" layoutY="449.0" prefHeight="18.0" prefWidth="199.0" text="Istoric donatii:">
+      <DatePicker layoutX="931.0" layoutY="209.0" />
+      <CheckBox layoutX="900.0" layoutY="213.0" mnemonicParsing="false" />
+      <ListView layoutX="601.0" layoutY="478.0" prefHeight="131.0" prefWidth="462.0" />
+      <Label layoutX="634.0" layoutY="438.0" prefHeight="18.0" prefWidth="199.0" text="Istoric donații:">
          <font>
             <Font name="Calibri" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="773.0" layoutY="626.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="290.0" text="Generare pdf" />
-      <Label layoutX="325.0" layoutY="63.0" text="Lista donatori:">
+      <Button layoutX="773.0" layoutY="613.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="290.0" text="Generare PDF">
+         <font>
+            <Font name="Impact" size="16.0" />
+         </font></Button>
+      <Label layoutX="325.0" layoutY="63.0" text="Listă donatori:">
          <font>
             <Font name="Calibri" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="94.0" layoutY="448.0" prefHeight="18.0" prefWidth="199.0" text="Boli de care sufera:">
+      <Label layoutX="105.0" layoutY="438.0" prefHeight="18.0" prefWidth="199.0" text="Boli de care suferă:">
          <font>
             <Font name="Calibri" size="24.0" />
          </font>
       </Label>
-      <ListView layoutX="73.0" layoutY="493.0" prefHeight="131.0" prefWidth="462.0" />
+      <ListView layoutX="73.0" layoutY="478.0" prefHeight="131.0" prefWidth="462.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="200.0" layoutX="863.0" layoutY="106.0" stroke="WHITE" strokeType="INSIDE" width="1.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="200.0" layoutX="1246.0" layoutY="106.0" stroke="WHITE" strokeType="INSIDE" width="1.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="370.0" layoutX="1054.0" layoutY="-78.0" rotate="90.0" stroke="WHITE" strokeType="INSIDE" width="1.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="370.0" layoutX="1054.0" layoutY="119.0" rotate="90.0" stroke="WHITE" strokeType="INSIDE" width="1.0" />
    </children>
 </AnchorPane>
