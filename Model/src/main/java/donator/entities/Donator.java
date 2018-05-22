@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Table(name = "Donatori")
 public class Donator {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "donatorId")
