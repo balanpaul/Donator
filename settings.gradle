@@ -2,4 +2,5 @@ rootProject.name = 'KillerBas'
 include 'Model'
 include 'Clienti'
 include 'Service'
+include 'Persistance'
 

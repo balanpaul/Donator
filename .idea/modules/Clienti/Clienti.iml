@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":Clienti" external.linked.project.path="$MODULE_DIR$/../../../Clienti" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="KillerBas" external.system.module.version="1.0-SNAPSHOT" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../Clienti">
+      <excludeFolder url="file://$MODULE_DIR$/../../../Clienti/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../Clienti/build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../Clienti/out" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
