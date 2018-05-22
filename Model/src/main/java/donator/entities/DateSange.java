@@ -1,23 +1,34 @@
 package donator.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
-import org.hibernate.annotations.GenericGenerator;
+//import org.hibernate.annotations.GenericGenerator;
 
-
+@Entity
+@Table(name = "DateSange")
 public class DateSange {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "idSange")
     private int IdSange;
+
+    @Column(name = "GrupaSanguina")
     private String GrupaSanguina;
+
+    @Column(name = "Sanatos")
     private Boolean Sanatos;
+
+    @Column(name = "RH")
     private String Rh;
+
+    @Column(name = "Trombocite")
     private int Trombocite;
+
+    @Column(name = "Leucocite")
     private String Leucocite;
+
+    @Column(name = "Hematii")
     private String Hematii;
 
     public DateSange(int idSange, String grupaSanguina, Boolean sanatos, String rh, int trombocite, String leucocite, String hematii) {
