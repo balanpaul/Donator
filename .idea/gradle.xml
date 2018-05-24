@@ -4,13 +4,14 @@
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/../KillerBas" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="jdk1.8" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/../KillerBas" />
-            <option value="$PROJECT_DIR$/../KillerBas/Clienti" />
-            <option value="$PROJECT_DIR$/../KillerBas/Model" />
-            <option value="$PROJECT_DIR$/../KillerBas/Service" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Clienti" />
+            <option value="$PROJECT_DIR$/Model" />
+            <option value="$PROJECT_DIR$/Service" />
           </set>
         </option>
         <option name="useAutoImport" value="true" />
