@@ -17,8 +17,6 @@
       <module name="KillerBas_test" target="1.8" />
       <module name="Model_main" target="1.8" />
       <module name="Model_test" target="1.8" />
-      <module name="Service_main" target="1.8" />
-      <module name="Service_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
