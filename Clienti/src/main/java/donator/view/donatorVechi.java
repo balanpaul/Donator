@@ -1,6 +1,7 @@
 package donator.view;
 
 
+import donator.entities.Donator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
@@ -24,14 +25,15 @@ public class donatorVechi {
 
     private void init() {
 
-        Donator donator=new Donator();
-        for(int i=1;i<=2;++i){
+        Donator donator=new Donator(1,"123345678891230","Paul","Paul",
+                "19.10.2019","07533","b@1.com",1,"Cluj","Napoca",
+                "Dece","22","s","2","21",450222);
 
-        }
+
     }
 
     @FXML
-    public void onClickTrimitere(ActionEvent actionEvent) {
+    public void onClickTrimitere(ActionEvent actionEvent ) {
         datePicker.setConverter(new StringConverter<LocalDate>() {
             String pattern = "yyyy-MM-dd";
             DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(pattern);
@@ -62,10 +64,17 @@ public class donatorVechi {
         String s = data.toString();
         int inceput = Integer.valueOf( incOra.getText());
         int sfarsit = Integer.valueOf( sfOra.getText());
-        find(Email.getText(),Nume.getText(),Prenume.getText());
+        Donator d =find(Email.getText(),Nume.getText(),Prenume.getText());
+        System.out.println(s);
+        System.out.println("dsa");
+        //save(d,incOra,sfOra,s)
     }
 
-    private void find(String text, String text1, String text2) {
+    private Donator find(String text, String text1, String text2) {
+        Donator donator=new Donator(1,"123345678891230","Paul","Paul",
+                "19.10.2019","07533","b@1.com",1,"Cluj","Napoca",
+                "Dece","22","s","2","21",450222);
+        return donator;
     }
 
 
