@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Clienti.iml" filepath="$PROJECT_DIR$/.idea/modules/Clienti.iml" group="Clienti" />
-      <module fileurl="file://$PROJECT_DIR$/../KillerBas/.idea/modules/Clienti/Clienti_main.iml" filepath="$PROJECT_DIR$/../KillerBas/.idea/modules/Clienti/Clienti_main.iml" group="Clienti" />
-      <module fileurl="file://$PROJECT_DIR$/../KillerBas/.idea/modules/Clienti/Clienti_test.iml" filepath="$PROJECT_DIR$/../KillerBas/.idea/modules/Clienti/Clienti_test.iml" group="Clienti" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/KillerBas.iml" filepath="$PROJECT_DIR$/.idea/modules/KillerBas.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../KillerBas/.idea/modules/KillerBas_main.iml" filepath="$PROJECT_DIR$/../KillerBas/.idea/modules/KillerBas_main.iml" group="KillerBas" />
-      <module fileurl="file://$PROJECT_DIR$/../KillerBas/.idea/modules/KillerBas_test.iml" filepath="$PROJECT_DIR$/../KillerBas/.idea/modules/KillerBas_test.iml" group="KillerBas" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Model.iml" filepath="$PROJECT_DIR$/.idea/modules/Model.iml" group="Model" />
-      <module fileurl="file://$PROJECT_DIR$/../KillerBas/.idea/modules/Model/Model_main.iml" filepath="$PROJECT_DIR$/../KillerBas/.idea/modules/Model/Model_main.iml" group="Model" />
-      <module fileurl="file://$PROJECT_DIR$/../KillerBas/.idea/modules/Model/Model_test.iml" filepath="$PROJECT_DIR$/../KillerBas/.idea/modules/Model/Model_test.iml" group="Model" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Service.iml" filepath="$PROJECT_DIR$/.idea/modules/Service.iml" group="Service" />
-      <module fileurl="file://$PROJECT_DIR$/../KillerBas/.idea/modules/Service/Service_main.iml" filepath="$PROJECT_DIR$/../KillerBas/.idea/modules/Service/Service_main.iml" group="Service" />
-      <module fileurl="file://$PROJECT_DIR$/../KillerBas/.idea/modules/Service/Service_test.iml" filepath="$PROJECT_DIR$/../KillerBas/.idea/modules/Service/Service_test.iml" group="Service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Donator.iml" filepath="$PROJECT_DIR$/.idea/Donator.iml" />
     </modules>
   </component>
 </project>

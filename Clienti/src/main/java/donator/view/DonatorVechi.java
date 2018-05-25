@@ -12,14 +12,14 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 
-public class donatorVechi {
+public class DonatorVechi {
     @FXML
     private TextField Nume,Email,Prenume,incOra,sfOra;
 
     @FXML
     private DatePicker datePicker;
 
-    public donatorVechi(){
+    public DonatorVechi(){
         init();
     }
 
