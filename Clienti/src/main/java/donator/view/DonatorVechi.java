@@ -24,7 +24,7 @@ public class DonatorVechi {
     }
 
     private void init() {
-
+        Donator d;
         Donator donator=new Donator(1,"123345678891230","Paul","Paul",
                 "19.10.2019","07533","b@1.com",1,"Cluj","Napoca",
                 "Dece","22","s","2","21",450222);
