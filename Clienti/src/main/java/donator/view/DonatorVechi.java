@@ -1,7 +1,7 @@
 package donator.view;
 
 
-import donator.entities.Donator;
+import donator.entities.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;

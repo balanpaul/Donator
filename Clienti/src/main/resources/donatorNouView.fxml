@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="donator.view.donatorNouViewController">
    <children>
       <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -38,19 +38,19 @@
             <Font name="Calibri" size="24.0" />
          </font>
       </Label>
-      <TextField layoutX="497.0" layoutY="167.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" />
+      <TextField fx:id="textFieldNume" layoutX="497.0" layoutY="167.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" />
       <Label alignment="CENTER" layoutX="697.0" layoutY="155.0" prefHeight="50.0" prefWidth="227.0" text="Prenume:" textAlignment="CENTER">
          <font>
             <Font name="Calibri" size="24.0" />
          </font>
       </Label>
-      <TextField layoutX="897.0" layoutY="167.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" />
+      <TextField fx:id="textFieldPrenume" layoutX="897.0" layoutY="167.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" />
       <Label layoutX="367.0" layoutY="216.0" prefHeight="50.0" prefWidth="227.0" text="Stradă:" textAlignment="CENTER">
          <font>
             <Font name="Calibri" size="24.0" />
          </font>
       </Label>
-      <TextField layoutX="497.0" layoutY="229.0" prefHeight="25.0" prefWidth="350.0" />
+      <TextField fx:id="textFieldStrada" layoutX="497.0" layoutY="229.0" prefHeight="25.0" prefWidth="350.0" />
       <Label layoutX="367.0" layoutY="342.0" prefHeight="50.0" prefWidth="227.0" text="Oraș:" textAlignment="CENTER">
          <font>
             <Font name="Calibri" size="24.0" />
@@ -110,33 +110,33 @@
             <Font name="Calibri" size="24.0" />
          </font>
       </Label>
-      <TextField layoutX="1027.0" layoutY="229.0" prefHeight="25.0" prefWidth="70.0" />
+      <TextField fx:id="textFieldNumar" layoutX="1027.0" layoutY="229.0" prefHeight="25.0" prefWidth="70.0" />
       <Label layoutX="367.0" layoutY="279.0" prefHeight="50.0" prefWidth="227.0" text="Bloc:" textAlignment="CENTER">
          <font>
             <Font name="Calibri" size="24.0" />
          </font>
       </Label>
-      <TextField layoutX="498.0" layoutY="291.0" prefHeight="25.0" prefWidth="70.0" />
+      <TextField fx:id="textFieldBloc" layoutX="498.0" layoutY="291.0" prefHeight="25.0" prefWidth="70.0" />
       <Label alignment="CENTER" layoutX="568.0" layoutY="279.0" prefHeight="50.0" prefWidth="227.0" text="Scară:" textAlignment="CENTER">
          <font>
             <Font name="Calibri" size="24.0" />
          </font>
       </Label>
-      <TextField layoutX="763.0" layoutY="291.0" prefHeight="25.0" prefWidth="70.0" />
+      <TextField fx:id="textFieldScara" layoutX="763.0" layoutY="291.0" prefHeight="25.0" prefWidth="70.0" />
       <Label alignment="CENTER" layoutX="834.0" layoutY="275.0" prefHeight="50.0" prefWidth="227.0" text="Apartament:" textAlignment="CENTER">
          <font>
             <Font name="Calibri" size="24.0" />
          </font>
       </Label>
-      <TextField layoutX="1027.0" layoutY="291.0" prefHeight="25.0" prefWidth="70.0" />
-      <TextField layoutX="497.0" layoutY="354.0" prefHeight="25.0" prefWidth="200.0" />
-      <TextField layoutX="897.0" layoutY="354.0" prefHeight="25.0" prefWidth="200.0" />
-      <TextField layoutX="497.0" layoutY="418.0" prefHeight="25.0" prefWidth="200.0" />
-      <TextField layoutX="897.0" layoutY="418.0" prefHeight="25.0" prefWidth="200.0" />
-      <DatePicker layoutX="411.0" layoutY="519.0" prefHeight="25.0" prefWidth="200.0" />
-      <TextField alignment="CENTER" layoutX="416.0" layoutY="576.0" prefHeight="25.0" prefWidth="40.0" />
-      <TextField alignment="CENTER" layoutX="553.0" layoutY="576.0" prefHeight="25.0" prefWidth="40.0" />
-      <Button layoutX="844.0" layoutY="569.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Trimite">
+      <TextField fx:id="textFieldApartament" layoutX="1027.0" layoutY="291.0" prefHeight="25.0" prefWidth="70.0" />
+      <TextField fx:id="textFieldOras" layoutX="497.0" layoutY="354.0" prefHeight="25.0" prefWidth="200.0" />
+      <TextField fx:id="textFieldJudet" layoutX="897.0" layoutY="354.0" prefHeight="25.0" prefWidth="200.0" />
+      <TextField fx:id="textFieldTelefon" layoutX="497.0" layoutY="418.0" prefHeight="25.0" prefWidth="200.0" />
+      <TextField fx:id="textFieldEmail" layoutX="897.0" layoutY="418.0" prefHeight="25.0" prefWidth="200.0" />
+      <DatePicker fx:id="datePicker" layoutX="411.0" layoutY="519.0" prefHeight="25.0" prefWidth="200.0" />
+      <TextField fx:id="textFieldIntervalOrar1" alignment="CENTER" layoutX="416.0" layoutY="576.0" prefHeight="25.0" prefWidth="40.0" />
+      <TextField fx:id="textFieldIntervalOrar2" alignment="CENTER" layoutX="553.0" layoutY="576.0" prefHeight="25.0" prefWidth="40.0" />
+      <Button fx:id="buttonTrimite" layoutX="844.0" layoutY="569.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Trimite">
          <font>
             <Font name="Impact" size="24.0" />
          </font>
