@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Clienti.src.main.java.donator.view.AsistentaInformatiiController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true">
          <image>
@@ -26,19 +26,19 @@
             <Font name="Calibri" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="111.0" layoutY="36.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" />
+      <TextField fx:id="nume" layoutX="111.0" layoutY="36.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" />
       <Label alignment="CENTER" layoutX="227.0" layoutY="23.0" prefHeight="50.0" prefWidth="227.0" text="Prenume:" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Calibri" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="399.0" layoutY="36.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" />
+      <TextField fx:id="prenume" layoutX="399.0" layoutY="36.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" />
       <Label layoutX="35.0" layoutY="67.0" prefHeight="50.0" prefWidth="227.0" text="Stradă:" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Calibri" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="111.0" layoutY="79.0" prefHeight="25.0" prefWidth="250.0" />
+      <TextField fx:id="strada" layoutX="111.0" layoutY="79.0" prefHeight="25.0" prefWidth="250.0" />
       <Label layoutX="35.0" layoutY="150.0" prefHeight="50.0" prefWidth="227.0" text="Oraș:" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Calibri" size="18.0" />
@@ -71,34 +71,34 @@
          </font>
       </Label>
       <TextField layoutX="111.0" layoutY="122.0" prefHeight="25.0" prefWidth="70.0" />
-      <Label alignment="CENTER" layoutX="118.0" layoutY="110.0" prefHeight="50.0" prefWidth="227.0" text="Scară:" textAlignment="CENTER" textFill="WHITE">
+      <Label id="bloc" alignment="CENTER" layoutX="118.0" layoutY="110.0" prefHeight="50.0" prefWidth="227.0" text="Scară:" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Calibri" size="18.0" />
          </font>
       </Label>
       <TextField layoutX="265.0" layoutY="122.0" prefHeight="25.0" prefWidth="70.0" />
-      <Label alignment="CENTER" layoutX="295.0" layoutY="110.0" prefHeight="50.0" prefWidth="227.0" text="Apartament:" textAlignment="CENTER" textFill="WHITE">
+      <Label id="scara" alignment="CENTER" layoutX="295.0" layoutY="110.0" prefHeight="50.0" prefWidth="227.0" text="Apartament:" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Calibri" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="483.0" layoutY="122.0" prefHeight="25.0" prefWidth="70.0" />
-      <TextField layoutX="111.0" layoutY="165.0" prefHeight="25.0" prefWidth="150.0" />
-      <TextField layoutX="399.0" layoutY="165.0" prefHeight="25.0" prefWidth="150.0" />
-      <TextField layoutX="111.0" layoutY="207.0" prefHeight="25.0" prefWidth="150.0" />
-      <TextField layoutX="399.0" layoutY="207.0" prefHeight="25.0" prefWidth="150.0" />
+      <TextField fx:id="apartament" layoutX="483.0" layoutY="122.0" prefHeight="25.0" prefWidth="70.0" />
+      <TextField fx:id="oras" layoutX="111.0" layoutY="165.0" prefHeight="25.0" prefWidth="150.0" />
+      <TextField fx:id="judet" layoutX="399.0" layoutY="165.0" prefHeight="25.0" prefWidth="150.0" />
+      <TextField fx:id="telefon" layoutX="111.0" layoutY="207.0" prefHeight="25.0" prefWidth="150.0" />
+      <TextField fx:id="email" layoutX="399.0" layoutY="207.0" prefHeight="25.0" prefWidth="150.0" />
       <Label layoutX="35.0" layoutY="243.0" prefHeight="50.0" prefWidth="227.0" text="CNP:" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Calibri" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="111.0" layoutY="255.0" prefHeight="25.0" prefWidth="250.0" />
+      <TextField fx:id="cnp" layoutX="111.0" layoutY="255.0" prefHeight="25.0" prefWidth="250.0" />
       <Label alignment="CENTER" layoutX="312.0" layoutY="243.0" prefHeight="50.0" prefWidth="227.0" text="Grupă sânge:" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Calibri" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="480.0" layoutY="255.0" prefHeight="25.0" prefWidth="70.0" />
-      <CheckBox layoutX="35.0" layoutY="304.0" mnemonicParsing="false" text="Sânge care respectă normele europene" textFill="WHITE" />
+      <TextField fx:id="grupaSange" layoutX="480.0" layoutY="255.0" prefHeight="25.0" prefWidth="70.0" />
+      <CheckBox fx:id="respectaNormEU" layoutX="35.0" layoutY="304.0" mnemonicParsing="false" text="Sânge care respectă normele europene" textFill="WHITE" />
    </children>
 </AnchorPane>

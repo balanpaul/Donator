@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Clienti/Clienti.iml" filepath="$PROJECT_DIR$/.idea/modules/Clienti/Clienti.iml" group="Clienti" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Clienti/Clienti_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Clienti/Clienti_main.iml" group="Clienti" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Clienti/Clienti_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Clienti/Clienti_test.iml" group="Clienti" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Donator.iml" filepath="$PROJECT_DIR$/.idea/Donator.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/KillerBas.iml" filepath="$PROJECT_DIR$/.idea/modules/KillerBas.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/KillerBas_main.iml" filepath="$PROJECT_DIR$/.idea/modules/KillerBas_main.iml" group="KillerBas" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/KillerBas_test.iml" filepath="$PROJECT_DIR$/.idea/modules/KillerBas_test.iml" group="KillerBas" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Model/Model.iml" filepath="$PROJECT_DIR$/.idea/modules/Model/Model.iml" group="Model" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Model/Model_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Model/Model_main.iml" group="Model" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Model/Model_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Model/Model_test.iml" group="Model" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Persistance/Persistance.iml" filepath="$PROJECT_DIR$/.idea/modules/Persistance/Persistance.iml" group="Persistance" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Persistance/Persistance_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Persistance/Persistance_main.iml" group="Persistance" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Persistance/Persistance_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Persistance/Persistance_test.iml" group="Persistance" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Service/Service.iml" filepath="$PROJECT_DIR$/.idea/modules/Service/Service.iml" group="Service" />
     </modules>
   </component>
 </project>
