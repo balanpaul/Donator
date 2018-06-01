@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/Clienti" />
             <option value="$PROJECT_DIR$/Model" />
             <option value="$PROJECT_DIR$/Persistance" />
+            <option value="$PROJECT_DIR$/Server" />
             <option value="$PROJECT_DIR$/Service" />
           </set>
         </option>
