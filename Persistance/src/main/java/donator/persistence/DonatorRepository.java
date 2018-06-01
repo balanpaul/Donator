@@ -55,7 +55,7 @@ public class DonatorRepository {
             try{
                 tx=session.beginTransaction();
                 //session.delete("Zbor",zbor);
-                session.createQuery("delete from donatori where cnp = "+donator.getCnp()).executeUpdate();
+                session.createQuery("delete from donator where cnp = "+donator.getCnp()).executeUpdate();
 
                 //session.delete(zbor);
                 tx.commit();
