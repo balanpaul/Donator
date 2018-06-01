@@ -10,6 +10,9 @@ repositories {
 }
 
 dependencies {
-    implementation(':Model')
+    compile project(':Model')
+    compile project(':Service')
+    compile 'org.springframework:spring-context:4.3.7.RELEASE'
+
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
