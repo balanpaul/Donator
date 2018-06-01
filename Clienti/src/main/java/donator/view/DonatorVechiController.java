@@ -32,10 +32,10 @@ public class DonatorVechiController {
     }
 
     private void init() {
-        Donator d;
-        Donator donator=new Donator(1,"123345678891230","Paul","Paul",
-                "19.10.2019","07533","b@1.com",1,"Cluj","Napoca",
-                "Dece","22","s","2","21",450222);
+        //Donator d;
+        //Donator donator=new Donator(1,"123345678891230","Paul","Paul",
+                //"19.10.2019","07533","b@1.com",1,"Cluj","Napoca",
+                //"Dece","22","s","2","21",450222);
 
 
     }
@@ -72,18 +72,18 @@ public class DonatorVechiController {
         String s = data.toString();
         int inceput = Integer.valueOf( incOra.getText());
         int sfarsit = Integer.valueOf( sfOra.getText());
-        Donator d =find(Email.getText(),Nume.getText(),Prenume.getText());
+        //Donator d =find(Email.getText(),Nume.getText(),Prenume.getText());
         System.out.println(s);
         System.out.println("dsa");
         //save(d,incOra,sfOra,s)
     }
-
+/*
     private Donator find(String text, String text1, String text2) {
         Donator donator=new Donator(1,"123345678891230","Paul","Paul",
                 "19.10.2019","07533","b@1.com",1,"Cluj","Napoca",
                 "Dece","22","s","2","21",450222);
         return donator;
-    }
+    }*/
 
 
 }

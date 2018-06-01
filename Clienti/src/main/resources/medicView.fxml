@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -49,12 +49,12 @@
             <Font name="Calibri" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="820.0" layoutY="264.0" prefHeight="50.0" prefWidth="227.0" text="Cantitate:" textAlignment="CENTER">
+      <Label layoutX="820.0" layoutY="279.0" prefHeight="50.0" prefWidth="227.0" text="Cantitate:" textAlignment="CENTER">
          <font>
             <Font name="Calibri" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="937.0" layoutY="276.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="221.0" />
+      <TextField layoutX="937.0" layoutY="291.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="221.0" />
       <Button layoutX="894.0" layoutY="494.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Trimite">
          <font>
             <Font name="Impact" size="24.0" />
@@ -66,27 +66,33 @@
          </font>
       </Label>
       <ComboBox layoutX="937.0" layoutY="337.0" prefWidth="221.0" />
-      <RadioButton layoutX="938.0" layoutY="196.0" mnemonicParsing="false" text="Trombocite">
+      <RadioButton layoutX="938.0" layoutY="223.0" mnemonicParsing="false" text="Trombocite">
          <font>
             <Font name="Calibri" size="14.0" />
          </font>
       </RadioButton>
-      <Label layoutX="820.0" layoutY="181.0" prefHeight="50.0" prefWidth="85.0" text="Sânge:" textAlignment="CENTER">
+      <Label layoutX="820.0" layoutY="208.0" prefHeight="50.0" prefWidth="85.0" text="Sânge:" textAlignment="CENTER">
          <font>
             <Font name="Calibri" size="18.0" />
          </font>
       </Label>
-      <RadioButton layoutX="1056.0" layoutY="195.0" mnemonicParsing="false" text="Globule roșii">
+      <RadioButton layoutX="1056.0" layoutY="222.0" mnemonicParsing="false" text="Globule roșii">
          <font>
             <Font name="Calibri" size="14.0" />
          </font>
       </RadioButton>
-      <RadioButton layoutX="938.0" layoutY="233.0" mnemonicParsing="false" text="Plasmă">
+      <RadioButton layoutX="938.0" layoutY="260.0" mnemonicParsing="false" text="Plasmă">
          <font>
             <Font name="Calibri" size="14.0" />
          </font>
       </RadioButton>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="220.0" layoutX="776.0" layoutY="177.0" stroke="WHITE" strokeType="INSIDE" width="1.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="1.0" layoutX="777.0" layoutY="396.0" stroke="WHITE" strokeType="INSIDE" width="400.0" />
+      <Label layoutX="820.0" layoutY="168.0" prefHeight="50.0" prefWidth="104.0" text="Grupă sânge:" textAlignment="CENTER">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Label>
+      <TextField alignment="CENTER" layoutX="937.0" layoutY="182.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="221.0" />
    </children>
 </AnchorPane>

@@ -1,28 +1,17 @@
 package donator.entities;
 
 
-import javax.naming.Name;
-import javax.persistence.*;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
-@Entity
-@Table(name = "Centre")
 public class Centru {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "idCentru")
     private int IdCentru;
 
-    @Column(name = "Nume")
     private String Nume;
 
-    @OneToMany(mappedBy = "centre", fetch = FetchType.EAGER)
-    @JsonBackReference
+
     private int IdPersonal;
 
-    @OneToMany(mappedBy = "centre", fetch = FetchType.EAGER)
-    @JsonBackReference
+
     private int IdDonator;
 
     public Centru(int IdCentru, String Nume, int IdPersonal, int IdDonator){

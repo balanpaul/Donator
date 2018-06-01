@@ -1,63 +1,57 @@
 package donator.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
-import javax.persistence.*;
+import java.io.Serializable;
 
-@Entity
-@Table(name = "Donatori")
-public class Donator {
+public class Donator implements Serializable{
 
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "donatorId")
+
     private int IdDonator;
 
-    @Column(name = "CNP")
+
     private String Cnp;
 
-    @Column(name = "Nume")
+
     private String Nume;
 
-    @Column(name = "Prenume")
+
     private String Prenume;
 
-    @Column(name = "Data_Nasterii")
+
     private String DataNasterii;
 
-    @Column(name = "nrTelefon")
+
     private String NrTelefon;
 
-    @Column(name = "email")
+
     private String Email;
 
-    @OneToMany(mappedBy = "donatori", fetch = FetchType.EAGER)
-    @JsonBackReference
+
     private int IdSange;
 
-    @Column(name = "Judet")
+
     private String Judet;
 
-    @Column(name = "Oras")
+
     private String Oras;
 
-    @Column(name = "Strada")
+
     private String Strada;
 
-    @Column(name = "Apartament")
+
     private String Apartament;
 
-    @Column(name = "Bloc")
+
     private String Bloc;
 
-    @Column(name = "Scara")
+
     private String Scara;
 
-    @Column(name = "Numar")
+
     private String Numar;
 
-    @Column(name = "CodPostal")
+
     private int CodPostal;
 
     public int getIdDonator() {
@@ -189,8 +183,8 @@ public class Donator {
         CodPostal = codPostal;
     }
 
-    public Donator(int idDonator, String cnp, String nume, String prenume, String dataNasterii, String nrTelefon, String email, int idSange, String judet, String oras, String strada, String apartament, String bloc, String scara, String numar, int codPostal) {
-        IdDonator = idDonator;
+    public Donator(String cnp, String nume, String prenume, String dataNasterii, String nrTelefon, String email, int idSange, String judet, String oras, String strada, String apartament, String bloc, String scara, String numar, int codPostal) {
+        //IdDonator = idDonator;
         Cnp = cnp;
         Nume = nume;
         Prenume = prenume;
@@ -206,6 +200,24 @@ public class Donator {
         Scara = scara;
         Numar = numar;
         CodPostal = codPostal;
+    }
+    public Donator(String nume, String prenume, String strada, String numar, String bloc, String scara, String apartament, String oras, String judet, String nrTelefon, String email) {
+        //IdDonator = idDonator;
+        //Cnp = cnp;
+        Nume = nume;
+        Prenume = prenume;
+        //DataNasterii = dataNasterii;
+        NrTelefon = nrTelefon;
+        Email = email;
+        //IdSange = idSange;
+        Judet = judet;
+        Oras = oras;
+        Strada = strada;
+        Apartament = apartament;
+        Bloc = bloc;
+        Scara = scara;
+        Numar = numar;
+        //CodPostal = codPostal;
     }
 
 }

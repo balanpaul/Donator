@@ -1,4 +1,4 @@
-package Donator;
+package donator.persistence;
 
 
 import org.hibernate.SessionFactory;
