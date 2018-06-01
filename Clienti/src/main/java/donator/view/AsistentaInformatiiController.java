@@ -30,6 +30,7 @@ public class AsistentaInformatiiController {
 
     @FXML
     public void initialize(Donator donator){
+
         nume.setText(donator.getNume());
         prenume.setText(donator.getPrenume());
         strada.setText(donator.getStrada());
