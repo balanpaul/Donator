@@ -34,7 +34,7 @@ public class ClientStart extends Application {
                 Stage stage = new Stage();
                 stage.setScene(scene);
                 stage.setTitle("Donator Now");
-                donatorMainViewController.setService(server, stage);
+                donatorMainViewController.setService(server);
                 stage.show();
             } catch (Exception e){
                 System.err.println("Initialization  exception:"+e);

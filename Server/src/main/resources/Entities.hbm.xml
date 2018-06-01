@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping >
     <class name="donator.entities.Donator" table="Donatori">
-        <id name="IdDonator" column="IdDonator" type="int">
+        <id name="IdDonator" column="IdDonatori" type="int">
             <generator class="increment"></generator>
         </id>
         <property name="nume" column="Nume" type="string"/>

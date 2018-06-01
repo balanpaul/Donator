@@ -8,26 +8,27 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class DonatorMainViewController {
-    IServer service;
-    Stage dialogStage;
-
-    public void setService(IServer service, Stage stage) {
+    private IServer service;
+    private Stage dialogStage;
+    private DonatorNouViewController donatorNouViewController;
+    public void setService(IServer service) {
         this.service = service;
-        this.dialogStage=stage;
+        this.dialogStage=new Stage();
     }
 
     @FXML
     public void onClickDonatorNou(){
         try {
-            FXMLLoader loader = new FXMLLoader();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/donatorNouView.fxml"));
             AnchorPane anchorPane;
-            DonatorNouViewController donatorNouViewController = new DonatorNouViewController();
-            loader.setLocation(getClass().getResource("/donatorNouView.fxml"));
+            //DonatorNouViewController donatorNouViewController = new DonatorNouViewController();
+           // loader.setLocation(getClass().getResource("/donatorNouView.fxml"));
             anchorPane = (AnchorPane)loader.load();
             Scene scene = new Scene(anchorPane);
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.setTitle("Donator Now");
+            donatorNouViewController=loader.getController();
             donatorNouViewController.setService(service, stage);
             stage.show();
         } catch (Exception e){
