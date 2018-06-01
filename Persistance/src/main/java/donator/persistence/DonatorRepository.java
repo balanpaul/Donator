@@ -1,4 +1,4 @@
-package donator;
+package donator.persistence;
 
 import donator.entities.Donator;
 import org.hibernate.Session;
@@ -112,12 +112,12 @@ public class DonatorRepository {
         return zborList;
     }
 
-    public Donator findOne(Integer integer) {
+    public Donator findOne(String string) {
         Session session =sessionFactory.openSession();
         Transaction tx=null;
         try{
             tx=session.beginTransaction();
-            Donator z=session.get(Donator.class,integer);
+            Donator z= (Donator) session.createQuery("select * from donatori where "+string).list();
             tx.commit();
             return z;
         }catch (RuntimeException ex){
