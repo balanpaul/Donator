@@ -20,6 +20,7 @@ public class AsistentaInformatiiController {
     private Donator donator; //donator primit ca parametru de la dclick din view
     private IServer service;
 
+
     @FXML
     public AsistentaInformatiiController(Donator donator){
         this.donator=donator;
