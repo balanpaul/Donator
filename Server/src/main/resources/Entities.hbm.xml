@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping >
+    <class name="donator.entities.Donator" table="donatori">
+        <id name="IdDonator" column="IdDonator" type="int">
+            <generator class="increment"></generator>
+        </id>
+        <property name="numar" column="Nume" type="string"/>
+        <property name="prenume" column="Prenume" type="string"/>
+        <property name="cnp" column="Aeroport" type="string"/>
+        <property name="dataNasterii" column="LocuriDisponibile" type="int"/>
+    </class>
+</hibernate-mapping>
