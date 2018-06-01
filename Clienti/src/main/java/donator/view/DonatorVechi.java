@@ -12,19 +12,19 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 
-public class donatorVechi {
+public class DonatorVechi {
     @FXML
     private TextField Nume,Email,Prenume,incOra,sfOra;
 
     @FXML
     private DatePicker datePicker;
 
-    public donatorVechi(){
+    public DonatorVechi(){
         init();
     }
 
     private void init() {
-
+        Donator d;
         Donator donator=new Donator(1,"123345678891230","Paul","Paul",
                 "19.10.2019","07533","b@1.com",1,"Cluj","Napoca",
                 "Dece","22","s","2","21",450222);
