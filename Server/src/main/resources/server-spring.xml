@@ -19,6 +19,6 @@
         <property name="serviceName" value="Donator"/>
         <property name="service" ref="service"/>
         <property name="serviceInterface" value="donator.service.IServer"/>
-        <property name="servicePort" value="1199"/>
+        <property name="servicePort" value="1099"/>
     </bean>
 </beans>
