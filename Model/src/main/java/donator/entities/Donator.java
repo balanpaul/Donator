@@ -1,63 +1,57 @@
 package donator.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
-import javax.persistence.*;
+import java.io.Serializable;
 
-@Entity
-@Table(name = "Donatori")
-public class Donator {
+public class Donator implements Serializable{
 
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "donatorId")
+
     private int IdDonator;
 
-    @Column(name = "CNP")
+
     private String Cnp;
 
-    @Column(name = "Nume")
+
     private String Nume;
 
-    @Column(name = "Prenume")
+
     private String Prenume;
 
-    @Column(name = "Data_Nasterii")
+
     private String DataNasterii;
 
-    @Column(name = "nrTelefon")
+
     private String NrTelefon;
 
-    @Column(name = "email")
+
     private String Email;
 
-    @OneToMany(mappedBy = "donatori", fetch = FetchType.EAGER)
-    @JsonBackReference
+
     private int IdSange;
 
-    @Column(name = "Judet")
+
     private String Judet;
 
-    @Column(name = "Oras")
+
     private String Oras;
 
-    @Column(name = "Strada")
+
     private String Strada;
 
-    @Column(name = "Apartament")
+
     private String Apartament;
 
-    @Column(name = "Bloc")
+
     private String Bloc;
 
-    @Column(name = "Scara")
+
     private String Scara;
 
-    @Column(name = "Numar")
+
     private String Numar;
 
-    @Column(name = "CodPostal")
+
     private int CodPostal;
 
     public int getIdDonator() {

@@ -1,4 +1,4 @@
-package Clienti.src.main.java.donator.view;
+package donator.view;
 
 import donator.entities.DateSange;
 import donator.entities.Donator;
@@ -21,7 +21,7 @@ public class AsistentaInformatiiController {
     private IServer service;
 
 
-    @FXML
+
     public AsistentaInformatiiController(Donator donator){
         this.donator=donator;
     }
@@ -47,11 +47,11 @@ public class AsistentaInformatiiController {
         cnp.setText(donator.getCnp());
         int idSange = donator.getIdSange();
         //urmeaza sa fie implementat in ServerImpl
-        DateSange dateSange;
+        DateSange dateSange = null;
         //DateSange dateSange = service.getGrupaSanguina(int idSange);
         grupaSange.setText(dateSange.getGrupaSanguina());
         if(dateSange.getSanatos() == Boolean.TRUE){
-            respectaNormEU.setSelected();
+           // respectaNormEU.setSelected();
         }
     }
 
