@@ -6,20 +6,28 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 
-public class DonatorVechi {
+public class DonatorVechiController {
     @FXML
     private TextField Nume,Email,Prenume,incOra,sfOra;
 
     @FXML
     private DatePicker datePicker;
 
-    public DonatorVechi(){
+    Stage dialogStage;
+
+    public void setService(/*StudentService studentService,*/ Stage stage) {
+        //this.studentService = studentService;
+        this.dialogStage=stage;
+    }
+
+    public DonatorVechiController(){
         init();
     }
 
