@@ -16,7 +16,7 @@
 
     </bean>
     <bean class="org.springframework.remoting.rmi.RmiServiceExporter">
-        <property name="serviceName" value="Agentie"/>
+        <property name="serviceName" value="Donator"/>
         <property name="service" ref="service"/>
         <property name="serviceInterface" value="donator.service.IServer"/>
         <property name="servicePort" value="1199"/>

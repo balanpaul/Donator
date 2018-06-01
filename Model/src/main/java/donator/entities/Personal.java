@@ -1,27 +1,23 @@
 package donator.entities;
 
 
-import javax.persistence.*;
 
-@Entity
-@Table(name = "Personal")
+
 public class Personal {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "idPersonal")
+
     private int IdPersonal;
 
-    @Column(name = "Functie")
+
     private String Functie;
 
-    @Column(name = "Nume")
+
     private String Nume;
 
-    @Column(name = "Prenume")
+
     private String Prenume;
 
-    @Column(name = "NrTelefon")
+
     private String NrTelefon;
 
     public int getIdPersonal() {
