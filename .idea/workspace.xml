@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c8411861-bb33-4958-b0ec-fdec51abe863" name="Default" comment="medic view update = grupa sange">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+    <list default="true" id="c8411861-bb33-4958-b0ec-fdec51abe863" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -685,13 +682,20 @@
       <updated>1527861986902</updated>
       <workItem from="1527861999786" duration="1026000" />
       <workItem from="1527863059150" duration="3405000" />
-      <workItem from="1527868372924" duration="693000" />
+      <workItem from="1527868372924" duration="861000" />
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="testez ceva">
+      <created>1527869087132</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1527869087132</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10813000" />
+    <option name="totallyTimeSpent" value="10981000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -761,7 +765,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="donator nou" />
     <MESSAGE value="medic view update = grupa sange" />
-    <option name="LAST_COMMIT_MESSAGE" value="medic view update = grupa sange" />
+    <MESSAGE value="testez ceva" />
+    <option name="LAST_COMMIT_MESSAGE" value="testez ceva" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
