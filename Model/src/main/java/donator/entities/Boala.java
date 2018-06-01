@@ -1,20 +1,12 @@
 package donator.entities;
-import java.util.Date;
-import javax.persistence.*;
 
-@Entity
-@Table(name="Boli")
 public class Boala {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "idboala")
+
     private int IdBoala;
 
-    @Column(name = "Denumire")
     private String Denumire;
 
-    @Column(name = "Descriere")
     private String Descriere;
 
     public Boala(int IdBoala, String Denumire, String Descriere)
