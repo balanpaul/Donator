@@ -1,5 +1,6 @@
 package donator.persistence;
 
+
 import donator.entities.Donator;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
