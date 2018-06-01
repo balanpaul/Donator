@@ -183,8 +183,8 @@ public class Donator implements Serializable{
         CodPostal = codPostal;
     }
 
-    public Donator(int idDonator, String cnp, String nume, String prenume, String dataNasterii, String nrTelefon, String email, int idSange, String judet, String oras, String strada, String apartament, String bloc, String scara, String numar, int codPostal) {
-        IdDonator = idDonator;
+    public Donator(String cnp, String nume, String prenume, String dataNasterii, String nrTelefon, String email, int idSange, String judet, String oras, String strada, String apartament, String bloc, String scara, String numar, int codPostal) {
+        //IdDonator = idDonator;
         Cnp = cnp;
         Nume = nume;
         Prenume = prenume;
@@ -200,6 +200,24 @@ public class Donator implements Serializable{
         Scara = scara;
         Numar = numar;
         CodPostal = codPostal;
+    }
+    public Donator(String nume, String prenume, String strada, String numar, String bloc, String scara, String apartament, String oras, String judet, String nrTelefon, String email) {
+        //IdDonator = idDonator;
+        //Cnp = cnp;
+        Nume = nume;
+        Prenume = prenume;
+        //DataNasterii = dataNasterii;
+        NrTelefon = nrTelefon;
+        Email = email;
+        //IdSange = idSange;
+        Judet = judet;
+        Oras = oras;
+        Strada = strada;
+        Apartament = apartament;
+        Bloc = bloc;
+        Scara = scara;
+        Numar = numar;
+        //CodPostal = codPostal;
     }
 
 }

@@ -1,5 +1,7 @@
 package donator.view;
 
+import donator.entities.Donator;
+import donator.service.IServer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -46,20 +48,20 @@ public class DonatorNouViewController {
     @FXML
     private TextField textFieldIntervalOrar2;
 
-
     Stage dialogStage;
 
     @FXML
     private void initialize() {
     }
 
+    private IServer service;
 
-    public void setService(/*StudentService studentService,*/ Stage stage) {
-        //this.studentService = studentService;
+    public void setService(IServer service, Stage stage) {
+        this.service = service;
         this.dialogStage=stage;
     }
 
-    public donatorNouViewController() {
+    public DonatorNouViewController() {
     }
 
     @FXML
@@ -79,9 +81,15 @@ public class DonatorNouViewController {
         String intervalOrar1 = textFieldIntervalOrar1.getText();
         String intervalOrar2 = textFieldIntervalOrar2.getText();
 
-        //Donator donator = new Donator(nume, prenume, strada, numar,
-        //       bloc, scara, apartament, oras, judet, telefon, email,
-        //     localDate, intervalOrar1, intervalOrar2);
+        try{
+            Donator donator = new Donator(nume, prenume, strada, numar, bloc, scara, apartament, oras, judet, telefon, email);
+            service.adaugaDonator(donator);
+            //Alert(dialogStage, Alert.AlertType.INFORMATION, "Salvare cu succes", "Studentul a fost adaugat!");
+            System.out.println("Donator adaugat!!");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
 
         /**
         try {
