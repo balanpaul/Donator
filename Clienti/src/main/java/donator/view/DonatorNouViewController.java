@@ -1,6 +1,7 @@
 package donator.view;
 
 import donator.entities.Donator;
+import donator.service.IClient;
 import donator.service.IServer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,6 +11,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -17,7 +20,7 @@ import java.util.Date;
 /**
  * Created by Alex on 22 mai 2018.
  */
-public class DonatorNouViewController {
+public class DonatorNouViewController extends UnicastRemoteObject implements IClient{
 
     @FXML
     private TextField textFieldNume;
@@ -56,12 +59,12 @@ public class DonatorNouViewController {
 
     private IServer service;
 
-    public void setService(IServer service, Stage stage) {
+    public void setService(IServer service) {
         this.service = service;
-        this.dialogStage=stage;
+
     }
 
-    public DonatorNouViewController() {
+    public DonatorNouViewController() throws RemoteException{
     }
 
     @FXML

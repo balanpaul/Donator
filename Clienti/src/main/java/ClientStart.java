@@ -27,15 +27,17 @@ public class ClientStart extends Application {
             try {
                 FXMLLoader loader = new FXMLLoader();
                 AnchorPane anchorPane;
-                DonatorMainViewController donatorMainViewController = new DonatorMainViewController();
+
                 loader.setLocation(getClass().getResource("donatorMainView.fxml"));
                 anchorPane = (AnchorPane)loader.load();
+                DonatorMainViewController donatorMainViewController = loader.getController();
+                donatorMainViewController.setService(server);
                 Scene scene = new Scene(anchorPane);
                 Stage stage = new Stage();
-                stage.setScene(scene);
-                stage.setTitle("Donator Now");
-                donatorMainViewController.setService(server);
-                stage.show();
+                primaryStage.setScene(scene);
+                primaryStage.setTitle("Donator Now");
+
+                primaryStage.show();
             } catch (Exception e){
                 System.err.println("Initialization  exception:"+e);
                 e.printStackTrace();
