@@ -17,6 +17,7 @@ public class ServerImpl implements IServer {
 
     @Override
     public void adaugaDonator(Donator donator) throws DonatorException, RemoteException {
+        System.out.println("Sunt in server " + donator.getNume());
         donatorRepository.save(donator);
     }
 
