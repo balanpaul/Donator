@@ -53,7 +53,11 @@ public class ServerImpl implements IServer {
 
     @Override
     public Programari cautaPlanifica(int id) throws DonatorException, RemoteException {
-        return programariRepository.findProg(id);
+        Programari programari=null;
+        programari= programariRepository.findProg(id);
+        if(programari==null)
+            throw new DonatorException("Nu existaplanificare pentru acest id");
+        return programari;
     }
 
     @Override

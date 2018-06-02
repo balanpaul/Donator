@@ -5,7 +5,7 @@
 
     <bean id="service" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
         <!--<property name="serviceUrl" value="rmi://127.0.0.1:1099/Donator"/> -->
-        <property name="serviceUrl" value="rmi://192.168.1.5:1099/Donator"/>
+        <property name="serviceUrl" value="rmi://localhost:1099/Donator"/>
         <property name="serviceInterface" value="donator.service.IServer"/>
 
     </bean>

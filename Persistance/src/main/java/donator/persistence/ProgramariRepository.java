@@ -2,6 +2,7 @@ package donator.persistence;
 
 import donator.entities.Donator;
 import donator.entities.Programari;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -71,12 +72,14 @@ public class ProgramariRepository {
         Transaction tx=null;
         try{
             tx=session.beginTransaction();
-            Query query = session.createQuery("FROM donator.entities.Programari");
-            ArrayList<Programari> donators = (ArrayList<Programari>) query.getResultList();
-            for(Programari d:donators){
-                if(d.getDonator().getIdDonator()==id)
-                    z=d;
-            }
+           /*
+
+            SQLString = "select A from " + Ad.class.getSimpleName() +" A JOIN A.category B where B.__Id =:category_id ";
+           return centityManager.createQuery(SQLString, Ad.class).setParameter("category_id", Long.valueOf(8)).setMaxResults(10)
+                    .getResultList();
+*/
+           z = (Programari) session.createQuery("SELECT A FROM Programari A join fetch A.donator B where B.IdDonator = :donator").setParameter("donator",id).
+                   setMaxResults(1).getResultList().get(0);
             tx.commit();
             return z;
         }catch (RuntimeException ex){

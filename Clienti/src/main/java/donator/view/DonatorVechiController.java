@@ -49,11 +49,11 @@ public class DonatorVechiController extends RemoteObject implements IClient {
         int ora= Integer.parseInt(incOra.getText());
         try {
             Donator d=service.cautareDonator(email);
-            //Programari pr=service.cautaPlanifica(d.getIdDonator());
-           /* Period intervalPeriod = Period.between(new , data);
-            if(intervalPeriod.getMonths()<=3){
+            Programari pr=service.cautaPlanifica(d.getIdDonator());
+           Period intervalPeriod = Period.between(pr.getDataD().toLocalDate(), data);
+            if(intervalPeriod.getMonths()<=6){
                 throw  new DonatorException("perioada invalida");
-            }*/
+            }
             Programari p=new Programari(ora, Date.valueOf(data));
             service.planificare(d,p);
         } catch (DonatorException e) {
