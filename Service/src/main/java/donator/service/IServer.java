@@ -2,6 +2,7 @@ package donator.service;
 
 
 import donator.entities.Donator;
+import donator.entities.Programari;
 
 import java.rmi.RemoteException;
 
@@ -9,7 +10,7 @@ public interface IServer {
     //DateSange[] getSange() throws DonatorException;
     //  DateSange[] cautareSange() throws DonatorException;
 
-    void adaugaDonator(Donator donator) throws DonatorException,RemoteException;
+    void adaugaDonator(Donator donator, Programari programari) throws DonatorException,RemoteException;
     void updateDonator(Donator donator)throws DonatorException,RemoteException;
     void cerereSange(String tipSange, int numar)throws  DonatorException,RemoteException;
     Donator cautareDonator(String mail)throws DonatorException,RemoteException;

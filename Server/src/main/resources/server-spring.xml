@@ -6,19 +6,22 @@
 
 
     <bean id="donatorRepo" class="donator.persistence.DonatorRepository">
-
     </bean>
+    <bean id="progRepo" class="donator.persistence.ProgramariRepository"/>
 
 
 
     <bean id="service" class="donator.server.ServerImpl">
-        <constructor-arg ref="donatorRepo"/>
 
+        <constructor-arg ref="donatorRepo"/>
+        <constructor-arg ref="progRepo"/>
     </bean>
+
     <bean class="org.springframework.remoting.rmi.RmiServiceExporter">
         <property name="serviceName" value="Donator"/>
         <property name="service" ref="service"/>
         <property name="serviceInterface" value="donator.service.IServer"/>
         <property name="servicePort" value="1099"/>
     </bean>
+
 </beans>

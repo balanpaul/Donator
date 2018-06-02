@@ -18,6 +18,7 @@
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">false</property>
 
-        <mapping resource="Entities.hbm.xml"/>
+        <mapping resource="Donator.hbm.xml"/>
+        <mapping resource="Programari.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
