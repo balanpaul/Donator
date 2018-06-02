@@ -76,5 +76,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="200.0" layoutX="1246.0" layoutY="106.0" stroke="WHITE" strokeType="INSIDE" width="1.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="370.0" layoutX="1054.0" layoutY="-78.0" rotate="90.0" stroke="WHITE" strokeType="INSIDE" width="1.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="370.0" layoutX="1054.0" layoutY="119.0" rotate="90.0" stroke="WHITE" strokeType="INSIDE" width="1.0" />
+      <CheckBox layoutX="878.0" layoutY="319.0" mnemonicParsing="false" prefHeight="26.0" text="Donează pentru:" />
+      <TextField layoutX="1011.0" layoutY="320.0" prefHeight="26.0" prefWidth="209.0" />
    </children>
 </AnchorPane>
