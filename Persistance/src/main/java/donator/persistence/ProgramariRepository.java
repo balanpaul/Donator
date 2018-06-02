@@ -38,6 +38,7 @@ public class ProgramariRepository {
             try{
                 tx=session.beginTransaction();
                 session.save(entity);
+                System.out.println("asd");
                 tx.commit();
             }catch (RuntimeException ex){
                 if(tx!=null)
@@ -62,5 +63,29 @@ public class ProgramariRepository {
             e.printStackTrace();
         }
 
+    }
+
+    public Programari findProg(int id) {
+        Session session =sessionFactory.openSession();
+        Programari z=null;
+        Transaction tx=null;
+        try{
+            tx=session.beginTransaction();
+            Query query = session.createQuery("FROM donator.entities.Programari");
+            ArrayList<Programari> donators = (ArrayList<Programari>) query.getResultList();
+            for(Programari d:donators){
+                if(d.getDonator().getIdDonator()==id)
+                    z=d;
+            }
+            tx.commit();
+            return z;
+        }catch (RuntimeException ex){
+            if(tx!=null)
+                tx.rollback();
+        }finally {
+            session.close();
+        }
+
+        return z;
     }
 }

@@ -142,6 +142,29 @@ public class DonatorRepository {
         return z;
     }
 
+    public Donator findMail(String string) {
+        Session session =sessionFactory.openSession();
+        Donator z=null;
+        Transaction tx=null;
+        try{
+            tx=session.beginTransaction();
+            Query query = session.createQuery("FROM donator.entities.Donator");
+            ArrayList<Donator> donators = (ArrayList<Donator>) query.getResultList();
+            for(Donator d:donators){
+                if(d.getEmail().equals(string))
+                    z=d;
+            }
+            tx.commit();
+            return z;
+        }catch (RuntimeException ex){
+            if(tx!=null)
+                tx.rollback();
+        }finally {
+            session.close();
+        }
+
+        return z;
+    }
     public Donator findId(long id) {
         Session session =sessionFactory.openSession();
         Donator z=null;

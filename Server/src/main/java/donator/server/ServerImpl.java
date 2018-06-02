@@ -41,19 +41,25 @@ public class ServerImpl implements IServer {
     }
 
     @Override
-    public void updateDonator(Donator donator) throws DonatorException, RemoteException {
-        donatorRepository.update(donator);
+    public void planificare(Donator d,Programari programari) throws DonatorException, RemoteException {
+        programari.setDonator(d);
+        programariRepository.save(programari);
     }
 
     @Override
     public void cerereSange(String tipSange, int numar) throws DonatorException, RemoteException {
+        //onatorRepository.findMail()
+    }
 
+    @Override
+    public Programari cautaPlanifica(int id) throws DonatorException, RemoteException {
+        return programariRepository.findProg(id);
     }
 
     @Override
     public Donator cautareDonator(String mail) throws DonatorException, RemoteException {
         Donator donator=null;
-        donator=donatorRepository.findOne(mail);
+        donator=donatorRepository.findMail(mail);
         if(donator==null)
             throw new DonatorException("Nu exista acest donator");
         return donator;

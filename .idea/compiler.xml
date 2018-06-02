@@ -13,9 +13,14 @@
       <module name="Clienti_main" target="1.8" />
       <module name="Clienti_test" target="1.8" />
       <module name="Donator" target="1.5" />
+      <module name="Donator-Model_main" target="1.8" />
+      <module name="Donator-Model_test" target="1.8" />
+      <module name="Donator-Server_test" target="1.8" />
       <module name="KillerBas" target="1.5" />
       <module name="KillerBas_main" target="1.8" />
+      <module name="KillerBas_main~1" target="1.8" />
       <module name="KillerBas_test" target="1.8" />
+      <module name="KillerBas_test~1" target="1.8" />
       <module name="Model_main" target="1.8" />
       <module name="Model_test" target="1.8" />
       <module name="Persistance_main" target="1.8" />

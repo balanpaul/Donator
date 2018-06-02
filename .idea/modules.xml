@@ -5,9 +5,18 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Clienti/Clienti.iml" filepath="$PROJECT_DIR$/.idea/modules/Clienti/Clienti.iml" group="Clienti" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Clienti/Clienti_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Clienti/Clienti_main.iml" group="Clienti" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Clienti/Clienti_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Clienti/Clienti_test.iml" group="Clienti" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Clienti/Donator-Clienti.iml" filepath="$PROJECT_DIR$/.idea/modules/Clienti/Donator-Clienti.iml" group="Clienti" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Model/Donator-Model.iml" filepath="$PROJECT_DIR$/.idea/modules/Model/Donator-Model.iml" group="Model" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Model/Donator-Model_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Model/Donator-Model_main.iml" group="Model" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Model/Donator-Model_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Model/Donator-Model_test.iml" group="Model" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Server/Donator-Server_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Server/Donator-Server_test.iml" group="Server" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Service/Donator-Service.iml" filepath="$PROJECT_DIR$/.idea/modules/Service/Donator-Service.iml" group="Service" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/KillerBas.iml" filepath="$PROJECT_DIR$/.idea/modules/KillerBas.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/KillerBas_main.iml" filepath="$PROJECT_DIR$/.idea/modules/KillerBas_main.iml" group="KillerBas" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/KillerBas_main~1.iml" filepath="$PROJECT_DIR$/.idea/modules/KillerBas_main~1.iml" group="KillerBas" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/KillerBas_test.iml" filepath="$PROJECT_DIR$/.idea/modules/KillerBas_test.iml" group="KillerBas" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/KillerBas_test~1.iml" filepath="$PROJECT_DIR$/.idea/modules/KillerBas_test~1.iml" group="KillerBas" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/KillerBas~1.iml" filepath="$PROJECT_DIR$/.idea/modules/KillerBas~1.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Model/Model.iml" filepath="$PROJECT_DIR$/.idea/modules/Model/Model.iml" group="Model" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Model/Model_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Model/Model_main.iml" group="Model" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Model/Model_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Model/Model_test.iml" group="Model" />

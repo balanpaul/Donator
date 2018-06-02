@@ -20,6 +20,7 @@ public class DonatorMainViewController extends UnicastRemoteObject implements IC
     private IServer service;
     private Stage dialogStage;
     private DonatorNouViewController donatorNouViewController;
+    private DonatorVechiController donatorVechiController;
 
     public DonatorMainViewController() throws RemoteException{
     }
@@ -68,20 +69,23 @@ public class DonatorMainViewController extends UnicastRemoteObject implements IC
     }
 
     @FXML
-    public void onClickDonatorVechi(){
+    public void onClickDonatorVechi(ActionEvent actionEvent){
 
         try {
-            FXMLLoader loader = new FXMLLoader();
-            AnchorPane anchorPane;
-            DonatorVechiController donatorVechiController = new DonatorVechiController();
-            loader.setLocation(getClass().getResource("/donatorVechiView.fxml"));
-            anchorPane = (AnchorPane)loader.load();
-            Scene scene = new Scene(anchorPane);
+
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/donatorVechiView.fxml"));
+            Parent parent = fxmlLoader.load();
             Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.setTitle("Donator Vechi");
-            donatorVechiController.setService(stage);
+            stage.setTitle("Planificare donare");
+            stage.setScene(new Scene(parent));
+            stage.setResizable(false);
+            stage.sizeToScene();
+
+            donatorVechiController = fxmlLoader.getController();
+            donatorVechiController.setService(service);
+
             stage.show();
+            ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
         } catch (Exception e){
             System.err.println("Initialization  exception:"+e);
             e.printStackTrace();

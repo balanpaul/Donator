@@ -2,6 +2,9 @@ package donator.view;
 
 
 import donator.entities.*;
+import donator.service.DonatorException;
+import donator.service.IClient;
+import donator.service.IServer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
@@ -9,81 +12,56 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
+import java.rmi.RemoteException;
+import java.rmi.server.RemoteObject;
+import java.rmi.server.UnicastRemoteObject;
+import java.sql.Date;
 import java.time.LocalDate;
+import java.time.Month;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
 
-public class DonatorVechiController {
+public class DonatorVechiController extends RemoteObject implements IClient {
     @FXML
     private TextField Nume,Email,Prenume,incOra,sfOra;
 
     @FXML
     private DatePicker datePicker;
+    private IServer service;
 
-    Stage dialogStage;
 
-    public void setService(/*StudentService studentService,*/ Stage stage) {
-        //this.studentService = studentService;
-        this.dialogStage=stage;
+    public void setService(IServer service) {
+        this.service=service;
     }
 
-    public DonatorVechiController(){
-        init();
-    }
-
-    private void init() {
-        //Donator d;
-        //Donator donator=new Donator(1,"123345678891230","Paul","Paul",
-                //"19.10.2019","07533","b@1.com",1,"Cluj","Napoca",
-                //"Dece","22","s","2","21",450222);
-
+    public DonatorVechiController() throws RemoteException{
 
     }
+
 
     @FXML
     public void onClickTrimitere(ActionEvent actionEvent ) {
-        datePicker.setConverter(new StringConverter<LocalDate>() {
-            String pattern = "yyyy-MM-dd";
-            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(pattern);
-
-            {
-                datePicker.setPromptText(pattern.toLowerCase());
-            }
-
-            @Override
-            public String toString(LocalDate date) {
-                if (date != null) {
-                    return dateFormatter.format(date);
-                } else {
-                    return "";
-                }
-            }
-
-            @Override
-            public LocalDate fromString(String string) {
-                if (string != null && !string.isEmpty()) {
-                    return LocalDate.parse(string, dateFormatter);
-                } else {
-                    return null;
-                }
-            }
-        });
         LocalDate data = datePicker.getValue();
-        String s = data.toString();
-        int inceput = Integer.valueOf( incOra.getText());
-        int sfarsit = Integer.valueOf( sfOra.getText());
-        //Donator d =find(Email.getText(),Nume.getText(),Prenume.getText());
-        System.out.println(s);
-        System.out.println("dsa");
-        //save(d,incOra,sfOra,s)
+        String nume=Nume.getText();
+        String email=Email.getText();
+        String prenume=Prenume.getText();
+        int ora= Integer.parseInt(incOra.getText());
+        try {
+            Donator d=service.cautareDonator(email);
+            //Programari pr=service.cautaPlanifica(d.getIdDonator());
+           /* Period intervalPeriod = Period.between(new , data);
+            if(intervalPeriod.getMonths()<=3){
+                throw  new DonatorException("perioada invalida");
+            }*/
+            Programari p=new Programari(ora, Date.valueOf(data));
+            service.planificare(d,p);
+        } catch (DonatorException e) {
+            e.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
     }
-/*
-    private Donator find(String text, String text1, String text2) {
-        Donator donator=new Donator(1,"123345678891230","Paul","Paul",
-                "19.10.2019","07533","b@1.com",1,"Cluj","Napoca",
-                "Dece","22","s","2","21",450222);
-        return donator;
-    }*/
 
 
 }
