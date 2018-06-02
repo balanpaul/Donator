@@ -3,32 +3,21 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Clienti/Clienti.iml" filepath="$PROJECT_DIR$/.idea/modules/Clienti/Clienti.iml" group="Clienti" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Clienti/Clienti.iml" filepath="$PROJECT_DIR$/.idea/modules/Clienti/Clienti.iml" group="Clienti" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Clienti/Clienti_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Clienti/Clienti_main.iml" group="Clienti" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Clienti/Clienti_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Clienti/Clienti_test.iml" group="Clienti" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/KillerBas.iml" filepath="$PROJECT_DIR$/.idea/modules/KillerBas.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/KillerBas.iml" filepath="$PROJECT_DIR$/.idea/modules/KillerBas.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/KillerBas_main.iml" filepath="$PROJECT_DIR$/.idea/modules/KillerBas_main.iml" group="KillerBas" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/KillerBas_main.iml" filepath="$PROJECT_DIR$/.idea/modules/KillerBas_main.iml" group="KillerBas" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/KillerBas_test.iml" filepath="$PROJECT_DIR$/.idea/modules/KillerBas_test.iml" group="KillerBas" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/KillerBas_test.iml" filepath="$PROJECT_DIR$/.idea/modules/KillerBas_test.iml" group="KillerBas" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Model/Model.iml" filepath="$PROJECT_DIR$/.idea/modules/Model/Model.iml" group="Model" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Model/Model.iml" filepath="$PROJECT_DIR$/.idea/modules/Model/Model.iml" group="Model" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Model/Model_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Model/Model_main.iml" group="Model" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Model/Model_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Model/Model_main.iml" group="Model" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Model/Model_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Model/Model_test.iml" group="Model" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Model/Model_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Model/Model_test.iml" group="Model" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Persistance/Persistance.iml" filepath="$PROJECT_DIR$/.idea/modules/Persistance/Persistance.iml" group="Persistance" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Persistance/Persistance_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Persistance/Persistance_main.iml" group="Persistance" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Persistance/Persistance_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Persistance/Persistance_test.iml" group="Persistance" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Server/Server.iml" filepath="$PROJECT_DIR$/.idea/modules/Server/Server.iml" group="Server" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Server.iml" filepath="$PROJECT_DIR$/.idea/modules/Server.iml" group="Server" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Server/Server_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Server/Server_main.iml" group="Server" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Server/Server_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Server/Server_main.iml" group="Server" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Server/Server_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Server/Server_test.iml" group="Server" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Server/Server_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Server/Server_test.iml" group="Server" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Service/Service.iml" filepath="$PROJECT_DIR$/.idea/modules/Service/Service.iml" group="Service" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Service.iml" filepath="$PROJECT_DIR$/.idea/modules/Service.iml" group="Service" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Service/Service_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Service/Service_main.iml" group="Service" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Service/Service_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Service/Service_test.iml" group="Service" />
     </modules>

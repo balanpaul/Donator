@@ -19,6 +19,10 @@
       <module name="Model_test" target="1.8" />
       <module name="Persistance_main" target="1.8" />
       <module name="Persistance_test" target="1.8" />
+      <module name="Server_main" target="1.8" />
+      <module name="Server_test" target="1.8" />
+      <module name="Service_main" target="1.8" />
+      <module name="Service_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
