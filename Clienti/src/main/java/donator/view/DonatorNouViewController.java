@@ -86,6 +86,7 @@ public class DonatorNouViewController extends UnicastRemoteObject implements ICl
 
         try{
             Donator donator = new Donator(nume, prenume, strada, numar, bloc, scara, apartament, oras, judet, telefon, email);
+            Donator d=new Donator("a","a","a","a","a","a",1,"a","a","a","a","a","a","a",123456);
             service.adaugaDonator(donator);
             //Alert(dialogStage, Alert.AlertType.INFORMATION, "Salvare cu succes", "Studentul a fost adaugat!");
             System.out.println("Donator adaugat!!");
