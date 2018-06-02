@@ -1,25 +1,54 @@
 package donator.view;
 
+import donator.service.IClient;
 import donator.service.IServer;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class DonatorMainViewController {
+import java.io.IOException;
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+
+public class DonatorMainViewController extends UnicastRemoteObject implements IClient{
     private IServer service;
     private Stage dialogStage;
     private DonatorNouViewController donatorNouViewController;
-    public void setService(IServer service) {
-        this.service = service;
-        this.dialogStage=new Stage();
+
+    public DonatorMainViewController() throws RemoteException{
     }
 
+    public void setService(IServer service) {
+        this.service = service;
+
+    }
+
+    //deschiderea unei noi ferestre, loader = fisierul fxml, title = titlul ferestrei
+    private void openMainPage(ActionEvent e, String title) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/donatorNouView.fxml"));
+        Parent parent = fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setTitle(title);
+        stage.setScene(new Scene(parent));
+        stage.setResizable(false);
+        stage.sizeToScene();
+
+        donatorNouViewController = fxmlLoader.getController();
+        donatorNouViewController.setService(service);
+
+        stage.show();
+        ((Node) (e.getSource())).getScene().getWindow().hide();
+    }
     @FXML
-    public void onClickDonatorNou(){
+    public void onClickDonatorNou(ActionEvent actionEvent){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/donatorNouView.fxml"));
+           /* FXMLLoader loader = new FXMLLoader(getClass().getResource("/donatorNouView.fxml"));
             AnchorPane anchorPane;
             //DonatorNouViewController donatorNouViewController = new DonatorNouViewController();
            // loader.setLocation(getClass().getResource("/donatorNouView.fxml"));
@@ -30,7 +59,8 @@ public class DonatorMainViewController {
             stage.setTitle("Donator Now");
             donatorNouViewController=loader.getController();
             donatorNouViewController.setService(service, stage);
-            stage.show();
+            stage.show();*/
+           openMainPage(actionEvent,"Donator nou");
         } catch (Exception e){
             System.err.println("Initialization  exception:"+e);
             e.printStackTrace();
