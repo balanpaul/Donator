@@ -32,12 +32,14 @@ public class DonatorRepository {
         }
     }
 
-    public  void save(Donator entity){
+    public  long save(Donator entity){
+        long id= 0;
         try(Session session=sessionFactory.openSession()){
             Transaction tx=null;
             try{
                 tx=session.beginTransaction();
-                session.save(entity);
+                 session.save(entity);
+
                 tx.commit();
             }catch (RuntimeException ex){
                 if(tx!=null)
@@ -48,6 +50,8 @@ public class DonatorRepository {
                 session.close();
             }
         }
+
+        return 1;
     }
 
     public void delete(Donator donator) {
@@ -90,7 +94,7 @@ public class DonatorRepository {
     public List<Donator> findAll() {
         System.out.println("asdasd");
 
-        List<Donator> zborList = new ArrayList<>();
+        List<Donator> donators = new ArrayList<>();
         Transaction tx = null;
         try
         {
@@ -101,7 +105,7 @@ public class DonatorRepository {
 
 
             Query query = session.createQuery("FROM donator.entities.Donator");
-            zborList = (ArrayList<Donator>) query.getResultList();
+            donators = (ArrayList<Donator>) query.getResultList();
 
             tx.commit();
         }
@@ -111,15 +115,21 @@ public class DonatorRepository {
                 tx.rollback();
             ex.printStackTrace();
         }
-        return zborList;
+        return donators;
     }
 
     public Donator findOne(String string) {
         Session session =sessionFactory.openSession();
+        Donator z=null;
         Transaction tx=null;
         try{
             tx=session.beginTransaction();
-            Donator z= (Donator) session.createQuery("select * from donatori where "+string).list();
+            Query query = session.createQuery("FROM donator.entities.Donator");
+            ArrayList<Donator> donators = (ArrayList<Donator>) query.getResultList();
+            for(Donator d:donators){
+                if(d.getNume().equals(string))
+                    z=d;
+            }
             tx.commit();
             return z;
         }catch (RuntimeException ex){
@@ -129,9 +139,27 @@ public class DonatorRepository {
             session.close();
         }
 
-        return null;
+        return z;
     }
 
+    public Donator findId(long id) {
+        Session session =sessionFactory.openSession();
+        Donator z=null;
+        Transaction tx=null;
+        try{
+            tx=session.beginTransaction();
+             z= (Donator) session.get(Donator.class,id);
+            tx.commit();
+            return z;
+        }catch (RuntimeException ex){
+            if(tx!=null)
+                tx.rollback();
+        }finally {
+            session.close();
+        }
+
+        return z;
+    }
 
     private void initialize() {
         final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()

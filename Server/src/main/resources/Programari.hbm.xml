@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping >
+    <class name="donator.entities.Programari" table="programari">
+        <id name="idProgramari" column="IdProgramri" type="int">
+                <generator class="increment"></generator>
+        </id>
+        <property name="dataD" column="DataD" type="java.sql.Date"/>
+        <property name="ora" column="Ora" type="int"/>
+        <many-to-one name="donator" class="donator.entities.Donator"
+                     column="iddonatori" unique="true"
+                     cascade="all" />
+    </class>
+</hibernate-mapping>

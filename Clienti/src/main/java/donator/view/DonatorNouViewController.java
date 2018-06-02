@@ -1,6 +1,7 @@
 package donator.view;
 
 import donator.entities.Donator;
+import donator.entities.Programari;
 import donator.service.IClient;
 import donator.service.IServer;
 import javafx.event.ActionEvent;
@@ -81,13 +82,17 @@ public class DonatorNouViewController extends UnicastRemoteObject implements ICl
         String telefon = textFieldTelefon.getText();
         String email=textFieldEmail.getText();
         LocalDate localDate = datePicker.getValue();
+
         String intervalOrar1 = textFieldIntervalOrar1.getText();
         String intervalOrar2 = textFieldIntervalOrar2.getText();
 
         try{
             Donator donator = new Donator(nume, prenume, strada, numar, bloc, scara, apartament, oras, judet, telefon, email);
             Donator d=new Donator("a","a","a","a","a","a",1,"a","a","a","a","a","a","a",123456);
-            service.adaugaDonator(donator);
+            java.sql.Date p= java.sql.Date.valueOf(localDate);
+            Programari programari=new Programari(Integer.valueOf(intervalOrar1),p);
+
+            service.adaugaDonator(donator,programari);
             //Alert(dialogStage, Alert.AlertType.INFORMATION, "Salvare cu succes", "Studentul a fost adaugat!");
             System.out.println("Donator adaugat!!");
         }catch (Exception e){
