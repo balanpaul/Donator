@@ -41,7 +41,8 @@ public class DonatorRepository {
                 tx.commit();
             }catch (RuntimeException ex){
                 if(tx!=null)
-                    tx.rollback();
+                tx.rollback();
+                ex.printStackTrace();
             }
             finally {
                 session.close();
@@ -55,7 +56,7 @@ public class DonatorRepository {
             try{
                 tx=session.beginTransaction();
                 //session.delete("Zbor",zbor);
-                session.createQuery("delete from donator where cnp = "+donator.getCnp()).executeUpdate();
+                session.createQuery("delete from donator.entities.Donator where cnp  = "+donator.getCnp()).executeUpdate();
 
                 //session.delete(zbor);
                 tx.commit();
@@ -99,7 +100,7 @@ public class DonatorRepository {
             tx = session.beginTransaction();
 
 
-            Query query = session.createQuery("FROM donatori");
+            Query query = session.createQuery("FROM donator.entities.Donator");
             zborList = (ArrayList<Donator>) query.getResultList();
 
             tx.commit();

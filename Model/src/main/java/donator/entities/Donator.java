@@ -5,54 +5,25 @@ import java.io.Serializable;
 
 public class Donator implements Serializable{
 
-
-
     private int IdDonator;
-
-
     private String Cnp;
-
-
     private String Nume;
-
-
     private String Prenume;
-
-
     private String DataNasterii;
-
-
     private String NrTelefon;
-
-
     private String Email;
-
-
     private int IdSange;
-
-
     private String Judet;
-
-
     private String Oras;
-
-
     private String Strada;
-
-
     private String Apartament;
-
-
     private String Bloc;
-
-
     private String Scara;
-
-
     private String Numar;
-
-
     private int CodPostal;
+
+    public Donator() {
+    }
 
     public int getIdDonator() {
         return IdDonator;
@@ -184,7 +155,7 @@ public class Donator implements Serializable{
     }
 
     public Donator(String cnp, String nume, String prenume, String dataNasterii, String nrTelefon, String email, int idSange, String judet, String oras, String strada, String apartament, String bloc, String scara, String numar, int codPostal) {
-        //IdDonator = idDonator;
+        IdDonator = 1;
         Cnp = cnp;
         Nume = nume;
         Prenume = prenume;
@@ -202,7 +173,7 @@ public class Donator implements Serializable{
         CodPostal = codPostal;
     }
     public Donator(String nume, String prenume, String strada, String numar, String bloc, String scara, String apartament, String oras, String judet, String nrTelefon, String email) {
-        //IdDonator = idDonator;
+        IdDonator = 1;
         //Cnp = cnp;
         Nume = nume;
         Prenume = prenume;

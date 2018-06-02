@@ -21,7 +21,7 @@
         <property name="bloc" column="Bloc" type="string"/>
         <property name="scara" column="Scara" type="string"/>
         <property name="numar" column="Numar" type="string"/>
-        <property name="codPostal" column="CodPostal" type="string"/>
+        <property name="codPostal" column="CodPostal" type="int"/>
 
     </class>
 </hibernate-mapping>
