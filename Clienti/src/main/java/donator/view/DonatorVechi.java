@@ -78,4 +78,6 @@ public class DonatorVechi {
     }
 
 
+    public static class istoricDonatieViewController {
+    }
 }
