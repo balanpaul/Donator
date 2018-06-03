@@ -91,4 +91,24 @@ public class ProgramariRepository {
 
         return z;
     }
+    public int nrProg(Programari programari){
+        int count=-1;
+        try(Session session=sessionFactory.openSession()){
+            Transaction tx=null;
+            try{
+                tx=session.beginTransaction();
+                 count = ((Long)session.createQuery("select count(P) from Programari P where P.dataD= :dat and P.ora= :orra ").setParameter("dat",programari.getDataD()).setParameter("orra",programari.getOra()).uniqueResult()).intValue();
+                System.out.println("asd");
+                tx.commit();
+            }catch (RuntimeException ex){
+                if(tx!=null)
+                    tx.rollback();
+                ex.printStackTrace();
+            }
+            finally {
+                session.close();
+            }
+        }
+        return count;
+    }
 }
