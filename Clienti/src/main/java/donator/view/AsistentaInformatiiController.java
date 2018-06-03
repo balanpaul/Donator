@@ -56,7 +56,7 @@ public class AsistentaInformatiiController {
     }
 
     @FXML
-    public  void onClickTrimite(ActionEvent actionEvent){
+    public void onClickTrimite(ActionEvent actionEvent){
         /*
         String numeM, prenumeM,stradaM, orasM, judetM, nrTelefonM;
         String emailM, cnpM, numarM, blocM, scaraM, apartamentM;

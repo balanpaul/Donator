@@ -1,6 +1,7 @@
 package donator.service;
 
 
+import donator.entities.Chestionar;
 import donator.entities.Donator;
 import donator.entities.Personal;
 import donator.entities.Programari;
@@ -12,10 +13,12 @@ public interface IServer {
     //  DateSange[] cautareSange() throws DonatorException;
 
     void adaugaDonator(Donator donator, Programari programari) throws DonatorException,RemoteException;
+    void adaugaChestionar(Chestionar chestionar) throws DonatorException,RemoteException;
     void planificare(Donator d,Programari donator)throws DonatorException,RemoteException;
     void cerereSange(String tipSange, int numar)throws  DonatorException,RemoteException;
     Programari cautaPlanifica(int id)throws DonatorException,RemoteException;
     Donator cautareDonator(String mail)throws DonatorException,RemoteException;
     Personal cautarePersonal(String pass)throws DonatorException,RemoteException;
+    Chestionar cautareChestionar(String email) throws DonatorException, RemoteException;
     //boolean verificareDonator(Donator donator) throws DonatorException,RemoteException;
 }
