@@ -105,7 +105,7 @@ public class ServerImpl implements IServer {
     }
 
     @Override
-    public List<String> getAll() throws DonatorException, RemoteException {
+    public List<String> getDonatori() throws DonatorException, RemoteException {
         List<Donator> donators=donatorRepository.findAll();
         List<String> list=new ArrayList<>();
         for(Donator donator :donators){
@@ -141,12 +141,32 @@ public class ServerImpl implements IServer {
         return observatiiRepository.listaObservatii(idSange);
     }
 
+    @Override
+    public void exportPDF(String mail) throws DonatorException, RemoteException {
+       /*Donator donator=donatorRepository.findMail(mail);
+       DateSange dateSange=dateSangeRepository.getSangeD(donator.getIdDonator());
+
+        Paragraph paragraph;
+
+        for(DateSange student : dateSangeRepository.getAllSange(donator.getIdDonator())){
+
+                try {
+                    paragraph = new Paragraph("  ID: " + student.getId() + ", NAME: " + student.getName() + ", FINAL GRADE: " + res + "\n", font);
+                    document.add(paragraph);
+                } catch (DocumentException ex)
+
+
+
+
+        }*/
+    }
+
 
     @Override
-    public Chestionar cautareChestionar(String mail) throws DonatorException, RemoteException{
-        Donator donator=donatorRepository.findMail(mail);
-         Chestionar ch = chestionarRepository.findChestionar(donator.getIdDonator());
-         return ch;
+    public Chestionar cautareChestionar(String mail) throws DonatorException, RemoteException {
+        Donator donator = donatorRepository.findMail(mail);
+        Chestionar ch = chestionarRepository.findChestionar(donator.getIdDonator());
+        return ch;
     }
 
     @Override
