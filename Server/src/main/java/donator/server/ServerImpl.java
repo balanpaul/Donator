@@ -1,8 +1,10 @@
 package donator.server;
 
+import donator.entities.Personal;
 import donator.entities.Programari;
 import donator.persistence.DonatorRepository;
 import donator.entities.Donator;
+import donator.persistence.PersonalRepository;
 import donator.persistence.ProgramariRepository;
 import donator.service.DonatorException;
 import donator.service.IServer;
@@ -14,12 +16,14 @@ public class ServerImpl implements IServer {
 
     private DonatorRepository donatorRepository;
     private ProgramariRepository programariRepository;
+    private PersonalRepository personalRepository;
 
 
 
-    public ServerImpl(DonatorRepository donatorRepository, ProgramariRepository programariRepository) {
+    public ServerImpl(DonatorRepository donatorRepository, ProgramariRepository programariRepository,PersonalRepository personalRepository) {
         this.donatorRepository = donatorRepository;
         this.programariRepository = programariRepository;
+        this.personalRepository=personalRepository;
     }
 
     public ServerImpl(ProgramariRepository programariRepository) {
@@ -74,5 +78,13 @@ public class ServerImpl implements IServer {
         if(donator==null)
             throw new DonatorException("Nu exista acest donator");
         return donator;
+    }
+
+    @Override
+    public Personal cautarePersonal(String pass) throws DonatorException, RemoteException {
+        Personal personal=personalRepository.find(pass);
+        if(personal==null)
+            throw  new DonatorException("Parola invalida");
+        return personal;
     }
 }
