@@ -6,6 +6,8 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -13,7 +15,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="donator.view.AsistentaController">
    <children>
       <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -43,21 +45,20 @@
             <Image url="@home_logo_white_v2.png" />
          </image>
       </ImageView>
-      <ListView layoutX="292.0" layoutY="90.0" prefHeight="283.0" prefWidth="536.0" />
-      <TextField layoutX="900.0" layoutY="156.0" prefHeight="26.0" prefWidth="315.0" />
+      <TextField fx:id="textFieldNumePrenume" layoutX="900.0" layoutY="156.0" onAction="#handleFilterAfterName" prefHeight="26.0" prefWidth="315.0" />
       <Label layoutX="899.0" layoutY="129.0" prefHeight="28.0" prefWidth="331.0" text="Căutare după nume și prenume:">
          <font>
             <Font name="Calibri" size="24.0" />
          </font></Label>
-      <DatePicker layoutX="931.0" layoutY="209.0" />
-      <CheckBox layoutX="900.0" layoutY="213.0" mnemonicParsing="false" />
-      <ListView layoutX="601.0" layoutY="478.0" prefHeight="131.0" prefWidth="462.0" />
+      <DatePicker fx:id="datePicker" layoutX="931.0" layoutY="209.0" />
+      <CheckBox fx:id="checkBoxDatePicker" layoutX="900.0" layoutY="213.0" mnemonicParsing="false" />
+      <ListView fx:id="listViewIstoric" layoutX="601.0" layoutY="478.0" prefHeight="131.0" prefWidth="462.0" />
       <Label layoutX="634.0" layoutY="438.0" prefHeight="18.0" prefWidth="199.0" text="Istoric donații:">
          <font>
             <Font name="Calibri" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="773.0" layoutY="613.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="290.0" text="Generare PDF">
+      <Button fx:id="buttonGenerarePDF" layoutX="773.0" layoutY="613.0" mnemonicParsing="false" onMouseClicked="#handleGenerarePDF" prefHeight="26.0" prefWidth="290.0" text="Generare PDF">
          <font>
             <Font name="Impact" size="16.0" />
          </font></Button>
@@ -71,12 +72,20 @@
             <Font name="Calibri" size="24.0" />
          </font>
       </Label>
-      <ListView layoutX="73.0" layoutY="478.0" prefHeight="131.0" prefWidth="462.0" />
+      <ListView fx:id="listViewBoli" layoutX="73.0" layoutY="478.0" prefHeight="131.0" prefWidth="462.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="200.0" layoutX="863.0" layoutY="106.0" stroke="WHITE" strokeType="INSIDE" width="1.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="200.0" layoutX="1246.0" layoutY="106.0" stroke="WHITE" strokeType="INSIDE" width="1.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="370.0" layoutX="1054.0" layoutY="-78.0" rotate="90.0" stroke="WHITE" strokeType="INSIDE" width="1.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="370.0" layoutX="1054.0" layoutY="119.0" rotate="90.0" stroke="WHITE" strokeType="INSIDE" width="1.0" />
-      <CheckBox layoutX="878.0" layoutY="319.0" mnemonicParsing="false" prefHeight="26.0" text="Donează pentru:" />
-      <TextField layoutX="1027.0" layoutY="320.0" prefHeight="26.0" prefWidth="209.0" />
+      <CheckBox fx:id="checkBoxDoneazaPentru" layoutX="878.0" layoutY="319.0" mnemonicParsing="false" prefHeight="26.0" text="Donează pentru:" />
+      <TextField fx:id="textFieldDoneazaPentru" layoutX="1027.0" layoutY="320.0" prefHeight="26.0" prefWidth="209.0" />
+      <TableView layoutX="292.0" layoutY="91.0" prefHeight="283.0" prefWidth="536.0">
+        <columns>
+          <TableColumn prefWidth="154.0" text="Nume" />
+          <TableColumn prefWidth="153.0" text="Prenume" />
+            <TableColumn prefWidth="110.0" text="CNP" />
+            <TableColumn prefWidth="118.0" text="Telefon" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

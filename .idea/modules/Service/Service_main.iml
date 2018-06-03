@@ -9,6 +9,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="Donator-Model_main" />
+    <orderEntry type="module" module-name="Model_main" />
   </component>
 </module>

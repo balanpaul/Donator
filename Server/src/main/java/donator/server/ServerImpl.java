@@ -3,6 +3,7 @@ package donator.server;
 import com.itextpdf.text.Paragraph;
 import donator.entities.*;
 import donator.persistence.*;
+
 import donator.service.DonatorException;
 import donator.service.IServer;
 
@@ -12,7 +13,10 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import java.util.Properties;
 
 
@@ -23,22 +27,16 @@ public class ServerImpl implements IServer {
     private PersonalRepository personalRepository;
     private ChestionarRepository chestionarRepository;
     private DateSangeRepository dateSangeRepository;
+    private ObservatiiRepository observatiiRepository;
 
 
-    public ServerImpl(DonatorRepository donatorRepository, ProgramariRepository programariRepository, PersonalRepository personalRepository, ChestionarRepository chestionarRepository, DateSangeRepository dateSangeRepository) {
+    public ServerImpl(DonatorRepository donatorRepository, ProgramariRepository programariRepository, PersonalRepository personalRepository, ChestionarRepository chestionarRepository, DateSangeRepository dateSangeRepository, ObservatiiRepository observatiiRepository) {
         this.donatorRepository = donatorRepository;
         this.programariRepository = programariRepository;
         this.personalRepository = personalRepository;
         this.chestionarRepository = chestionarRepository;
         this.dateSangeRepository = dateSangeRepository;
-    }
-
-    public ServerImpl(ProgramariRepository programariRepository) {
-        this.programariRepository = programariRepository;
-    }
-
-    public ServerImpl(DonatorRepository donatorRepository) {
-        this.donatorRepository = donatorRepository;
+        this.observatiiRepository = observatiiRepository;
     }
 
     @Override
@@ -58,6 +56,12 @@ public class ServerImpl implements IServer {
     public void adaugaChestionar(Chestionar chestionar) throws DonatorException, RemoteException {
         chestionarRepository.save(chestionar);
         System.out.println("Sunt in server " + chestionar.getIdDonator().getNume());
+    }
+
+    @Override
+    public void adaugaObservatie(Observatie observatie) throws DonatorException, RemoteException {
+        observatiiRepository.save(observatie);
+        System.out.println("Sunt in server " + observatie.getIdObservatie() + " " + observatie.getIdObservatie());
     }
 
     @Override
@@ -102,6 +106,10 @@ public class ServerImpl implements IServer {
     }
 
     @Override
+    public List<String> getAll() throws DonatorException, RemoteException {
+        List<Donator> donators=donatorRepository.findAll();
+        List<String> list=new ArrayList<>();
+        for(Donator donator :donators){
     public List<String> getDonatori() throws DonatorException, RemoteException {
         List<Donator> donators = donatorRepository.findAll();
         List<String> list = new ArrayList<>();
@@ -196,5 +204,23 @@ public class ServerImpl implements IServer {
         Donator donator = donatorRepository.findMail(mail);
         Chestionar ch = chestionarRepository.findChestionar(donator.getIdDonator());
         return ch;
+    }
+
+    @Override
+    public List<String> getDonatori() throws DonatorException, RemoteException {
+        return null;
+    }
+
+    @Override
+    public List<String> filtrareDonatorDupaNume(String nume, String prenume)throws DonatorException, RemoteException{
+        List<String> lista = new ArrayList<>();
+
+        for(Donator donator : donatorRepository.findOne(nume, prenume)) {
+            if(donator.getCnp() == null)
+                lista.add(donator.getNume() + "  " + donator.getPrenume() + "  " + "-" + "  " + donator.getNrTelefon());
+            else
+                lista.add(donator.getNume() + "  " + donator.getPrenume() + "  " + donator.getCnp() + "  " + donator.getNrTelefon());
+        }
+        return lista;
     }
 }
