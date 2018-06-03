@@ -1,14 +1,17 @@
 package donator.server;
 
 import donator.entities.Personal;
+import donator.entities.Chestionar;
 import donator.entities.Programari;
-import donator.persistence.DonatorRepository;
+
 import donator.entities.Donator;
+
+import donator.persistence.ChestionarRepository;
+import donator.persistence.DonatorRepository;
 import donator.persistence.PersonalRepository;
 import donator.persistence.ProgramariRepository;
 import donator.service.DonatorException;
 import donator.service.IServer;
-import org.springframework.stereotype.Service;
 
 import java.rmi.RemoteException;
 
@@ -17,13 +20,15 @@ public class ServerImpl implements IServer {
     private DonatorRepository donatorRepository;
     private ProgramariRepository programariRepository;
     private PersonalRepository personalRepository;
+    private ChestionarRepository chestionarRepository;
 
 
 
-    public ServerImpl(DonatorRepository donatorRepository, ProgramariRepository programariRepository,PersonalRepository personalRepository) {
+    public ServerImpl(DonatorRepository donatorRepository, ProgramariRepository programariRepository, PersonalRepository personalRepository, ChestionarRepository chestionarRepository) {
         this.donatorRepository = donatorRepository;
         this.programariRepository = programariRepository;
-        this.personalRepository=personalRepository;
+        this.personalRepository = personalRepository;
+        this.chestionarRepository = chestionarRepository;
     }
 
     public ServerImpl(ProgramariRepository programariRepository) {
@@ -44,7 +49,13 @@ public class ServerImpl implements IServer {
         programari.setDonator(d);
         programariRepository.save(programari);
         System.out.println("Sunt in server " + donator.getNume());
+        donatorRepository.save(donator);
+    }
 
+    @Override
+    public void adaugaChestionar(Chestionar chestionar)throws DonatorException, RemoteException{
+        chestionarRepository.save(chestionar);
+        System.out.println("Sunt in server " + chestionar.getIdDonator().getNume());
     }
 
     @Override
@@ -86,5 +97,12 @@ public class ServerImpl implements IServer {
         if(personal==null)
             throw  new DonatorException("Parola invalida");
         return personal;
+    }
+
+    @Override
+    public Chestionar cautareChestionar(String mail) throws DonatorException, RemoteException{
+        Donator donator=donatorRepository.findMail(mail);
+         Chestionar ch = chestionarRepository.findChestionar(donator.getIdDonator());
+         return ch;
     }
 }

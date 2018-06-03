@@ -1,7 +1,5 @@
-
 import donator.service.IServer;
-import donator.view.DonatorMainViewController;
-import donator.view.IstoricDonatieViewController;
+import donator.view.ChestionarView2Controller;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -10,8 +8,7 @@ import javafx.stage.Stage;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-
-public class ClientStart extends Application {
+public class StartChestionar extends Application {
     public static void main(String[] args) {
         launch(args);
     }
@@ -28,14 +25,14 @@ public class ClientStart extends Application {
                 FXMLLoader loader = new FXMLLoader();
                 AnchorPane anchorPane;
 
-                loader.setLocation(getClass().getResource("donatorMainView.fxml"));
+                loader.setLocation(getClass().getResource("chestionarView2.fxml"));
                 anchorPane = (AnchorPane)loader.load();
-                DonatorMainViewController donatorMainViewController = loader.getController();
-                donatorMainViewController.setService(server);
+                ChestionarView2Controller chestionarView2Controller = loader.getController();
+                chestionarView2Controller.setService(server);
                 Scene scene = new Scene(anchorPane);
                 Stage stage = new Stage();
                 primaryStage.setScene(scene);
-                primaryStage.setTitle("Donator Now");
+                primaryStage.setTitle("Chestionar Now");
 
                 primaryStage.show();
             } catch (Exception e){

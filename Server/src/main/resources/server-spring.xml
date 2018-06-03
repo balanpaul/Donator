@@ -15,7 +15,14 @@
 
         <constructor-arg ref="donatorRepo"/>
         <constructor-arg ref="progRepo"/>
+        <constructor-arg ref="persoanlRepo"/>
+        <constructor-arg ref="chestionarRepo"/>
+
     </bean>
+
+    <bean id="chestionarRepo" class="donator.persistence.ChestionarRepository"></bean>
+
+    <bean id="persoanlRepo" class="donator.persistence.PersonalRepository"></bean>
 
     <bean class="org.springframework.remoting.rmi.RmiServiceExporter">
         <property name="serviceName" value="Donator"/>

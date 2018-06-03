@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping >
+    <class name="donator.entities.Chestionar" table="chestionare">
+        <id name="idChestionar" column="idChestionare" type="int">
+                <generator class="increment"></generator>
+        </id>
+        <property name="dataCompletarii" column="dataCompletarii" type="string"/>
+        <property name="intrebarea1a" column="intrebarea1a" type="string"/>
+        <property name="intrebarea1b" column="intrebarea1b" type="string"/>
+        <property name="intrebarea1c" column="intrebarea1c" type="string"/>
+        <property name="intrebarea1d" column="intrebarea1d" type="string"/>
+
+        <property name="intrebarea2" column="intrebarea2" type="string"/>
+
+        <property name="intrebarea3a" column="intrebarea3a" type="string"/>
+        <property name="intrebarea3b" column="intrebarea3b" type="string"/>
+        <property name="intrebarea3c" column="intrebarea3c" type="string"/>
+        <property name="intrebarea3d" column="intrebarea3d" type="string"/>
+        <property name="intrebarea3e" column="intrebarea3e" type="string"/>
+        <property name="intrebarea3f" column="intrebarea3f" type="string"/>
+        <property name="intrebarea3g" column="intrebarea3g" type="string"/>
+        <property name="intrebarea3h" column="intrebarea3h" type="string"/>
+
+
+        <property name="intrebarea4a" column="intrebarea4a" type="string"/>
+        <property name="intrebarea4b" column="intrebarea4b" type="string"/>
+        <property name="intrebarea4c" column="intrebarea4c" type="string"/>
+        <property name="intrebarea4d" column="intrebarea4d" type="string"/>
+
+        <property name="intrebarea5" column="intrebarea5" type="string"/>
+
+        <property name="intrebarea6" column="intrebarea6" type="string"/>
+
+        <property name="intrebarea7" column="intrebarea7" type="string"/>
+
+        <property name="intrebarea8a" column="intrebarea8a" type="string"/>
+        <property name="intrebarea8b" column="intrebarea8b" type="string"/>
+        <property name="intrebarea8c" column="intrebarea8c" type="string"/>
+        <property name="intrebarea8d" column="intrebarea8d" type="string"/>
+        <property name="intrebarea8e" column="intrebarea8e" type="string"/>
+        <property name="intrebarea8f" column="intrebarea8f" type="string"/>
+        <property name="intrebarea8g" column="intrebarea8g" type="string"/>
+        <property name="intrebarea8h" column="intrebarea8h" type="string"/>
+
+        <property name="intrebarea9" column="intrebarea9" type="string"/>
+
+        <property name="intrebarea10" column="intrebarea10" type="string"/>
+
+        <many-to-one name="idDonator" class="donator.entities.Donator"
+                     column="iddonatori" unique="true"
+                     cascade="all" />
+    </class>
+</hibernate-mapping>

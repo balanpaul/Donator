@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" stylesheets="@chestionarStyle.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" stylesheets="@chestionarStyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="donator.view.ChestionarView2Controller">
    <children>
       <ImageView fitHeight="600.0" fitWidth="1200.0" pickOnBounds="true">
          <image>
@@ -21,7 +21,7 @@
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bf1010" height="43.0" layoutX="30.0" layoutY="537.0" stroke="BLACK" strokeType="INSIDE" width="909.0" />
-      <Button layoutX="1073.0" layoutY="541.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Trimite">
+      <Button layoutX="1073.0" layoutY="541.0" mnemonicParsing="false" onAction="#onClickAdaugaChestionar" prefHeight="25.0" prefWidth="100.0" text="Trimite">
          <font>
             <Font name="Impact" size="18.0" />
          </font>
@@ -55,185 +55,185 @@
             <Font size="15.0" />
          </font>
       </TextArea>
-      <RadioButton layoutX="496.0" layoutY="53.0" mnemonicParsing="false" text="Da">
+      <RadioButton fx:id="rb1aDa" layoutX="496.0" layoutY="53.0" mnemonicParsing="false" text="Da">
          <toggleGroup>
             <ToggleGroup fx:id="intrebarea1a" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="542.0" layoutY="53.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea1a" />
-      <RadioButton layoutX="496.0" layoutY="73.0" mnemonicParsing="false" text="Da">
+      <RadioButton fx:id="rb1aNu" layoutX="542.0" layoutY="53.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea1a" />
+      <RadioButton fx:id="rb1bDa" layoutX="496.0" layoutY="73.0" mnemonicParsing="false" text="Da">
          <toggleGroup>
             <ToggleGroup fx:id="intrebarea1b" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="542.0" layoutY="73.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea1b" />
-      <RadioButton layoutX="496.0" layoutY="96.0" mnemonicParsing="false" text="Da">
+      <RadioButton fx:id="rb1bNu" layoutX="542.0" layoutY="73.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea1b" />
+      <RadioButton fx:id="rb1cDa" layoutX="496.0" layoutY="96.0" mnemonicParsing="false" text="Da">
          <toggleGroup>
             <ToggleGroup fx:id="intrebarea1c" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="542.0" layoutY="96.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea1c" />
-      <RadioButton layoutX="496.0" layoutY="117.0" mnemonicParsing="false" text="Da">
+      <RadioButton fx:id="rb1cNu" layoutX="542.0" layoutY="96.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea1c" />
+      <RadioButton fx:id="rb1dDa" layoutX="496.0" layoutY="117.0" mnemonicParsing="false" text="Da">
          <toggleGroup>
             <ToggleGroup fx:id="intrebarea1d" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="542.0" layoutY="117.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea1d" />
-      <RadioButton layoutX="496.0" layoutY="137.0" mnemonicParsing="false" text="Da">
+      <RadioButton fx:id="rb1dNu" layoutX="542.0" layoutY="117.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea1d" />
+      <RadioButton fx:id="rb2Da" layoutX="496.0" layoutY="137.0" mnemonicParsing="false" text="Da">
          <toggleGroup>
             <ToggleGroup fx:id="intrebarea2" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="542.0" layoutY="137.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea2" />
-      <RadioButton layoutX="496.0" layoutY="179.0" mnemonicParsing="false" text="Da">
+      <RadioButton fx:id="rb2Nu" layoutX="542.0" layoutY="137.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea2" />
+      <RadioButton fx:id="rb3aDa" layoutX="496.0" layoutY="179.0" mnemonicParsing="false" text="Da">
          <toggleGroup>
             <ToggleGroup fx:id="intrebarea3a" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="542.0" layoutY="179.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea3a" />
-      <RadioButton layoutX="496.0" layoutY="200.0" mnemonicParsing="false" text="Da">
+      <RadioButton fx:id="rb3aNu" layoutX="542.0" layoutY="179.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea3a" />
+      <RadioButton fx:id="rb3bDa" layoutX="496.0" layoutY="200.0" mnemonicParsing="false" text="Da">
          <toggleGroup>
             <ToggleGroup fx:id="intrebarea3b" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="542.0" layoutY="200.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea3b" />
-      <RadioButton layoutX="496.0" layoutY="221.0" mnemonicParsing="false" text="Da">
+      <RadioButton fx:id="rb3bNu" layoutX="542.0" layoutY="200.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea3b" />
+      <RadioButton fx:id="rb3cDa" layoutX="496.0" layoutY="221.0" mnemonicParsing="false" text="Da">
          <toggleGroup>
             <ToggleGroup fx:id="intrebarea3c" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="542.0" layoutY="221.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea3c" />
-      <RadioButton layoutX="496.0" layoutY="242.0" mnemonicParsing="false" text="Da">
+      <RadioButton fx:id="rb3cNu" layoutX="542.0" layoutY="221.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea3c" />
+      <RadioButton fx:id="rb3dDa" layoutX="496.0" layoutY="242.0" mnemonicParsing="false" text="Da">
          <toggleGroup>
             <ToggleGroup fx:id="intrebarea3d" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="542.0" layoutY="242.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea3d" />
-      <RadioButton layoutX="496.0" layoutY="263.0" mnemonicParsing="false" text="Da">
+      <RadioButton fx:id="rb3dNu" layoutX="542.0" layoutY="242.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea3d" />
+      <RadioButton fx:id="rb3eDa" layoutX="496.0" layoutY="263.0" mnemonicParsing="false" text="Da">
          <toggleGroup>
             <ToggleGroup fx:id="intrebarea3e" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="542.0" layoutY="263.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea3e" />
-      <RadioButton layoutX="496.0" layoutY="284.0" mnemonicParsing="false" text="Da">
+      <RadioButton fx:id="rb3eNu" layoutX="542.0" layoutY="263.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea3e" />
+      <RadioButton fx:id="rb3fDa" layoutX="496.0" layoutY="284.0" mnemonicParsing="false" text="Da">
          <toggleGroup>
             <ToggleGroup fx:id="intrebarea3f" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="542.0" layoutY="284.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea3f" />
-      <RadioButton layoutX="496.0" layoutY="305.0" mnemonicParsing="false" text="Da">
+      <RadioButton fx:id="rb3fNu" layoutX="542.0" layoutY="284.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea3f" />
+      <RadioButton fx:id="rb3gDa" layoutX="496.0" layoutY="305.0" mnemonicParsing="false" text="Da">
          <toggleGroup>
             <ToggleGroup fx:id="intrebarea3g" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="542.0" layoutY="305.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea3g" />
-      <RadioButton layoutX="496.0" layoutY="325.0" mnemonicParsing="false" text="Da">
+      <RadioButton fx:id="rb3gNu" layoutX="542.0" layoutY="305.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea3g" />
+      <RadioButton fx:id="rb3hDa" layoutX="496.0" layoutY="325.0" mnemonicParsing="false" text="Da">
          <toggleGroup>
             <ToggleGroup fx:id="intrebarea3h" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="542.0" layoutY="325.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea3h" />
-      <RadioButton layoutX="496.0" layoutY="368.0" mnemonicParsing="false" text="Da">
+      <RadioButton fx:id="rb3hNu" layoutX="542.0" layoutY="325.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea3h" />
+      <RadioButton fx:id="rb4aDa" layoutX="496.0" layoutY="368.0" mnemonicParsing="false" text="Da">
          <toggleGroup>
             <ToggleGroup fx:id="intrebarea4a" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="542.0" layoutY="368.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea4a" />
-      <RadioButton layoutX="496.0" layoutY="389.0" mnemonicParsing="false" text="Da">
+      <RadioButton fx:id="rb4aNu" layoutX="542.0" layoutY="368.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea4a" />
+      <RadioButton fx:id="rb4bDa" layoutX="496.0" layoutY="389.0" mnemonicParsing="false" text="Da">
          <toggleGroup>
             <ToggleGroup fx:id="intrebarea4b" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="542.0" layoutY="389.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea4b" />
-      <RadioButton layoutX="496.0" layoutY="409.0" mnemonicParsing="false" text="Da">
+      <RadioButton fx:id="rb4bNu" layoutX="542.0" layoutY="389.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea4b" />
+      <RadioButton fx:id="rb4cDa" layoutX="496.0" layoutY="409.0" mnemonicParsing="false" text="Da">
          <toggleGroup>
             <ToggleGroup fx:id="intrebarea4c" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="542.0" layoutY="409.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea4c" />
-      <RadioButton layoutX="496.0" layoutY="431.0" mnemonicParsing="false" text="Da">
+      <RadioButton fx:id="rb4cNu" layoutX="542.0" layoutY="409.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea4c" />
+      <RadioButton fx:id="rb4dDa" layoutX="496.0" layoutY="431.0" mnemonicParsing="false" text="Da">
          <toggleGroup>
             <ToggleGroup fx:id="intrebarea4d" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="542.0" layoutY="431.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea4d" />
-      <RadioButton layoutX="1092.0" layoutY="53.0" mnemonicParsing="false" text="Da">
+      <RadioButton fx:id="rb4dNu" layoutX="542.0" layoutY="431.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea4d" />
+      <RadioButton fx:id="rb5Da" layoutX="1092.0" layoutY="53.0" mnemonicParsing="false" text="Da">
          <toggleGroup>
             <ToggleGroup fx:id="intrebarea5" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="1138.0" layoutY="53.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea5" />
-      <RadioButton layoutX="1092.0" layoutY="74.0" mnemonicParsing="false" text="Da">
+      <RadioButton fx:id="rb5Nu" layoutX="1138.0" layoutY="53.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea5" />
+      <RadioButton fx:id="rb6Da" layoutX="1092.0" layoutY="74.0" mnemonicParsing="false" text="Da">
          <toggleGroup>
             <ToggleGroup fx:id="intrebarea6" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="1138.0" layoutY="74.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea6" />
-      <RadioButton layoutX="1092.0" layoutY="95.0" mnemonicParsing="false" text="Da">
+      <RadioButton fx:id="rb6Nu" layoutX="1138.0" layoutY="74.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea6" />
+      <RadioButton fx:id="rb7Da" layoutX="1092.0" layoutY="95.0" mnemonicParsing="false" text="Da">
          <toggleGroup>
             <ToggleGroup fx:id="intrebarea7" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="1138.0" layoutY="95.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea7" />
-      <RadioButton layoutX="1092.0" layoutY="137.0" mnemonicParsing="false" text="Da">
+      <RadioButton fx:id="rb7Nu" layoutX="1138.0" layoutY="95.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea7" />
+      <RadioButton fx:id="rb8aDa" layoutX="1092.0" layoutY="137.0" mnemonicParsing="false" text="Da">
          <toggleGroup>
             <ToggleGroup fx:id="intrebarea8a" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="1138.0" layoutY="137.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea8a" />
-      <RadioButton layoutX="1092.0" layoutY="157.0" mnemonicParsing="false" text="Da">
+      <RadioButton fx:id="rb8aNu" layoutX="1138.0" layoutY="137.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea8a" />
+      <RadioButton fx:id="rb8bDa" layoutX="1092.0" layoutY="157.0" mnemonicParsing="false" text="Da">
          <toggleGroup>
             <ToggleGroup fx:id="intrebarea8b" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="1138.0" layoutY="157.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea8b" />
-      <RadioButton layoutX="1092.0" layoutY="179.0" mnemonicParsing="false" text="Da">
+      <RadioButton fx:id="rb8bNu" layoutX="1138.0" layoutY="157.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea8b" />
+      <RadioButton fx:id="rb8cDa" layoutX="1092.0" layoutY="179.0" mnemonicParsing="false" text="Da">
          <toggleGroup>
             <ToggleGroup fx:id="intrebarea8c" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="1138.0" layoutY="179.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea8c" />
-      <RadioButton layoutX="1092.0" layoutY="200.0" mnemonicParsing="false" text="Da">
+      <RadioButton fx:id="rb8cNu" layoutX="1138.0" layoutY="179.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea8c" />
+      <RadioButton fx:id="rb8dDa" layoutX="1092.0" layoutY="200.0" mnemonicParsing="false" text="Da">
          <toggleGroup>
             <ToggleGroup fx:id="intrebarea8d" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="1138.0" layoutY="200.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea8d" />
-      <RadioButton layoutX="1092.0" layoutY="221.0" mnemonicParsing="false" text="Da">
+      <RadioButton fx:id="rb8dNu" layoutX="1138.0" layoutY="200.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea8d" />
+      <RadioButton fx:id="rb8eDa" layoutX="1092.0" layoutY="221.0" mnemonicParsing="false" text="Da">
          <toggleGroup>
             <ToggleGroup fx:id="intrebarea8e" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="1138.0" layoutY="221.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea8e" />
-      <RadioButton layoutX="1092.0" layoutY="242.0" mnemonicParsing="false" text="Da">
+      <RadioButton fx:id="rb8eNu" layoutX="1138.0" layoutY="221.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea8e" />
+      <RadioButton fx:id="rb8fDa" layoutX="1092.0" layoutY="242.0" mnemonicParsing="false" text="Da">
          <toggleGroup>
             <ToggleGroup fx:id="intrebarea8f" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="1138.0" layoutY="242.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea8f" />
-      <RadioButton layoutX="1092.0" layoutY="263.0" mnemonicParsing="false" text="Da">
+      <RadioButton fx:id="rb8fNu" layoutX="1138.0" layoutY="242.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea8f" />
+      <RadioButton fx:id="rb8gDa" layoutX="1092.0" layoutY="263.0" mnemonicParsing="false" text="Da">
          <toggleGroup>
             <ToggleGroup fx:id="intrebarea8g" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="1138.0" layoutY="263.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea8g" />
-      <RadioButton layoutX="1092.0" layoutY="284.0" mnemonicParsing="false" text="Da">
+      <RadioButton fx:id="rb8gNu" layoutX="1138.0" layoutY="263.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea8g" />
+      <RadioButton fx:id="rb8hDa" layoutX="1092.0" layoutY="284.0" mnemonicParsing="false" text="Da">
          <toggleGroup>
             <ToggleGroup fx:id="intrebarea8h" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="1138.0" layoutY="284.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea8h" />
-      <RadioButton layoutX="1092.0" layoutY="305.0" mnemonicParsing="false" text="Da">
+      <RadioButton fx:id="rb8hNu" layoutX="1138.0" layoutY="284.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea8h" />
+      <RadioButton fx:id="rb9Da" layoutX="1092.0" layoutY="305.0" mnemonicParsing="false" text="Da">
          <toggleGroup>
             <ToggleGroup fx:id="intrebarea9" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="1138.0" layoutY="305.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea9" />
-      <RadioButton layoutX="1092.0" layoutY="325.0" mnemonicParsing="false" text="Da">
+      <RadioButton fx:id="rb9Nu" layoutX="1138.0" layoutY="305.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea9" />
+      <RadioButton fx:id="rb10Da" layoutX="1092.0" layoutY="325.0" mnemonicParsing="false" text="Da">
          <toggleGroup>
             <ToggleGroup fx:id="intrebarea10" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="1138.0" layoutY="325.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea10" />
+      <RadioButton fx:id="rb10Nu" layoutX="1138.0" layoutY="325.0" mnemonicParsing="false" text="Nu" toggleGroup="$intrebarea10" />
    </children>
 </AnchorPane>
