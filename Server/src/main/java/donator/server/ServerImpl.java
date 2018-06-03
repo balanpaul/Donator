@@ -2,13 +2,18 @@ package donator.server;
 
 import donator.entities.*;
 import donator.persistence.*;
-
 import donator.service.DonatorException;
 import donator.service.IServer;
 
+import javax.mail.Message;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
+
 
 public class ServerImpl implements IServer {
 
@@ -96,7 +101,7 @@ public class ServerImpl implements IServer {
     }
 
     @Override
-    public List<String> getAll() throws DonatorException, RemoteException {
+    public List<String> getDonatori() throws DonatorException, RemoteException {
         List<Donator> donators=donatorRepository.findAll();
         List<String> list=new ArrayList<>();
         for(Donator donator :donators){
@@ -120,6 +125,56 @@ public class ServerImpl implements IServer {
     @Override
     public List<DateSange> getSange() throws DonatorException, RemoteException {
         return dateSangeRepository.getSange();
+    }
+
+    @Override
+    public void trimitereMail(String mailto) throws DonatorException, RemoteException {
+/*
+            // email ID of Recipient.
+            String recipient = mailto;
+
+            // email ID of  Sender.
+            String sender = "balanpaul16@gmail.com";
+
+            // using host as localhost
+            String host = "localhost";
+
+            // Getting system properties
+            Properties properties = System.getProperties();
+
+            // Setting up mail server
+            properties.setProperty("mail.smtp.host", "smtp.gmail.com");
+
+
+            // creating session object to get properties
+            javax.mail.Session session = javax.mail.Session.getDefaultInstance(properties);
+
+            try
+            {
+                // MimeMessage object.
+                MimeMessage message = new MimeMessage(session);
+
+                // Set From Field: adding senders email to from field.
+                message.setFrom(new InternetAddress(sender));
+
+                // Set To Field: adding recipient's email to from field.
+                message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
+
+                // Set Subject: subject of the email
+                message.setSubject("This is Suject");
+
+                // set body of the email.
+                message.setText("This is a test mail");
+
+                // Send email.
+                javax.mail.Transport.send(message);
+                System.out.println("Mail successfully sent");
+            } catch (AddressException e) {
+                e.printStackTrace();
+            } catch (javax.mail.MessagingException e) {
+                e.printStackTrace();
+            }
+*/
     }
 
     @Override

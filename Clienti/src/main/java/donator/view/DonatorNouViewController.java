@@ -89,7 +89,7 @@ public class DonatorNouViewController extends UnicastRemoteObject implements ICl
 
         try{
             Donator donator = new Donator(nume, prenume, strada, numar, bloc, scara, apartament, oras, judet, telefon, email);
-            //Donator d=new Donator("a","a","a","a","a","a",1,"a","a","a","a","a","a","a",123456);
+
             java.sql.Date p= java.sql.Date.valueOf(localDate);
             Programari programari=new Programari(Integer.valueOf(intervalOrar1),p);
 
