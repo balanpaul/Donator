@@ -88,17 +88,22 @@ public class DonatorValidare implements Validator<Donator> {
             errMsg += "Numarul de telefon trebuie sa contina doar cifre!";
 
         //email
-
+        pattern = Pattern.compile("^[a-zA-Z0-9_+&*-]+(?:\\."+
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}$");
+        matcher = pattern.matcher(element.getEmail());
+        if(element.getEmail() == null || "".equals(element.getEmail()))
+            errMsg += "Introduceti un email!";
+        else if(!matcher.matches())
+            errMsg += "Email-ul nu este valid!";
 
         //cnp
-        if(!"-1".equals(element.getCnp()))
-            if(element.getCnp().matches("[0-9]+"))
-                errMsg += "CNP-ul trebuie sa contina numai cifre!";
-
-        //grupa sange
-
-
-
+        matcher = pattern.matcher(element.getCnp());
+        if(element.getCnp() == null || "".equals(element.getCnp()))
+            errMsg += "Introduceti un CNP!";
+        else if(!element.getCnp().matches("[0-9]+") || !matcher.matches())
+            errMsg += "CNP-ul trebuie sa contina doar cifre!";
 
 
         if(errMsg != "")
