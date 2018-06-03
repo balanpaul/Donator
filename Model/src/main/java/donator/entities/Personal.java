@@ -1,24 +1,18 @@
 package donator.entities;
 
 
+import java.io.Serializable;
 
-
-public class Personal {
-
+public class Personal implements Serializable {
 
     private int IdPersonal;
-
-
-    private String Functie;
-
-
     private String Nume;
-
-
     private String Prenume;
-
-
     private String NrTelefon;
+    private String parola;
+
+    public Personal() {
+    }
 
     public int getIdPersonal() {
         return IdPersonal;
@@ -28,13 +22,6 @@ public class Personal {
         IdPersonal = idPersonal;
     }
 
-    public String getFunctie() {
-        return Functie;
-    }
-
-    public void setFunctie(String functie) {
-        Functie = functie;
-    }
 
     public String getNume() {
         return Nume;
@@ -60,12 +47,19 @@ public class Personal {
         NrTelefon = nrTelefon;
     }
 
-    public Personal(int idPersonal, String functie, String nume, String prenume, String nrTelefon) {
+    public String getParola() {
+        return parola;
+    }
 
+    public void setParola(String parola) {
+        this.parola = parola;
+    }
+
+    public Personal(int idPersonal, String nume, String prenume, String nrTelefon, String parola) {
         IdPersonal = idPersonal;
-        Functie = functie;
         Nume = nume;
         Prenume = prenume;
         NrTelefon = nrTelefon;
+        this.parola = parola;
     }
 }
