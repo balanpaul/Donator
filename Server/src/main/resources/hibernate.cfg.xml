@@ -20,5 +20,6 @@
 
         <mapping resource="Donator.hbm.xml"/>
         <mapping resource="Programari.hbm.xml"/>
+        <mapping resource="Personal.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
