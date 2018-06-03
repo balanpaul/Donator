@@ -15,8 +15,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="Clienti_main" />
-    <orderEntry type="module" module-name="Model_main" />
     <orderEntry type="module" module-name="Service_main" />
+    <orderEntry type="module" module-name="Donator-Model_main" />
     <orderEntry type="library" name="Gradle: org.springframework:spring-context:4.3.7.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: junit:junit:4.12" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework:spring-aop:4.3.7.RELEASE" level="project" />

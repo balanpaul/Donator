@@ -25,6 +25,12 @@ public class Donator implements Serializable{
     public Donator() {
     }
 
+    public Donator(String nume, String prenume, String email) {
+        Nume = nume;
+        Prenume = prenume;
+        Email = email;
+    }
+
     public int getIdDonator() {
         return IdDonator;
     }
