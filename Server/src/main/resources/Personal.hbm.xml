@@ -11,5 +11,6 @@
         <property name="prenume" column="Prenume" type="string"/>
         <property name="nrTelefon" column="NumarTelefon" type="string"/>
         <property name="parola" column="Parola" type="string"/>
+        <property name="functie" column="Functie" type="string"/>
     </class>
 </hibernate-mapping>

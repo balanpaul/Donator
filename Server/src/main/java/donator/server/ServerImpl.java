@@ -1,19 +1,14 @@
 package donator.server;
 
-import donator.entities.Personal;
-import donator.entities.Chestionar;
-import donator.entities.Programari;
+import donator.entities.*;
+import donator.persistence.*;
 
-import donator.entities.Donator;
-
-import donator.persistence.ChestionarRepository;
-import donator.persistence.DonatorRepository;
-import donator.persistence.PersonalRepository;
-import donator.persistence.ProgramariRepository;
 import donator.service.DonatorException;
 import donator.service.IServer;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ServerImpl implements IServer {
 
@@ -21,14 +16,15 @@ public class ServerImpl implements IServer {
     private ProgramariRepository programariRepository;
     private PersonalRepository personalRepository;
     private ChestionarRepository chestionarRepository;
+    private DateSangeRepository dateSangeRepository;
 
 
-
-    public ServerImpl(DonatorRepository donatorRepository, ProgramariRepository programariRepository, PersonalRepository personalRepository, ChestionarRepository chestionarRepository) {
+    public ServerImpl(DonatorRepository donatorRepository, ProgramariRepository programariRepository, PersonalRepository personalRepository, ChestionarRepository chestionarRepository, DateSangeRepository dateSangeRepository) {
         this.donatorRepository = donatorRepository;
         this.programariRepository = programariRepository;
         this.personalRepository = personalRepository;
         this.chestionarRepository = chestionarRepository;
+        this.dateSangeRepository = dateSangeRepository;
     }
 
     public ServerImpl(ProgramariRepository programariRepository) {
@@ -45,7 +41,7 @@ public class ServerImpl implements IServer {
         if(i==5)
             throw  new DonatorException("Nu mai sunt locuri disponibile in aceasta perioada");
         long id=donatorRepository.save(donator);
-        Donator d=donatorRepository.findOne(donator.getNume());
+        Donator d=donatorRepository.findMail(donator.getEmail());
         programari.setDonator(d);
         programariRepository.save(programari);
         System.out.println("Sunt in server " + donator.getNume());
@@ -98,6 +94,34 @@ public class ServerImpl implements IServer {
             throw  new DonatorException("Parola invalida");
         return personal;
     }
+
+    @Override
+    public List<String> getAll() throws DonatorException, RemoteException {
+        List<Donator> donators=donatorRepository.findAll();
+        List<String> list=new ArrayList<>();
+        for(Donator donator :donators){
+            String s;
+            if(donator.getCnp()==null) {
+                 s="-";
+            } else
+                s=donator.getCnp();
+            String line=donator.getNume()+"  "+donator.getPrenume()+"  "+s+"  "+donator.getNrTelefon();
+            list.add(line);
+        }
+        return list;
+    }
+
+    @Override
+    public void recoltare(Donator donator, DateSange dateSange) throws DonatorException, RemoteException {
+        dateSange.setDonator(donator);
+        dateSangeRepository.save(dateSange);
+    }
+
+    @Override
+    public List<DateSange> getSange() throws DonatorException, RemoteException {
+        return dateSangeRepository.getSange();
+    }
+
 
     @Override
     public Chestionar cautareChestionar(String mail) throws DonatorException, RemoteException{

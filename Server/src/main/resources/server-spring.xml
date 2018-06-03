@@ -8,7 +8,7 @@
     <bean id="donatorRepo" class="donator.persistence.DonatorRepository">
     </bean>
     <bean id="progRepo" class="donator.persistence.ProgramariRepository"/>
-
+    <bean id="sangeRepo" class="donator.persistence.DateSangeRepository"/>
 
 
     <bean id="service" class="donator.server.ServerImpl">
@@ -17,6 +17,7 @@
         <constructor-arg ref="progRepo"/>
         <constructor-arg ref="persoanlRepo"/>
         <constructor-arg ref="chestionarRepo"/>
+        <constructor-arg ref="sangeRepo"/>
 
     </bean>
 

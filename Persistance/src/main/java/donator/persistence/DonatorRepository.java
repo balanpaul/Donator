@@ -102,8 +102,6 @@ public class DonatorRepository {
 
 
             tx = session.beginTransaction();
-
-
             Query query = session.createQuery("FROM donator.entities.Donator");
             donators = (ArrayList<Donator>) query.getResultList();
 
@@ -118,20 +116,17 @@ public class DonatorRepository {
         return donators;
     }
 
-    public Donator findOne(String string) {
+    public List<Donator> findOne(String string,String pre) {
         Session session =sessionFactory.openSession();
         Donator z=null;
+        ArrayList<Donator> donators = null;
         Transaction tx=null;
         try{
             tx=session.beginTransaction();
-            Query query = session.createQuery("FROM donator.entities.Donator");
-            ArrayList<Donator> donators = (ArrayList<Donator>) query.getResultList();
-            for(Donator d:donators){
-                if(d.getNume().equals(string))
-                    z=d;
-            }
+
+             donators = (ArrayList<Donator>) session.createQuery("select D from Donator D where D.nume= :num and D.prenume= :pre").setParameter("num",string).setParameter("pre",pre).getResultList();
+            //z=donators.get(0);
             tx.commit();
-            return z;
         }catch (RuntimeException ex){
             if(tx!=null)
                 tx.rollback();
@@ -139,7 +134,7 @@ public class DonatorRepository {
             session.close();
         }
 
-        return z;
+        return donators;
     }
 
     public Donator findMail(String string) {

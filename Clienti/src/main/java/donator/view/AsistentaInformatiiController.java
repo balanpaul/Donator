@@ -45,7 +45,7 @@ public class AsistentaInformatiiController {
         telefon.setText(donator.getNrTelefon());
         email.setText(donator.getEmail());
         cnp.setText(donator.getCnp());
-        int idSange = donator.getIdSange();
+        //int idSange = donator.getIdSange();
         //urmeaza sa fie implementat in ServerImpl
         DateSange dateSange = null;
         //DateSange dateSange = service.getGrupaSanguina(int idSange);

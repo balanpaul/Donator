@@ -10,7 +10,7 @@ public class Personal implements Serializable {
     private String Prenume;
     private String NrTelefon;
     private String parola;
-
+    private String functie;
     public Personal() {
     }
 
@@ -55,11 +55,20 @@ public class Personal implements Serializable {
         this.parola = parola;
     }
 
-    public Personal(int idPersonal, String nume, String prenume, String nrTelefon, String parola) {
+    public String getFunctie() {
+        return functie;
+    }
+
+    public void setFunctie(String functie) {
+        this.functie = functie;
+    }
+
+    public Personal(int idPersonal, String nume, String prenume, String nrTelefon, String parola, String functie) {
         IdPersonal = idPersonal;
         Nume = nume;
         Prenume = prenume;
         NrTelefon = nrTelefon;
         this.parola = parola;
+        this.functie = functie;
     }
 }
