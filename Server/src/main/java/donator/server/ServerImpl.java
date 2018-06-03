@@ -103,7 +103,7 @@ public class ServerImpl implements IServer {
             throw  new DonatorException("Parola invalida");
         return personal;
     }
-
+/*
     @Override
     public List<String> getDonatori() throws DonatorException, RemoteException {
         List<Donator> donators=donatorRepository.findAll();
@@ -119,6 +119,7 @@ public class ServerImpl implements IServer {
         }
         return list;
     }
+    */
 
     @Override
     public void recoltare(Donator donator, DateSange dateSange) throws DonatorException, RemoteException {
@@ -185,5 +186,10 @@ public class ServerImpl implements IServer {
                 lista.add(donator.getNume() + "  " + donator.getPrenume() + "  " + donator.getCnp() + "  " + donator.getNrTelefon());
         }
         return lista;
+    }
+
+    @Override
+    public List<String> getAll() throws DonatorException, RemoteException {
+        return null;
     }
 }
