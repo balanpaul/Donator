@@ -6,9 +6,12 @@ import donator.service.DonatorException;
 import donator.service.IServer;
 import javafx.concurrent.Service;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
+import javafx.stage.Stage;
+
 import java.rmi.RemoteException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -26,6 +29,8 @@ public class ChestionarView2Controller {
     RadioButton  rb9Da, rb9Nu, rb10Da, rb10Nu;
     @FXML
     TextField nume, prenume, email;
+
+    Stage dialogStage;
 
     IServer service;
     public ChestionarView2Controller(){
@@ -62,7 +67,7 @@ public class ChestionarView2Controller {
         else{
             chestionar.setIntrebarea1b("Nu");
         }
-        if(rb1bDa.isSelected()){
+        if(rb1cDa.isSelected()){
             chestionar.setIntrebarea1c("Da");
         }
         else{
@@ -233,6 +238,8 @@ public class ChestionarView2Controller {
 
         try {
             service.adaugaChestionar(chestionar);
+            clearChoices();
+            MessageAlert.showMessage(dialogStage, Alert.AlertType.INFORMATION, "STATUS", "Chestionar trimis!");
         } catch (DonatorException e) {
             e.printStackTrace();
         } catch (RemoteException e) {
@@ -242,6 +249,103 @@ public class ChestionarView2Controller {
 
     public void clearChoices(){
         nume.setText("");
+        prenume.setText("");
+        email.setText("");
+        if(rb1aDa.isSelected()){
+            rb1aDa.setSelected(false);
+        }
+        else{
+            rb1aNu.setSelected(false);
+        }
+        if(rb1bDa.isSelected()){
+            rb1bDa.setSelected(false);
+        }
+        else{
+            rb1bNu.setSelected(false);
+        }
+        if(rb1cDa.isSelected()){
+            rb1cDa.setSelected(false);
+        }
+        else{
+            rb1cNu.setSelected(false);
+        }
+        if(rb1dDa.isSelected()){
+            rb1dDa.setSelected(false);
+        }
+        else{
+            rb1dNu.setSelected(false);
+        }
+        if(rb2Da.isSelected()){
+            rb2Da.setSelected(false);
+        }
+        else{
+            rb2Nu.setSelected(false);
+        }
+        if(rb3aDa.isSelected()){
+            rb3aDa.setSelected(false);
+        }
+        else{
+            rb3aNu.setSelected(false);
+        }
 
+        if(rb3bDa.isSelected()){
+            rb3bDa.setSelected(false);
+        }
+        else{
+            rb3bNu.setSelected(false);
+        }
+        rb3cDa.setSelected(false);
+        rb3dDa.setSelected(false);
+        rb3eDa.setSelected(false);
+        rb3fDa.setSelected(false);
+        rb3gDa.setSelected(false);
+        rb3hDa.setSelected(false);
+        rb3cNu.setSelected(false);
+        rb3dNu.setSelected(false);
+        rb3eNu.setSelected(false);
+        rb3fNu.setSelected(false);
+        rb3gNu.setSelected(false);
+        rb3hNu.setSelected(false);
+
+        rb4aDa.setSelected(false);
+        rb4aNu.setSelected(false);
+        rb4bDa.setSelected(false);
+        rb4bNu.setSelected(false);
+        rb4cDa.setSelected(false);
+        rb4cNu.setSelected(false);
+        rb4dDa.setSelected(false);
+        rb4dNu.setSelected(false);
+
+        rb5Da.setSelected(false);
+        rb5Nu.setSelected(false);
+
+        rb6Da.setSelected(false);
+        rb6Nu.setSelected(false);
+
+        rb7Da.setSelected(false);
+        rb7Nu.setSelected(false);
+
+        rb8aDa.setSelected(false);
+        rb8aNu.setSelected(false);
+        rb8bDa.setSelected(false);
+        rb8bNu.setSelected(false);
+        rb8cDa.setSelected(false);
+        rb8cNu.setSelected(false);
+        rb8dDa.setSelected(false);
+        rb8dNu.setSelected(false);
+        rb8eDa.setSelected(false);
+        rb8eNu.setSelected(false);
+        rb8fDa.setSelected(false);
+        rb8fNu.setSelected(false);
+        rb8gDa.setSelected(false);
+        rb8gNu.setSelected(false);
+        rb8hDa.setSelected(false);
+        rb8hNu.setSelected(false);
+
+        rb9Da.setSelected(false);
+        rb9Nu.setSelected(false);
+
+        rb10Da.setSelected(false);
+        rb10Nu.setSelected(false);
     }
 }
