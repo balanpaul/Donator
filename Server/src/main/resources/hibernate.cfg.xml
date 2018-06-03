@@ -23,5 +23,6 @@
         <mapping resource="Personal.hbm.xml"/>
         <mapping resource="Chestionar.hbm.xml"></mapping>
         <mapping resource="DateSange.hbm.xml"></mapping>
+        <mapping resource="Observatii.hbm.xml"></mapping>
     </session-factory>
 </hibernate-configuration>

@@ -17,14 +17,16 @@ public class ServerImpl implements IServer {
     private PersonalRepository personalRepository;
     private ChestionarRepository chestionarRepository;
     private DateSangeRepository dateSangeRepository;
+    private ObservatiiRepository observatiiRepository;
 
 
-    public ServerImpl(DonatorRepository donatorRepository, ProgramariRepository programariRepository, PersonalRepository personalRepository, ChestionarRepository chestionarRepository, DateSangeRepository dateSangeRepository) {
+    public ServerImpl(DonatorRepository donatorRepository, ProgramariRepository programariRepository, PersonalRepository personalRepository, ChestionarRepository chestionarRepository, DateSangeRepository dateSangeRepository, ObservatiiRepository observatiiRepository) {
         this.donatorRepository = donatorRepository;
         this.programariRepository = programariRepository;
         this.personalRepository = personalRepository;
         this.chestionarRepository = chestionarRepository;
         this.dateSangeRepository = dateSangeRepository;
+        this.observatiiRepository = observatiiRepository;
     }
 
     @Override
@@ -44,6 +46,12 @@ public class ServerImpl implements IServer {
     public void adaugaChestionar(Chestionar chestionar)throws DonatorException, RemoteException{
         chestionarRepository.save(chestionar);
         System.out.println("Sunt in server " + chestionar.getIdDonator().getNume());
+    }
+
+    @Override
+    public void adaugaObservatie(Observatie observatie) throws DonatorException, RemoteException {
+        observatiiRepository.save(observatie);
+        System.out.println("Sunt in server " + observatie.getIdObservatie() + " " + observatie.getIdObservatie());
     }
 
     @Override
@@ -112,6 +120,11 @@ public class ServerImpl implements IServer {
     @Override
     public List<DateSange> getSange() throws DonatorException, RemoteException {
         return dateSangeRepository.getSange();
+    }
+
+    @Override
+    public List<Observatie> listaObservatii(int idSange) throws DonatorException, RemoteException {
+        return observatiiRepository.listaObservatii(idSange);
     }
 
 
