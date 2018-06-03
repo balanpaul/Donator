@@ -34,7 +34,7 @@ public class StartAsistenta extends Application {
                 Scene scene = new Scene(anchorPane);
                 Stage stage = new Stage();
                 primaryStage.setScene(scene);
-                primaryStage.setTitle("Donator Now");
+                primaryStage.setTitle("Login");
 
                 primaryStage.show();
             } catch (Exception e){

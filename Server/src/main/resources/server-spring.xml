@@ -5,9 +5,10 @@
 
 
 
-    <bean id="donatorRepo" class="donator.persistence.DonatorRepository">
-    </bean>
+    <bean id="donatorRepo" class="donator.persistence.DonatorRepository"/>
     <bean id="progRepo" class="donator.persistence.ProgramariRepository"/>
+    <bean id="personalRepo" class="donator.persistence.PersonalRepository"/>
+    <bean id="chestionarRepo" class="donator.persistence.ChestionarRepository"/>
     <bean id="sangeRepo" class="donator.persistence.DateSangeRepository"/>
 
 
@@ -15,15 +16,11 @@
 
         <constructor-arg ref="donatorRepo"/>
         <constructor-arg ref="progRepo"/>
-        <constructor-arg ref="persoanlRepo"/>
+        <constructor-arg ref="personalRepo"/>
         <constructor-arg ref="chestionarRepo"/>
         <constructor-arg ref="sangeRepo"/>
 
     </bean>
-
-    <bean id="chestionarRepo" class="donator.persistence.ChestionarRepository"></bean>
-
-    <bean id="persoanlRepo" class="donator.persistence.PersonalRepository"></bean>
 
     <bean class="org.springframework.remoting.rmi.RmiServiceExporter">
         <property name="serviceName" value="Donator"/>

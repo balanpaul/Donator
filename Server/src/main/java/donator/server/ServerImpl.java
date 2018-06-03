@@ -27,14 +27,6 @@ public class ServerImpl implements IServer {
         this.dateSangeRepository = dateSangeRepository;
     }
 
-    public ServerImpl(ProgramariRepository programariRepository) {
-        this.programariRepository = programariRepository;
-    }
-
-    public ServerImpl(DonatorRepository donatorRepository) {
-        this.donatorRepository = donatorRepository;
-    }
-
     @Override
     public void adaugaDonator(Donator donator,Programari programari) throws DonatorException, RemoteException {
         int i=programariRepository.nrProg(programari);
