@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="donator.view.LaborantViewController">
+<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="donator.view.LaborantViewController">
    <children>
       <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -54,7 +54,7 @@
             <Font name="Calibri" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="884.0" layoutY="281.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="290.0" text="Sânge ce trebuie verificat">
+      <Button layoutX="884.0" layoutY="281.0" mnemonicParsing="false" onAction="#onClickSangeCeTrebuieVerificat" prefHeight="26.0" prefWidth="290.0" text="Sânge ce trebuie verificat">
          <font>
             <Font name="Impact" size="18.0" />
          </font></Button>
@@ -92,7 +92,7 @@
          </font>
       </Button>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="1.0" layoutX="867.0" layoutY="260.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="320.0" />
-      <TableView layoutX="283.0" layoutY="91.0" prefHeight="283.0" prefWidth="544.0">
+      <TableView fx:id="sangeVerificat" layoutX="283.0" layoutY="91.0" prefHeight="283.0" prefWidth="544.0">
          <columns>
             <TableColumn prefWidth="200.0" text="Nume" />
             <TableColumn prefWidth="194.0" text="Prenume" />

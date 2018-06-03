@@ -132,6 +132,11 @@ public class ServerImpl implements IServer {
     }
 
     @Override
+    public void trimitereMail(String to) throws DonatorException, RemoteException {
+
+    }
+
+    @Override
     public List<Observatie> listaObservatii(int idSange) throws DonatorException, RemoteException {
         return observatiiRepository.listaObservatii(idSange);
     }
@@ -142,6 +147,11 @@ public class ServerImpl implements IServer {
         Donator donator=donatorRepository.findMail(mail);
          Chestionar ch = chestionarRepository.findChestionar(donator.getIdDonator());
          return ch;
+    }
+
+    @Override
+    public List<String> getDonatori() throws DonatorException, RemoteException {
+        return null;
     }
 
     @Override

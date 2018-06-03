@@ -25,7 +25,7 @@ public class LoginView extends UnicastRemoteObject implements IClient {
     private Stage dialogStage;
     private DoctorController doctorController;
     private AsistentaController asistentaController;
-    private LaborantViewController laborantViewController;
+    //private LaborantViewController laborantViewController;
     private LoginView loginView;
 
     @FXML
@@ -100,14 +100,14 @@ public class LoginView extends UnicastRemoteObject implements IClient {
                 FXMLLoader loader = new FXMLLoader();
                 AnchorPane anchorPane;
                 loader.setLocation(getClass().getResource("/laborantView.fxml"));
-                LaborantViewController laborantController = loader.getController();
+                LaborantViewController laborantViewController = loader.getController();
                 anchorPane = (AnchorPane) loader.load();
 
                 Scene scene = new Scene(anchorPane);
                 Stage stage = new Stage();
                 stage.setScene(scene);
                 stage.setTitle("Donator Vechi");
-                //doctorController.setService(stage);
+                laborantViewController.setService(service, stage);
                 stage.show();
 
             } catch (IOException e) {
