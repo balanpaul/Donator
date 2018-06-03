@@ -8,7 +8,6 @@ public class DateSange {
     private int IdSange;
     private String GrupaSanguina;
     private Boolean Sanatos;
-    private String Rh;
     private int globuleRosii;
     private int plasma;
     private int trombocite;
@@ -20,7 +19,7 @@ public class DateSange {
         IdSange = idSange;
         GrupaSanguina = grupaSanguina;
         Sanatos = sanatos;
-        Rh = rh;
+
         this.globuleRosii = globuleRosii;
         this.plasma = plasma;
         this.trombocite = trombocite;
@@ -32,7 +31,6 @@ public class DateSange {
         IdSange = idSange;
         GrupaSanguina = grupaSanguina;
         Sanatos = sanatos;
-        Rh = rh;
         this.globuleRosii = globuleRosii;
         this.plasma = plasma;
         this.trombocite = trombocite;
@@ -98,13 +96,7 @@ public class DateSange {
         Sanatos = sanatos;
     }
 
-    public String getRh() {
-        return Rh;
-    }
 
-    public void setRh(String rh) {
-        Rh = rh;
-    }
 
     public Donator getDonator() {
         return donator;

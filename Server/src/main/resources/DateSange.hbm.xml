@@ -4,18 +4,16 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping >
     <class name="donator.entities.DateSange" table="datesange">
-        <id name="idSange" column="IdDonator" type="int">
-            <generator class="foreign">
-                <param name="property">donator</param>
-            </generator>
+        <id name="idSange" column="IdSange" type="int">
+           <generator class="increment"/>
         </id>
-        <one-to-one name="donator" class="donator.entities.Donator" constrained="true"></one-to-one>
         <property name="grupaSanguina" column="Grupa" type="string"/>
         <property name="sanatos" column="Sanatos" type="boolean"/>
-        <property name="rh" column="Rh" type="string"/>
         <property name="globuleRosii" column="GlobuleRosii" type="int"/>
         <property name="plasma" column="Plasma" type="int"/>
         <property name="trombocite" column="Trombocite" type="int"/>
         <property name="dataRecolta" column="DataRecoltare" type="date"/>
+        <many-to-one name="donator" class="donator.entities.Donator" column="IdDonator" unique="true"
+                     cascade="all"/>
     </class>
 </hibernate-mapping>

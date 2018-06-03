@@ -8,6 +8,7 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DateSangeRepository {
@@ -81,6 +82,23 @@ public class DateSangeRepository {
             tx = session.beginTransaction();
             dateSange = (DateSange) session.createQuery("SELECT A FROM  DateSange A join fetch A.donator B where B.idDonator= :donator").setParameter("donator",id).
                     setMaxResults(1).getResultList().get(0);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null)
+                tx.rollback();
+            ;
+        } finally {
+            session.close();
+        }
+        return dateSange;
+    }
+    public List<DateSange> getAllSange(int id) {
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        List<DateSange> dateSange = new ArrayList<>();
+        try {
+            tx = session.beginTransaction();
+            dateSange =  session.createQuery("SELECT A FROM  DateSange A join fetch A.donator B where B.idDonator= :donator").setParameter("donator",id).getResultList();
             tx.commit();
         } catch (Exception e) {
             if (tx != null)
