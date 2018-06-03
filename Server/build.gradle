@@ -18,5 +18,8 @@ dependencies {
 
 
     compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.6'
+    // https://mvnrepository.com/artifact/javax.mail/mail
+    compile group: 'javax.mail', name: 'mail', version: '1.4.1'
+
 
 }
