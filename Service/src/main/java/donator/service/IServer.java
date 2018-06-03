@@ -1,12 +1,10 @@
 package donator.service;
 
 
-import donator.entities.Chestionar;
-import donator.entities.Donator;
-import donator.entities.Personal;
-import donator.entities.Programari;
+import donator.entities.*;
 
 import java.rmi.RemoteException;
+import java.util.List;
 
 public interface IServer {
     //DateSange[] getSange() throws DonatorException;
@@ -20,5 +18,8 @@ public interface IServer {
     Donator cautareDonator(String mail)throws DonatorException,RemoteException;
     Personal cautarePersonal(String pass)throws DonatorException,RemoteException;
     Chestionar cautareChestionar(String email) throws DonatorException, RemoteException;
+    List<String> getAll()throws DonatorException,RemoteException;
+    void recoltare(Donator donator, DateSange dateSange)throws DonatorException,RemoteException;
+    List<DateSange> getSange()throws DonatorException,RemoteException;
     //boolean verificareDonator(Donator donator) throws DonatorException,RemoteException;
 }

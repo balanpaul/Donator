@@ -12,7 +12,6 @@ public class Donator implements Serializable{
     private String DataNasterii;
     private String NrTelefon;
     private String Email;
-    private int IdSange;
     private String Judet;
     private String Oras;
     private String Strada;
@@ -88,13 +87,6 @@ public class Donator implements Serializable{
         Email = email;
     }
 
-    public int getIdSange() {
-        return IdSange;
-    }
-
-    public void setIdSange(int idSange) {
-        IdSange = idSange;
-    }
 
     public String getJudet() {
         return Judet;
@@ -160,7 +152,7 @@ public class Donator implements Serializable{
         CodPostal = codPostal;
     }
 
-    public Donator(String cnp, String nume, String prenume, String dataNasterii, String nrTelefon, String email, int idSange, String judet, String oras, String strada, String apartament, String bloc, String scara, String numar, int codPostal) {
+    public Donator(String cnp, String nume, String prenume, String dataNasterii, String nrTelefon, String email, String judet, String oras, String strada, String apartament, String bloc, String scara, String numar, int codPostal) {
         IdDonator = 1;
         Cnp = cnp;
         Nume = nume;
@@ -168,7 +160,7 @@ public class Donator implements Serializable{
         DataNasterii = dataNasterii;
         NrTelefon = nrTelefon;
         Email = email;
-        IdSange = idSange;
+
         Judet = judet;
         Oras = oras;
         Strada = strada;
