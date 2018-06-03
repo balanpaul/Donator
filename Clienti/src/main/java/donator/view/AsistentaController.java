@@ -47,7 +47,7 @@ public class AsistentaController extends UnicastRemoteObject implements IClient{
         lista.add(1, "pere");
         System.out.println("am ajuns in set service");
         try{
-            listViewDonatori.setItems(FXCollections.observableArrayList(service.getAll()));
+            listViewDonatori.setItems(FXCollections.observableArrayList(service.getDonatori()));
         }catch(DonatorException ex){
 
         }catch (RemoteException ex){
@@ -80,7 +80,7 @@ public class AsistentaController extends UnicastRemoteObject implements IClient{
                     }
                 } else {
                     try {
-                        listViewDonatori.setItems(FXCollections.observableArrayList(service.getAll()));
+                        listViewDonatori.setItems(FXCollections.observableArrayList(service.getDonatori()));
                     } catch (DonatorException | RemoteException ex) { }
                 }
             }

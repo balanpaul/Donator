@@ -1,16 +1,22 @@
 package donator.server;
 
-import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfWriter;
 import donator.entities.*;
 import donator.persistence.*;
 
 import donator.service.DonatorException;
 import donator.service.IServer;
 
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
 import javax.mail.*;
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
+import javax.mail.internet.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -106,10 +112,6 @@ public class ServerImpl implements IServer {
     }
 
     @Override
-    public List<String> getAll() throws DonatorException, RemoteException {
-        List<Donator> donators=donatorRepository.findAll();
-        List<String> list=new ArrayList<>();
-        for(Donator donator :donators){
     public List<String> getDonatori() throws DonatorException, RemoteException {
         List<Donator> donators = donatorRepository.findAll();
         List<String> list = new ArrayList<>();
@@ -138,13 +140,14 @@ public class ServerImpl implements IServer {
 
     @Override
     public void trimitereMail(String mailto) throws DonatorException, RemoteException {
+        exportPDF(mailto);
         String to = mailto;
         String subject = "subject";
         String msg = "email text....";
         final String from = "balanpaul16@gmail.com";
         final String password = "Manchester1918";
 
-
+        String attachmentPath="E:\\Donator\\Istoric.pdf";
         Properties props = new Properties();
         props.put("mail.smtp.starttls.enable", "true");
         props.setProperty("mail.host", "smtp.gmail.com");
@@ -166,36 +169,62 @@ public class ServerImpl implements IServer {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress("maplabs@scs.ubbcluj.ro"));
             message.setRecipients(Message.RecipientType.CC,
-                    InternetAddress.parse(to));
+                    InternetAddress.parse(mailto));
             message.setSubject(subject);
-            message.setText("sadsa");
+            message.setText("Istoicul donatii");
+
+            MimeBodyPart messageBodyPart = new MimeBodyPart();
+            Multipart multipart = new MimeMultipart();
+
+            File att = new File(attachmentPath);
+            messageBodyPart.attachFile(att);
+
+            DataSource source = new FileDataSource(att);
+            messageBodyPart.setDataHandler(new DataHandler(source));
+            messageBodyPart.setFileName("Istoricul donatiilor");
+            multipart.addBodyPart(messageBodyPart);
+            message.setContent(multipart);
 
             System.out.println("Sending");
             Transport.send(message);
             System.out.println("Done");
         } catch (MessagingException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
     }
 
     @Override
-    public void exportPDF(String mail) throws DonatorException, RemoteException {
-       /*Donator donator=donatorRepository.findMail(mail);
+    public List<Observatie> listaObservatii(int idSange) throws DonatorException, RemoteException {
+        return null;
+    }
+
+
+    private void exportPDF(String mail) throws DonatorException, RemoteException {
+       Donator donator=donatorRepository.findMail(mail);
        DateSange dateSange=dateSangeRepository.getSangeD(donator.getIdDonator());
-
+        Document document = new Document();
         Paragraph paragraph;
+        try {
+            PdfWriter.getInstance(document, new FileOutputStream("E:\\Donator\\Istoric.pdf"));
 
-        for(DateSange student : dateSangeRepository.getAllSange(donator.getIdDonator())){
+            document.open();
+            Font font = FontFactory.getFont(FontFactory.COURIER, 14, BaseColor.BLACK);
 
-                try {
-                    paragraph = new Paragraph("  ID: " + student.getId() + ", NAME: " + student.getName() + ", FINAL GRADE: " + res + "\n", font);
-                    document.add(paragraph);
-                } catch (DocumentException ex)
+            for(DateSange sange : dateSangeRepository.getAllSange(donator.getIdDonator())) {
 
-
-
-
-        }*/
+                paragraph = new Paragraph(" GRUPA SANGUINA : " + sange.getGrupaSanguina() + ", SANATOS: " + sange.getSanatos() + ",Data prelevari : " + sange.getDataRecolta().toString() + "\n", font);
+                document.add(paragraph);
+               // paragraph =new Paragraph()
+            }
+            document.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -206,10 +235,7 @@ public class ServerImpl implements IServer {
         return ch;
     }
 
-    @Override
-    public List<String> getDonatori() throws DonatorException, RemoteException {
-        return null;
-    }
+
 
     @Override
     public List<String> filtrareDonatorDupaNume(String nume, String prenume)throws DonatorException, RemoteException{

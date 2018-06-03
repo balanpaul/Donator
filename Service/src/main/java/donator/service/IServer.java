@@ -27,8 +27,7 @@ public interface IServer {
     List<DateSange> getSange()throws DonatorException,RemoteException;
     void trimitereMail(String to) throws DonatorException,RemoteException;
     List<Observatie> listaObservatii(int idSange) throws DonatorException, RemoteException;
-    void exportPDF(String mail) throws DonatorException,RemoteException;
     //boolean verificareDonator(Donator donator) throws DonatorException,RemoteException;
     List<String> filtrareDonatorDupaNume(String nume, String prenume)throws DonatorException,RemoteException;
-    List<String> getAll() throws DonatorException, RemoteException;
+
 }
