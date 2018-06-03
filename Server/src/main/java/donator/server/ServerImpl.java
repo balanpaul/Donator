@@ -8,7 +8,10 @@ import donator.service.IServer;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class ServerImpl implements IServer {
 
@@ -133,5 +136,18 @@ public class ServerImpl implements IServer {
         Donator donator=donatorRepository.findMail(mail);
          Chestionar ch = chestionarRepository.findChestionar(donator.getIdDonator());
          return ch;
+    }
+
+    @Override
+    public List<String> filtrareDonatorDupaNume(String nume, String prenume)throws DonatorException, RemoteException{
+        List<String> lista = new ArrayList<>();
+
+        for(Donator donator : donatorRepository.findOne(nume, prenume)) {
+            if(donator.getCnp() == null)
+                lista.add(donator.getNume() + "  " + donator.getPrenume() + "  " + "-" + "  " + donator.getNrTelefon());
+            else
+                lista.add(donator.getNume() + "  " + donator.getPrenume() + "  " + donator.getCnp() + "  " + donator.getNrTelefon());
+        }
+        return lista;
     }
 }
