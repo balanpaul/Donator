@@ -3,8 +3,10 @@ package donator.service;
 
 import donator.entities.*;
 
+import javax.sql.rowset.Predicate;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public interface IServer {
@@ -26,4 +28,5 @@ public interface IServer {
     void trimitereMail(String to) throws DonatorException,RemoteException;
     List<Observatie> listaObservatii(int idSange) throws DonatorException, RemoteException;
     //boolean verificareDonator(Donator donator) throws DonatorException,RemoteException;
+    List<String> filtrareDonatorDupaNume(String nume, String prenume)throws DonatorException,RemoteException;
 }
