@@ -2,6 +2,7 @@ package donator.view;
 
 import donator.entities.Donator;
 import donator.entities.Programari;
+import donator.service.DonatorException;
 import donator.service.IClient;
 import donator.service.IServer;
 import javafx.event.ActionEvent;
@@ -93,9 +94,11 @@ public class DonatorNouViewController extends UnicastRemoteObject implements ICl
             Programari programari=new Programari(Integer.valueOf(intervalOrar1),p);
 
             service.adaugaDonator(donator,programari);
-            //Alert(dialogStage, Alert.AlertType.INFORMATION, "Salvare cu succes", "Studentul a fost adaugat!");
+
             System.out.println("Donator adaugat!!");
-        }catch (Exception e){
+        }catch (DonatorException e){
+            showErrorMessage(e.getMessage());
+        } catch (RemoteException e) {
             e.printStackTrace();
         }
 
@@ -117,6 +120,13 @@ public class DonatorNouViewController extends UnicastRemoteObject implements ICl
 
     }
 
+    //Alert for error
+    private void showErrorMessage(String msg){
+        Alert message = new Alert(Alert.AlertType.ERROR);
+        message.setTitle("Whoops");
+        message.setContentText(msg);
+        message.showAndWait();
+    }
     @FXML
     public void handleCancel(){
         dialogStage.close();

@@ -7,6 +7,7 @@ import donator.service.IClient;
 import donator.service.IServer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -57,11 +58,16 @@ public class DonatorVechiController extends RemoteObject implements IClient {
             Programari p=new Programari(ora, Date.valueOf(data));
             service.planificare(d,p);
         } catch (DonatorException e) {
-            e.printStackTrace();
+            showErrorMessage(e.getMessage());
         } catch (RemoteException e) {
             e.printStackTrace();
         }
     }
 
-
+    private void showErrorMessage(String msg){
+        Alert message = new Alert(Alert.AlertType.ERROR);
+        message.setTitle("Whoops");
+        message.setContentText(msg);
+        message.showAndWait();
+    }
 }

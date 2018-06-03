@@ -32,6 +32,9 @@ public class ServerImpl implements IServer {
 
     @Override
     public void adaugaDonator(Donator donator,Programari programari) throws DonatorException, RemoteException {
+        int i=programariRepository.nrProg(programari);
+        if(i==5)
+            throw  new DonatorException("Nu mai sunt locuri disponibile in aceasta perioada");
         long id=donatorRepository.save(donator);
         Donator d=donatorRepository.findOne(donator.getNume());
         programari.setDonator(d);
@@ -42,8 +45,12 @@ public class ServerImpl implements IServer {
 
     @Override
     public void planificare(Donator d,Programari programari) throws DonatorException, RemoteException {
+        int i=programariRepository.nrProg(programari);
+        if(i>=5)
+            throw new DonatorException("Nu mai sunt locuri disponibile in aceasta perioada");
         programari.setDonator(d);
         programariRepository.save(programari);
+
     }
 
     @Override
