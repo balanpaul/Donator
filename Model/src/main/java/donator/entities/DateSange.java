@@ -1,34 +1,77 @@
 package donator.entities;
 
 
+import java.sql.Date;
+
 public class DateSange {
 
-
     private int IdSange;
-
-
     private String GrupaSanguina;
-
     private Boolean Sanatos;
-
-
     private String Rh;
+    private int globuleRosii;
+    private int plasma;
+    private int trombocite;
+    private Date dataRecolta;
+    Donator donator;
 
-    private int Trombocite;
 
-    private String Leucocite;
-
-
-    private String Hematii;
-
-    public DateSange(int idSange, String grupaSanguina, Boolean sanatos, String rh, int trombocite, String leucocite, String hematii) {
+    public DateSange(int idSange, String grupaSanguina, Boolean sanatos, String rh, int globuleRosii, int plasma, int trombocite, Date dataRecolta, Donator donator) {
         IdSange = idSange;
         GrupaSanguina = grupaSanguina;
         Sanatos = sanatos;
         Rh = rh;
-        Trombocite = trombocite;
-        Leucocite = leucocite;
-        Hematii = hematii;
+        this.globuleRosii = globuleRosii;
+        this.plasma = plasma;
+        this.trombocite = trombocite;
+        this.dataRecolta = dataRecolta;
+        this.donator = donator;
+    }
+
+    public DateSange(int idSange, String grupaSanguina, Boolean sanatos, String rh, int globuleRosii, int plasma, int trombocite, Date dataRecolta) {
+        IdSange = idSange;
+        GrupaSanguina = grupaSanguina;
+        Sanatos = sanatos;
+        Rh = rh;
+        this.globuleRosii = globuleRosii;
+        this.plasma = plasma;
+        this.trombocite = trombocite;
+        this.dataRecolta = dataRecolta;
+    }
+
+    public DateSange() {
+    }
+
+    public int getGlobuleRosii() {
+        return globuleRosii;
+    }
+
+    public void setGlobuleRosii(int globuleRosii) {
+        this.globuleRosii = globuleRosii;
+    }
+
+    public int getPlasma() {
+        return plasma;
+    }
+
+    public void setPlasma(int plasma) {
+        this.plasma = plasma;
+    }
+
+    public int getTrombocite() {
+        return trombocite;
+    }
+
+    public void setTrombocite(int trombocite) {
+        this.trombocite = trombocite;
+    }
+
+    public Date getDataRecolta() {
+        return dataRecolta;
+    }
+
+    public void setDataRecolta(Date dataRecolta) {
+        this.dataRecolta = dataRecolta;
     }
 
     public int getIdSange() {
@@ -63,27 +106,12 @@ public class DateSange {
         Rh = rh;
     }
 
-    public int getTrombocite() {
-        return Trombocite;
+    public Donator getDonator() {
+        return donator;
     }
 
-    public void setTrombocite(int trombocite) {
-        Trombocite = trombocite;
+    public void setDonator(Donator donator) {
+        this.donator = donator;
     }
 
-    public String getLeucocite() {
-        return Leucocite;
-    }
-
-    public void setLeucocite(String leucocite) {
-        Leucocite = leucocite;
-    }
-
-    public String getHematii() {
-        return Hematii;
-    }
-
-    public void setHematii(String hematii) {
-        Hematii = hematii;
-    }
 }

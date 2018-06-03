@@ -1,5 +1,6 @@
 package donator.view;
 
+import donator.entities.Personal;
 import donator.service.DonatorException;
 import donator.service.IClient;
 import donator.service.IServer;
@@ -47,85 +48,71 @@ public class LoginView extends UnicastRemoteObject implements IClient {
     ObservableList<String> pozitie = FXCollections.observableArrayList("Medic", "Asistenta", "Laborant");
 
 
-
-
-
-
     @FXML
     public void handleLogin(ActionEvent actionEvent) {
-        if (comboBox.getValue().toString().equals( "Medic")) {
+        Personal p=null;
+        try {
+            p = service.cautarePersonal(parola.getText().toString());
+        } catch (DonatorException e) {
+            Alert message = new Alert(Alert.AlertType.ERROR);
+            message.setTitle("Eroare");
+            message.setContentText(e.getMessage());
+            message.showAndWait();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        if (comboBox.getValue().toString().equals("Medic") && p.getFunctie().equals("Medic")) {
             try {
                 FXMLLoader loader = new FXMLLoader();
                 AnchorPane anchorPane;
                 loader.setLocation(getClass().getResource("/medicView.fxml"));
-                DoctorController doctorController =loader.getController();
+                DoctorController doctorController = loader.getController();
                 anchorPane = (AnchorPane) loader.load();
-                service.cautarePersonal(parola.getText().toString());
                 Scene scene = new Scene(anchorPane);
                 Stage stage = new Stage();
                 stage.setScene(scene);
                 stage.setTitle("Donator Vechi");
                 //doctorController.setService(stage);
                 stage.show();
-            } catch (RemoteException e) {
-                System.err.println("Initialization  exception:" + e);
-                e.printStackTrace();
-            } catch (DonatorException e) {
-                Alert message = new Alert(Alert.AlertType.ERROR);
-                message.setTitle("Eroare");
-                message.setContentText(e.getMessage());
-                message.showAndWait();
+
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } else if (comboBox.getValue().toString().equals( "Asistent")) {
+
+        } else if (comboBox.getValue().toString().equals("Asistent")&&p.getFunctie().equals("Asistent")) {
 
             try {
                 FXMLLoader loader = new FXMLLoader();
                 AnchorPane anchorPane;
-                loader.setLocation(getClass().getResource("/asistenta.fxml"));
-                AsistentaController asistentaController =loader.getController();
+                loader.setLocation(getClass().getResource("/asistentaView.fxml"));
+                AsistentaController asistentaController = loader.getController();
                 anchorPane = (AnchorPane) loader.load();
-                service.cautarePersonal(parola.getText().toString());
                 Scene scene = new Scene(anchorPane);
                 Stage stage = new Stage();
                 stage.setScene(scene);
                 stage.setTitle("Donator Vechi");
                 //doctorController.setService(stage);
                 stage.show();
-            } catch (RemoteException e) {
-                System.err.println("Initialization  exception:" + e);
-                e.printStackTrace();
-            } catch (DonatorException e) {
-                Alert message = new Alert(Alert.AlertType.ERROR);
-                message.setTitle("Eroare");
-                message.setContentText(e.getMessage());
-                message.showAndWait();
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } else if (comboBox.getValue().toString().equals( "Laborant")) {
+        } else if (comboBox.getValue().toString().equals("Laborant")&&p.getFunctie().equals("Laborant")) {
             try {
                 FXMLLoader loader = new FXMLLoader();
                 AnchorPane anchorPane;
-                loader.setLocation(getClass().getResource("/laborant.fxml"));
-                 LaborantController laborantController =loader.getController();
+                loader.setLocation(getClass().getResource("/laborantView.fxml"));
+                LaborantController laborantController = loader.getController();
                 anchorPane = (AnchorPane) loader.load();
-                service.cautarePersonal(parola.getText().toString());
+
                 Scene scene = new Scene(anchorPane);
                 Stage stage = new Stage();
                 stage.setScene(scene);
                 stage.setTitle("Donator Vechi");
                 //doctorController.setService(stage);
                 stage.show();
-            } catch (RemoteException e) {
-                System.err.println("Initialization  exception:" + e);
-                e.printStackTrace();
-            } catch (DonatorException e) {
-                Alert message = new Alert(Alert.AlertType.ERROR);
-                message.setTitle("Eroare");
-                message.setContentText(e.getMessage());
-                message.showAndWait();
+
             } catch (IOException e) {
                 e.printStackTrace();
             }

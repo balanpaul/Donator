@@ -4,8 +4,9 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping >
     <class name="donator.entities.Donator" table="Donatori">
-        <id name="IdDonator" column="IdDonatori" type="int">
-            <generator class="increment"></generator>
+        <id name="idDonator" type="int">
+            <column name="IdDonatori"/>
+            <generator class="identity"/>
         </id>
         <property name="nume" column="Nume" type="string"/>
         <property name="prenume" column="Prenume" type="string"/>
@@ -13,7 +14,6 @@
         <property name="dataNasterii" column="Data_Nasterii" type="string"/>
         <property name="nrTelefon" column="NumarTelefon" type="string"/>
         <property name="email" column="Email" type="string"/>
-        <property name="idSange" column="IdSange" type="int"/>
         <property name="judet" column="Judet" type="string"/>
         <property name="oras" column="Oras" type="string"/>
         <property name="strada" column="Strada" type="string"/>
