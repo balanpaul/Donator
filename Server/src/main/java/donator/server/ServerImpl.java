@@ -7,6 +7,7 @@ import donator.persistence.*;
 
 import donator.service.DonatorException;
 import donator.service.IServer;
+import org.xml.sax.SAXException;
 
 import javax.mail.Message;
 import javax.mail.internet.AddressException;
@@ -17,16 +18,21 @@ import javax.activation.DataSource;
 import javax.activation.FileDataSource;
 import javax.mail.*;
 import javax.mail.internet.*;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.*;
+import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 import java.util.Properties;
 
 
@@ -63,22 +69,18 @@ public class ServerImpl implements IServer {
     }
 
     @Override
-    public void adaugaChestionar(Chestionar chestionar) throws DonatorException, RemoteException {
+    public void adaugaChestionar(Chestionar chestionar)throws DonatorException, RemoteException{
         chestionarRepository.save(chestionar);
         System.out.println("Sunt in server " + chestionar.getIdDonator().getNume());
     }
 
     @Override
-<<<<<<<<< Temporary merge branch 1
     public void adaugaObservatie(Observatie observatie) throws DonatorException, RemoteException {
         observatiiRepository.save(observatie);
         System.out.println("Sunt in server " + observatie.getIdObservatie() + " " + observatie.getIdObservatie());
     }
 
     @Override
-    public void planificare(Donator d,Programari programari) throws DonatorException, RemoteException {
-        int i=programariRepository.nrProg(programari);
-        if(i>=5)
     public void planificare(Donator d, Programari programari) throws DonatorException, RemoteException {
         int i = programariRepository.nrProg(programari);
         if (i >= 5)
@@ -121,9 +123,6 @@ public class ServerImpl implements IServer {
 
     @Override
     public List<String> getDonatori() throws DonatorException, RemoteException {
-        List<Donator> donators=donatorRepository.findAll();
-        List<String> list=new ArrayList<>();
-        for(Donator donator :donators){
         List<Donator> donators = donatorRepository.findAll();
         List<String> list = new ArrayList<>();
         for (Donator donator : donators) {
@@ -150,13 +149,6 @@ public class ServerImpl implements IServer {
     }
 
     @Override
-    public void trimitereMail(String to) throws DonatorException, RemoteException {
-
-    }
-
-    @Override
-    public List<Observatie> listaObservatii(int idSange) throws DonatorException, RemoteException {
-        return observatiiRepository.listaObservatii(idSange);
     public void trimitereMail(String mailto) throws DonatorException, RemoteException {
         exportPDF(mailto);
         String to = mailto;
@@ -220,23 +212,11 @@ public class ServerImpl implements IServer {
     }
 
 
-    private void exportPDF(String mail) throws DonatorException, RemoteException {
+    private void exportPDF(String mail)  {
        Donator donator=donatorRepository.findMail(mail);
        DateSange dateSange=dateSangeRepository.getSangeD(donator.getIdDonator());
         Document document = new Document();
         Paragraph paragraph;
-
-        for(DateSange student : dateSangeRepository.getAllSange(donator.getIdDonator())){
-
-                try {
-                    paragraph = new Paragraph("  ID: " + student.getId() + ", NAME: " + student.getName() + ", FINAL GRADE: " + res + "\n", font);
-                    document.add(paragraph);
-                } catch (DocumentException ex)
-
-
-
-
-        }*/
         try {
             PdfWriter.getInstance(document, new FileOutputStream("E:\\Donator\\Istoric.pdf"));
 
@@ -265,6 +245,7 @@ public class ServerImpl implements IServer {
         return ch;
     }
 
+
     @Override
     public List<String> getDonatori() throws DonatorException, RemoteException {
         return null;
@@ -285,6 +266,44 @@ public class ServerImpl implements IServer {
 
     @Override
     public List<String> getAll() throws DonatorException, RemoteException {
+        return null;
+    }
+    public static String[] getCordinates(String address) throws IOException, ParserConfigurationException, SAXException, DonatorException, XPathExpressionException {
+        int responseCode = 0;
+        String api = "http://maps.googleapis.com/maps/api/geocode/xml?address=" + URLEncoder.encode(address, "UTF-8") + "&sensor=true";
+        System.out.println("URL : "+api);
+        URL url = new URL(api);
+        HttpURLConnection httpConnection = (HttpURLConnection)url.openConnection();
+        httpConnection.connect();
+        responseCode = httpConnection.getResponseCode();
+        String status = null;
+        if(responseCode == 200)
+        {
+            DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();;
+            Document document = (Document) builder.parse(httpConnection.getInputStream());
+            XPathFactory xPathfactory = XPathFactory.newInstance();
+            XPath xpath = xPathfactory.newXPath();
+            XPathExpression expr = null;
+            try {
+                expr = xpath.compile("/GeocodeResponse/status");
+                status= (String)expr.evaluate(document, XPathConstants.STRING);
+            } catch (XPathExpressionException e) {
+                e.printStackTrace();
+            }
+
+            if(status.equals("OK"))
+            {
+                expr = xpath.compile("//geometry/location/lat");
+                String latitude = (String)expr.evaluate(document, XPathConstants.STRING);
+                expr = xpath.compile("//geometry/location/lng");
+                String longitude = (String)expr.evaluate(document, XPathConstants.STRING);
+                return new String[] {latitude, longitude};
+            }
+            else
+            {
+                throw new DonatorException("Error from the API - response status: "+status);
+            }
+        }
         return null;
     }
 }
