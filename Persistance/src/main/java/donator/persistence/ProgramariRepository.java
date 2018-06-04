@@ -91,6 +91,33 @@ public class ProgramariRepository {
 
         return z;
     }
+
+    public List<Programari> findAllProg(int id) {
+        Session session =sessionFactory.openSession();
+        List z=null;
+        ArrayList<Programari> programari = null;
+        Transaction tx=null;
+        try{
+            tx=session.beginTransaction();
+           /*
+
+            SQLString = "select A from " + Ad.class.getSimpleName() +" A JOIN A.category B where B.__Id =:category_id ";
+           return centityManager.createQuery(SQLString, Ad.class).setParameter("category_id", Long.valueOf(8)).setMaxResults(10)
+                    .getResultList();
+*/
+            programari = (ArrayList<Programari>) session.createQuery("SELECT A FROM Programari A join fetch A.donator B where B.IdDonator = :donator").setParameter("donator",id).getResultList();
+            tx.commit();
+        }catch (RuntimeException ex){
+            if(tx!=null)
+                tx.rollback();
+        }finally {
+            session.close();
+        }
+
+        return programari;
+    }
+
+
     public int nrProg(Programari programari){
         int count=-1;
         try(Session session=sessionFactory.openSession()){

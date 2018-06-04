@@ -5,6 +5,7 @@ import donator.entities.*;
 
 import javax.sql.rowset.Predicate;
 import java.rmi.RemoteException;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -26,8 +27,12 @@ public interface IServer {
     List<String> getDonatori()throws DonatorException,RemoteException;
     void recoltare(Donator donator, DateSange dateSange)throws DonatorException,RemoteException;
     List<DateSange> getSange()throws DonatorException,RemoteException;
+    DateSange getDateSangeDonator(int id) throws  DonatorException, RemoteException;
     void trimitereMail(String to) throws DonatorException,RemoteException;
     List<Observatie> listaObservatii(int idSange) throws DonatorException, RemoteException;
     //boolean verificareDonator(Donator donator) throws DonatorException,RemoteException;
     List<Donator> filtrareDonatorDupaNume(String nume, String prenume)throws DonatorException,RemoteException;
+    List<Programari> getProgramari(int id) throws DonatorException, RemoteException;
+    public List<Donator> filtrareDonatorDupaNumeSiData(String nume, String prenume, Date date)throws DonatorException, RemoteException;
+    void exportPDF(String mail) throws DonatorException, RemoteException;
 }

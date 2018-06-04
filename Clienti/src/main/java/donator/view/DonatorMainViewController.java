@@ -42,7 +42,7 @@ public class DonatorMainViewController extends UnicastRemoteObject implements IC
         stage.sizeToScene();
 
         donatorNouViewController = fxmlLoader.getController();
-        donatorNouViewController.setService(service);
+        donatorNouViewController.setService(service, stage);
 
         stage.show();
         ((Node) (e.getSource())).getScene().getWindow().hide();
@@ -83,7 +83,7 @@ public class DonatorMainViewController extends UnicastRemoteObject implements IC
             stage.sizeToScene();
 
             donatorVechiController = fxmlLoader.getController();
-            donatorVechiController.setService(service);
+            donatorVechiController.setService(service, stage);
 
             stage.show();
             ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
@@ -101,12 +101,13 @@ public class DonatorMainViewController extends UnicastRemoteObject implements IC
 
             loader.setLocation(getClass().getResource("/istoricDonatieView.fxml"));
             anchorPane = (AnchorPane)loader.load();
-            istoricDonatieViewController = loader.getController();
-            istoricDonatieViewController.setService(service);
             Scene scene = new Scene(anchorPane);
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.setTitle("Donator Istoric");
+
+            istoricDonatieViewController = loader.getController();
+            istoricDonatieViewController.setService(service, stage);
 
             stage.show();
         } catch (Exception e){

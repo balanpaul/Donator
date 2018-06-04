@@ -4,6 +4,7 @@ import donator.service.DonatorException;
 import donator.service.IServer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -19,13 +20,15 @@ public class IstoricDonatieViewController extends UnicastRemoteObject{
 
     @FXML private Text action;
 
-    IServer service;
+    private IServer service;
+    private Stage dialogStage;
 
     public IstoricDonatieViewController() throws RemoteException {
     }
 
-    public void setService( IServer stage) {
+    public void setService(IServer stage, Stage dialogStage) {
         this.service=stage;
+        this.dialogStage = dialogStage;
     }
 
     @FXML
@@ -38,6 +41,8 @@ public class IstoricDonatieViewController extends UnicastRemoteObject{
         } catch (RemoteException e) {
             e.printStackTrace();
         }
+
+        dialogStage.hide();
     }
 
 }
