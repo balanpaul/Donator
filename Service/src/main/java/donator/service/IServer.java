@@ -22,12 +22,12 @@ public interface IServer {
     Donator cautareDonator(String mail)throws DonatorException,RemoteException;
     Personal cautarePersonal(String pass)throws DonatorException,RemoteException;
     Chestionar cautareChestionar(String email) throws DonatorException, RemoteException;
+    List<Donator> getAll()throws DonatorException,RemoteException;
     List<String> getDonatori()throws DonatorException,RemoteException;
     void recoltare(Donator donator, DateSange dateSange)throws DonatorException,RemoteException;
     List<DateSange> getSange()throws DonatorException,RemoteException;
     void trimitereMail(String to) throws DonatorException,RemoteException;
     List<Observatie> listaObservatii(int idSange) throws DonatorException, RemoteException;
     //boolean verificareDonator(Donator donator) throws DonatorException,RemoteException;
-    List<String> filtrareDonatorDupaNume(String nume, String prenume)throws DonatorException,RemoteException;
-    List<String> getAll() throws DonatorException, RemoteException;
+    List<Donator> filtrareDonatorDupaNume(String nume, String prenume)throws DonatorException,RemoteException;
 }

@@ -12,6 +12,8 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
@@ -45,7 +47,7 @@
             <Image url="@home_logo_white_v2.png" />
          </image>
       </ImageView>
-      <TextField fx:id="textFieldNumePrenume" layoutX="900.0" layoutY="156.0" onAction="#handleFilterAfterName" prefHeight="26.0" prefWidth="315.0" />
+      <TextField fx:id="textFieldNumePrenume" layoutX="900.0" layoutY="156.0" onKeyTyped="#handleFilterAfterName" prefHeight="26.0" prefWidth="315.0" />
       <Label layoutX="899.0" layoutY="129.0" prefHeight="28.0" prefWidth="331.0" text="Căutare după nume și prenume:">
          <font>
             <Font name="Calibri" size="24.0" />
@@ -79,13 +81,28 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="370.0" layoutX="1054.0" layoutY="119.0" rotate="90.0" stroke="WHITE" strokeType="INSIDE" width="1.0" />
       <CheckBox fx:id="checkBoxDoneazaPentru" layoutX="878.0" layoutY="319.0" mnemonicParsing="false" prefHeight="26.0" text="Donează pentru:" />
       <TextField fx:id="textFieldDoneazaPentru" layoutX="1027.0" layoutY="320.0" prefHeight="26.0" prefWidth="209.0" />
-      <TableView layoutX="292.0" layoutY="91.0" prefHeight="283.0" prefWidth="536.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="48.0" layoutX="259.0" layoutY="335.0" stroke="BLACK" strokeType="INSIDE" width="568.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#cb2d3e" />
+                  <Stop color="#ef473a" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <TableView fx:id="tableDonator" layoutX="292.0" layoutY="91.0" onMouseClicked="#handleSelection" prefHeight="283.0" prefWidth="536.0">
         <columns>
-          <TableColumn prefWidth="154.0" text="Nume" />
-          <TableColumn prefWidth="153.0" text="Prenume" />
-            <TableColumn prefWidth="110.0" text="CNP" />
-            <TableColumn prefWidth="118.0" text="Telefon" />
+          <TableColumn fx:id="numeColumn" prefWidth="154.0" text="Nume" />
+          <TableColumn fx:id="prenumeColumn" prefWidth="153.0" text="Prenume" />
+            <TableColumn fx:id="cnpColumn" prefWidth="110.0" text="CNP" />
+            <TableColumn fx:id="telefonColumn" prefWidth="118.0" text="Telefon" />
         </columns>
       </TableView>
+      <ImageView fitHeight="33.0" fitWidth="36.0" layoutX="261.0" layoutY="344.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@plusv2.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
