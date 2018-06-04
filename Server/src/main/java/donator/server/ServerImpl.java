@@ -112,19 +112,21 @@ public class ServerImpl implements IServer {
     }
 
     @Override
-    public List<String> getDonatori() throws DonatorException, RemoteException {
-        List<Donator> donators = donatorRepository.findAll();
-        List<String> list = new ArrayList<>();
-        for (Donator donator : donators) {
-            String s;
-            if (donator.getCnp() == null) {
-                s = "-";
-            } else
-                s = donator.getCnp();
-            String line = donator.getNume() + "  " + donator.getPrenume() + "  " + s + "  " + donator.getNrTelefon();
-            list.add(line);
+    public List<Donator> getAll() throws DonatorException, RemoteException {
+        List<Donator> donators=donatorRepository.findAll();
+        List<Donator> list=new ArrayList<>();
+        for(Donator donator :donators){
+            if(donator.getCnp()==null)
+                donator.setCnp("-");
+
+            list.add(donator);
         }
         return list;
+    }
+
+    @Override
+    public List<String> getDonatori() throws DonatorException, RemoteException {
+        return null;
     }
 
     @Override
@@ -238,15 +240,18 @@ public class ServerImpl implements IServer {
 
 
     @Override
-    public List<String> filtrareDonatorDupaNume(String nume, String prenume)throws DonatorException, RemoteException{
-        List<String> lista = new ArrayList<>();
+    public List<Donator> filtrareDonatorDupaNume(String nume, String prenume)throws DonatorException, RemoteException{
+        List<Donator> lista = new ArrayList<>();
 
         for(Donator donator : donatorRepository.findOne(nume, prenume)) {
             if(donator.getCnp() == null)
-                lista.add(donator.getNume() + "  " + donator.getPrenume() + "  " + "-" + "  " + donator.getNrTelefon());
-            else
-                lista.add(donator.getNume() + "  " + donator.getPrenume() + "  " + donator.getCnp() + "  " + donator.getNrTelefon());
+                donator.setCnp("-");
+
+            lista.add(donator);
         }
         return lista;
     }
+
+
+
 }

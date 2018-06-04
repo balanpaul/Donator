@@ -1,17 +1,26 @@
 package donator.view;
 
+import donator.entities.Donator;
 import donator.service.DonatorException;
 import donator.service.IClient;
 import donator.service.IServer;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 
 
 import java.rmi.RemoteException;
@@ -21,22 +30,38 @@ import java.util.ArrayList;
 public class AsistentaController extends UnicastRemoteObject implements IClient{
 
     @FXML
-    ListView<String> listViewDonatori, listViewBoli, listViewIstoric;
+    private TableView<Donator> tableDonator;
 
     @FXML
-    TextField textFieldNumePrenume, textFieldDoneazaPentru;
+    private TableColumn<String, Donator> numeColumn;
 
     @FXML
-    CheckBox checkBoxDatePicker, checkBoxDoneazaPentru;
+    private TableColumn<String, Donator> prenumeColumn;
 
     @FXML
-    DatePicker datePicker;
+    private TableColumn<String, Donator> cnpColumn;
+
+    @FXML
+    private TableColumn<String, Donator> telefonColumn;
+
+    @FXML
+    private ListView<String> listViewBoli, listViewIstoric;
+
+    @FXML
+    private TextField textFieldNumePrenume, textFieldDoneazaPentru;
+
+    @FXML
+    private CheckBox checkBoxDatePicker, checkBoxDoneazaPentru;
+
+    @FXML
+    private DatePicker datePicker;
 
     private IServer service;
     private Stage dialogStage;
     private AsistentaInformatiiController asistentaInformatiiController;
+    private ObservableList<Donator> model;
 
-    public AsistentaController() throws RemoteException{ ;
+    public AsistentaController() throws RemoteException{
     }
 
     public void setService(IServer service) {
@@ -47,14 +72,22 @@ public class AsistentaController extends UnicastRemoteObject implements IClient{
         lista.add(1, "pere");
         System.out.println("am ajuns in set service");
         try{
-            listViewDonatori.setItems(FXCollections.observableArrayList(service.getDonatori()));
-        }catch(DonatorException ex){
-
-        }catch (RemoteException ex){
-
-        }
+            model = FXCollections.observableArrayList(service.getAll());
+            tableDonator.setItems(model);
+        }catch(DonatorException | RemoteException ex){}
 
 
+    }
+
+    @FXML
+    public void initialize() {
+
+        // Initialize the student table with the three columns.
+        numeColumn.setCellValueFactory(new PropertyValueFactory<String, Donator>("Nume"));
+        prenumeColumn.setCellValueFactory(new PropertyValueFactory<String, Donator>("Prenume"));
+        cnpColumn.setCellValueFactory(new PropertyValueFactory<String, Donator>("Cnp"));
+        telefonColumn.setCellValueFactory(new PropertyValueFactory<String, Donator>("NrTelefon"));
+        tableDonator.setEditable(false);
 
     }
 
@@ -67,20 +100,30 @@ public class AsistentaController extends UnicastRemoteObject implements IClient{
                     Boolean bool = checkBoxDatePicker.selectedProperty().getValue();
                     if (bool) {
                         //trebe folosit si data picker
+
                     } else {
+                        //fara date picker
                         String str = "";
                         String[] aux = textFieldNumePrenume.getText().split(" ");
-                        for (int i = 0; i < aux.length; i++)
-                            str = str + " " + aux[i].substring(0, 1).toUpperCase() + aux[i].substring(1);
-                        str = str.substring(1);
-                        aux = str.split(" ");
-                        try {
-                            listViewDonatori.setItems(FXCollections.observableArrayList(service.filtrareDonatorDupaNume(aux[0], aux[1])));
-                        } catch (DonatorException | RemoteException ex) { }
+                        if(aux.length == 2) {
+                            for (int i = 0; i < aux.length; i++)
+                                str = str + " " + aux[i].substring(0, 1).toUpperCase() + aux[i].substring(1);
+                            str = str.substring(1);
+                            aux = str.split(" ");
+                            try {
+                                tableDonator.setItems(FXCollections.observableArrayList(service.filtrareDonatorDupaNume(aux[0], aux[1])));
+                            } catch (DonatorException | RemoteException ex) {
+                            }
+                        } else {
+                            try {
+                                tableDonator.setItems(FXCollections.observableArrayList(service.filtrareDonatorDupaNume(" "," ")));
+                            } catch (DonatorException | RemoteException ex) { }
+                        }
                     }
                 } else {
                     try {
-                        listViewDonatori.setItems(FXCollections.observableArrayList(service.getDonatori()));
+                        model = FXCollections.observableArrayList(service.getAll());
+                        tableDonator.setItems(model);
                     } catch (DonatorException | RemoteException ex) { }
                 }
             }
@@ -90,11 +133,41 @@ public class AsistentaController extends UnicastRemoteObject implements IClient{
     @FXML
     public void handleSelection(MouseEvent mouseEvent) {
         if (mouseEvent.getButton().equals(MouseButton.PRIMARY)) {
-            System.out.println("Afisam boli si istoric pentru:" + listViewDonatori.getSelectionModel().getSelectedItem());
+            Donator donator = tableDonator.getSelectionModel().getSelectedItem();
+            listaBoli(donator);
         } else if (mouseEvent.getButton().equals(MouseButton.SECONDARY)) {
-            System.out.println("Afisam informatii pentru:" + listViewDonatori.getSelectionModel().getSelectedItem());
+            Donator donator = tableDonator.getSelectionModel().getSelectedItem();
+            showDonatorInformation(donator);
         }
     }
+
+    public void listaBoli(Donator donator){
+
+    }
+
+    public void showDonatorInformation(Donator donator){
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            AnchorPane anchorPane;
+            loader.setLocation(getClass().getResource("/asistentaInformatiiView.fxml"));
+            anchorPane = (AnchorPane) loader.load();
+            Scene scene = new Scene(anchorPane);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("Donator informatii");
+            //doctorController.setService(stage);
+            this.asistentaInformatiiController =loader.getController();
+            this.asistentaInformatiiController.setService(service);
+            this.asistentaInformatiiController.initialize(donator);
+            stage.show();
+        } catch (Exception e){
+            System.err.println("Initialization  exception:"+e);
+            e.printStackTrace();
+        }
+    }
+
+
+
 
     @FXML
     public void handleGenerarePDF(){
