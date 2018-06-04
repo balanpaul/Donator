@@ -153,7 +153,7 @@ public class Donator implements Serializable{
     }
 
     public Donator(String cnp, String nume, String prenume, String dataNasterii, String nrTelefon, String email, String judet, String oras, String strada, String apartament, String bloc, String scara, String numar, int codPostal) {
-        IdDonator = 1;
+
         Cnp = cnp;
         Nume = nume;
         Prenume = prenume;
@@ -171,7 +171,7 @@ public class Donator implements Serializable{
         CodPostal = codPostal;
     }
     public Donator(String nume, String prenume, String strada, String numar, String bloc, String scara, String apartament, String oras, String judet, String nrTelefon, String email) {
-        IdDonator = 1;
+
         //Cnp = cnp;
         Nume = nume;
         Prenume = prenume;

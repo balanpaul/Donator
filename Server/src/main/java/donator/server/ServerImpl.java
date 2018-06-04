@@ -57,7 +57,7 @@ public class ServerImpl implements IServer {
         programari.setDonator(d);
         programariRepository.save(programari);
         System.out.println("Sunt in server " + donator.getNume());
-        donatorRepository.save(donator);
+
     }
 
     @Override
@@ -149,7 +149,7 @@ public class ServerImpl implements IServer {
         final String from = "balanpaul16@gmail.com";
         final String password = "Manchester1918";
 
-        String attachmentPath="E:\\Donator\\Istoric.pdf";
+        String attachmentPath="Istoric.pdf";
         Properties props = new Properties();
         props.put("mail.smtp.starttls.enable", "true");
         props.setProperty("mail.host", "smtp.gmail.com");
@@ -169,11 +169,11 @@ public class ServerImpl implements IServer {
         //session.setDebug(true);
         try {
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("maplabs@scs.ubbcluj.ro"));
+            message.setFrom(new InternetAddress(from));
             message.setRecipients(Message.RecipientType.CC,
                     InternetAddress.parse(mailto));
-            message.setSubject(subject);
-            message.setText("Istoicul donatii");
+            message.setSubject("Istoricul donatiilor");
+            message.setText("Istoricul donatii");
 
             MimeBodyPart messageBodyPart = new MimeBodyPart();
             Multipart multipart = new MimeMultipart();
@@ -210,7 +210,7 @@ public class ServerImpl implements IServer {
         Document document = new Document();
         Paragraph paragraph;
         try {
-            PdfWriter.getInstance(document, new FileOutputStream("E:\\Donator\\Istoric.pdf"));
+            PdfWriter.getInstance(document, new FileOutputStream("Istoric.pdf"));
 
             document.open();
             Font font = FontFactory.getFont(FontFactory.COURIER, 14, BaseColor.BLACK);
@@ -255,8 +255,9 @@ public class ServerImpl implements IServer {
     public List<String> getAll() throws DonatorException, RemoteException {
         return null;
     }
-    public static String[] getCordinates(String address) throws IOException, ParserConfigurationException, SAXException, DonatorException, XPathExpressionException {
+    public String getCordinates(String address) throws IOException, ParserConfigurationException, SAXException, DonatorException, XPathExpressionException {
         int responseCode = 0;
+        address="Galati 24 Cluj Napoca";
         String api = "http://maps.googleapis.com/maps/api/geocode/xml?address=" + URLEncoder.encode(address, "UTF-8") + "&sensor=true";
         System.out.println("URL : "+api);
         URL url = new URL(api);
@@ -267,7 +268,7 @@ public class ServerImpl implements IServer {
         if(responseCode == 200)
         {
             DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();;
-            Document document = (Document) builder.parse(httpConnection.getInputStream());
+            org.w3c.dom.Document document =  builder.parse(httpConnection.getInputStream());
             XPathFactory xPathfactory = XPathFactory.newInstance();
             XPath xpath = xPathfactory.newXPath();
             XPathExpression expr = null;
@@ -284,7 +285,8 @@ public class ServerImpl implements IServer {
                 String latitude = (String)expr.evaluate(document, XPathConstants.STRING);
                 expr = xpath.compile("//geometry/location/lng");
                 String longitude = (String)expr.evaluate(document, XPathConstants.STRING);
-                return new String[] {latitude, longitude};
+                String co=latitude + " "+ longitude;
+                return  co ;
             }
             else
             {
