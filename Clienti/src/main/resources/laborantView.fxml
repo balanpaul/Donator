@@ -94,9 +94,9 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="1.0" layoutX="867.0" layoutY="260.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="320.0" />
       <TableView fx:id="sangeVerificat" layoutX="283.0" layoutY="91.0" prefHeight="283.0" prefWidth="544.0">
          <columns>
-            <TableColumn prefWidth="200.0" text="Nume" />
-            <TableColumn prefWidth="194.0" text="Prenume" />
-            <TableColumn prefWidth="149.0" text="CNP" />
+            <TableColumn fx:id="numeColumn" prefWidth="200.0" text="Nume" />
+            <TableColumn fx:id="prenumeColumn" prefWidth="194.0" text="Prenume" />
+            <TableColumn fx:id="cnpColumn" prefWidth="149.0" text="CNP" />
          </columns>
       </TableView>
    </children>

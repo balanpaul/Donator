@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -13,7 +20,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="donator.view.DoctorController">
    <children>
       <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -43,7 +50,6 @@
             <Image url="@home_logo_white_v2.png" />
          </image>
       </ImageView>
-      <ListView layoutX="188.0" layoutY="143.0" prefHeight="472.0" prefWidth="536.0" />
       <Label layoutX="219.0" layoutY="107.0" text="Listă centre:">
          <font>
             <Font name="Calibri" size="24.0" />
@@ -54,7 +60,7 @@
             <Font name="Calibri" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="937.0" layoutY="291.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="221.0" />
+      <TextField fx:id="cantitateField" layoutX="937.0" layoutY="291.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="221.0" />
       <Button layoutX="894.0" layoutY="494.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Trimite">
          <font>
             <Font name="Impact" size="24.0" />
@@ -65,8 +71,8 @@
             <Font name="Calibri" size="18.0" />
          </font>
       </Label>
-      <ComboBox layoutX="937.0" layoutY="337.0" prefWidth="221.0" />
-      <RadioButton layoutX="938.0" layoutY="223.0" mnemonicParsing="false" text="Trombocite">
+      <ComboBox fx:id="prioritateComboBox" layoutX="937.0" layoutY="337.0" prefWidth="221.0" />
+      <RadioButton fx:id="trombociteRadio" layoutX="938.0" layoutY="223.0" mnemonicParsing="false" text="Trombocite">
          <font>
             <Font name="Calibri" size="14.0" />
          </font>
@@ -76,12 +82,12 @@
             <Font name="Calibri" size="18.0" />
          </font>
       </Label>
-      <RadioButton layoutX="1056.0" layoutY="222.0" mnemonicParsing="false" text="Globule roșii">
+      <RadioButton fx:id="globuleRosiiRadio" layoutX="1056.0" layoutY="222.0" mnemonicParsing="false" text="Globule roșii">
          <font>
             <Font name="Calibri" size="14.0" />
          </font>
       </RadioButton>
-      <RadioButton layoutX="938.0" layoutY="260.0" mnemonicParsing="false" text="Plasmă">
+      <RadioButton fx:id="plasmaRadio" layoutX="938.0" layoutY="260.0" mnemonicParsing="false" text="Plasmă">
          <font>
             <Font name="Calibri" size="14.0" />
          </font>
@@ -93,6 +99,14 @@
             <Font name="Calibri" size="18.0" />
          </font>
       </Label>
-      <TextField alignment="CENTER" layoutX="937.0" layoutY="182.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="221.0" />
+      <TextField fx:id="grupaSangeField" alignment="CENTER" layoutX="937.0" layoutY="182.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="221.0" />
+      <TableView fx:id="centreTable" layoutX="200.0" layoutY="162.0" prefHeight="469.0" prefWidth="521.0">
+        <columns>
+          <TableColumn fx:id="numeColumn" prefWidth="130.0" text="Nume" />
+          <TableColumn fx:id="adresaColumn" minWidth="8.0" prefWidth="111.0" text="Adresa" />
+            <TableColumn fx:id="telefonColumn" minWidth="5.0" prefWidth="128.0" text="Telefon" />
+            <TableColumn fx:id="emailColumn" minWidth="8.0" prefWidth="151.0" text="Email" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

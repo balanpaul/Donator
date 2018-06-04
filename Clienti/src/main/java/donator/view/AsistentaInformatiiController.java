@@ -2,16 +2,19 @@ package donator.view;
 
 import donator.entities.DateSange;
 import donator.entities.Donator;
+import donator.service.IClient;
 import donator.service.IServer;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 
 import java.awt.event.ActionEvent;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class AsistentaInformatiiController {
+public class AsistentaInformatiiController extends UnicastRemoteObject implements IClient {
     @FXML
     private TextField nume, prenume, strada, numar, bloc, scara, apartament, oras, judet, telefon, email, cnp, grupaSange;
     @FXML
@@ -20,11 +23,9 @@ public class AsistentaInformatiiController {
     private Donator donator; //donator primit ca parametru de la dclick din view
     private IServer service;
 
-
-
-    public AsistentaInformatiiController(Donator donator){
-        this.donator=donator;
+    public AsistentaInformatiiController() throws RemoteException {
     }
+
 
     public void setService(IServer service){
         this.service = service;
@@ -35,24 +36,24 @@ public class AsistentaInformatiiController {
 
         nume.setText(donator.getNume());
         prenume.setText(donator.getPrenume());
-        strada.setText(donator.getStrada());
-        numar.setText(donator.getNumar());
-        bloc.setText(donator.getBloc());
-        scara.setText(donator.getScara());
-        apartament.setText(donator.getApartament());
-        oras.setText(donator.getOras());
-        judet.setText(donator.getJudet());
-        telefon.setText(donator.getNrTelefon());
-        email.setText(donator.getEmail());
-        cnp.setText(donator.getCnp());
+        //strada.setText(donator.getStrada());
+        //numar.setText(donator.getNumar());
+        //bloc.setText(donator.getBloc());
+        //scara.setText(donator.getScara());
+        //apartament.setText(donator.getApartament());
+        //oras.setText(donator.getOras());
+        //judet.setText(donator.getJudet());
+        //telefon.setText(donator.getNrTelefon());
+       // email.setText(donator.getEmail());
+        //cnp.setText(donator.getCnp());
         //int idSange = donator.getIdSange();
         //urmeaza sa fie implementat in ServerImpl
-        DateSange dateSange = null;
+      //  DateSange dateSange = null;
         //DateSange dateSange = service.getGrupaSanguina(int idSange);
-        grupaSange.setText(dateSange.getGrupaSanguina());
-        if(dateSange.getSanatos() == Boolean.TRUE){
+       // grupaSange.setText(dateSange.getGrupaSanguina());
+      //  if(dateSange.getSanatos() == Boolean.TRUE){
            // respectaNormEU.setSelected();
-        }
+
     }
 
     @FXML

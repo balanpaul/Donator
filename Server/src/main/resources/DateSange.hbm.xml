@@ -8,7 +8,7 @@
            <generator class="increment"/>
         </id>
         <property name="grupaSanguina" column="Grupa" type="string"/>
-        <property name="sanatos" column="Sanatos" type="boolean"/>
+        <property name="sanatos" column="Sanatos" type="int"/>
         <property name="globuleRosii" column="GlobuleRosii" type="int"/>
         <property name="plasma" column="Plasma" type="int"/>
         <property name="trombocite" column="Trombocite" type="int"/>

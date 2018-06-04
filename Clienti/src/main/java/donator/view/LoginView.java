@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
@@ -67,8 +68,8 @@ public class LoginView extends UnicastRemoteObject implements IClient {
                 Scene scene = new Scene(anchorPane);
                 Stage stage = new Stage();
                 stage.setScene(scene);
-                stage.setTitle("Donator Vechi");
-                //doctorController.setService(stage);
+                stage.setTitle("Medic");
+                doctorController.setService(service);
                 stage.show();
 
 
@@ -92,6 +93,7 @@ public class LoginView extends UnicastRemoteObject implements IClient {
                 asistentaController.setService(service);
                 stage.show();
 
+                ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -106,8 +108,8 @@ public class LoginView extends UnicastRemoteObject implements IClient {
                 Scene scene = new Scene(anchorPane);
                 Stage stage = new Stage();
                 stage.setScene(scene);
-                stage.setTitle("Donator Vechi");
-                laborantViewController.setService(service, stage);
+                stage.setTitle("Laborant");
+                laborantViewController.setService(service);
                 stage.show();
 
             } catch (IOException e) {

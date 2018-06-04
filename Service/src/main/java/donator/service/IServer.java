@@ -8,6 +8,8 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPathExpressionException;
 import java.io.IOException;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public interface IServer {
@@ -23,12 +25,13 @@ public interface IServer {
     Donator cautareDonator(String mail)throws DonatorException,RemoteException;
     Personal cautarePersonal(String pass)throws DonatorException,RemoteException;
     Chestionar cautareChestionar(String email) throws DonatorException, RemoteException;
+    List<Donator> getAll()throws DonatorException,RemoteException;
+    List<DateSange> getNeverificati() throws DonatorException, RemoteException;
     List<String> getDonatori()throws DonatorException,RemoteException;
     void recoltare(Donator donator, DateSange dateSange)throws DonatorException,RemoteException;
     List<DateSange> getSange()throws DonatorException,RemoteException;
     void trimitereMail(String to) throws DonatorException,RemoteException;
     List<Observatie> listaObservatii(int idSange) throws DonatorException, RemoteException;
     List<String> filtrareDonatorDupaNume(String nume, String prenume)throws DonatorException,RemoteException;
-    List<String> getAll() throws DonatorException, RemoteException;
-    String getCordinates(String address) throws IOException, ParserConfigurationException, SAXException, DonatorException, XPathExpressionException;
-}
+   String getCordinates(String address) throws IOException, ParserConfigurationException, SAXException, DonatorException, XPathExpressionException;
+   }
