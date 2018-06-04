@@ -78,7 +78,7 @@ public class ProgramariRepository {
            return centityManager.createQuery(SQLString, Ad.class).setParameter("category_id", Long.valueOf(8)).setMaxResults(10)
                     .getResultList();
 */
-           z = (Programari) session.createQuery("SELECT A FROM Programari A join fetch A.donator B where B.IdDonator = :donator").setParameter("donator",id).
+           z = (Programari) session.createQuery("SELECT A FROM Programari A join fetch A.donator B where B.idDonator = :donator").setParameter("donator",id).
                    setMaxResults(1).getResultList().get(0);
             tx.commit();
             return z;

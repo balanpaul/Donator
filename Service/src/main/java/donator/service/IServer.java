@@ -2,8 +2,11 @@ package donator.service;
 
 
 import donator.entities.*;
+import org.xml.sax.SAXException;
 
-import javax.sql.rowset.Predicate;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.XPathExpressionException;
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -29,6 +32,9 @@ public interface IServer {
     List<DateSange> getSange()throws DonatorException,RemoteException;
     void trimitereMail(String to) throws DonatorException,RemoteException;
     List<Observatie> listaObservatii(int idSange) throws DonatorException, RemoteException;
+    List<String> filtrareDonatorDupaNume(String nume, String prenume)throws DonatorException,RemoteException;
+    List<String> getAll() throws DonatorException, RemoteException;
+    String getCordinates(String address) throws IOException, ParserConfigurationException, SAXException, DonatorException, XPathExpressionException;
     //boolean verificareDonator(Donator donator) throws DonatorException,RemoteException;
     List<Donator> filtrareDonatorDupaNume(String nume, String prenume)throws DonatorException,RemoteException;
     List<Centru> listaCentre() throws DonatorException, RemoteException;
