@@ -1,5 +1,7 @@
 package donator.server;
 
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfWriter;
 import donator.entities.*;
 import donator.persistence.*;
 
@@ -10,6 +12,15 @@ import javax.mail.Message;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
+import javax.mail.*;
+import javax.mail.internet.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -39,12 +50,12 @@ public class ServerImpl implements IServer {
     }
 
     @Override
-    public void adaugaDonator(Donator donator,Programari programari) throws DonatorException, RemoteException {
-        int i=programariRepository.nrProg(programari);
-        if(i==5)
-            throw  new DonatorException("Nu mai sunt locuri disponibile in aceasta perioada");
-        long id=donatorRepository.save(donator);
-        Donator d=donatorRepository.findMail(donator.getEmail());
+    public void adaugaDonator(Donator donator, Programari programari) throws DonatorException, RemoteException {
+        int i = programariRepository.nrProg(programari);
+        if (i == 5)
+            throw new DonatorException("Nu mai sunt locuri disponibile in aceasta perioada");
+        long id = donatorRepository.save(donator);
+        Donator d = donatorRepository.findMail(donator.getEmail());
         programari.setDonator(d);
         programariRepository.save(programari);
         System.out.println("Sunt in server " + donator.getNume());
@@ -52,12 +63,13 @@ public class ServerImpl implements IServer {
     }
 
     @Override
-    public void adaugaChestionar(Chestionar chestionar)throws DonatorException, RemoteException{
+    public void adaugaChestionar(Chestionar chestionar) throws DonatorException, RemoteException {
         chestionarRepository.save(chestionar);
         System.out.println("Sunt in server " + chestionar.getIdDonator().getNume());
     }
 
     @Override
+<<<<<<<<< Temporary merge branch 1
     public void adaugaObservatie(Observatie observatie) throws DonatorException, RemoteException {
         observatiiRepository.save(observatie);
         System.out.println("Sunt in server " + observatie.getIdObservatie() + " " + observatie.getIdObservatie());
@@ -67,6 +79,9 @@ public class ServerImpl implements IServer {
     public void planificare(Donator d,Programari programari) throws DonatorException, RemoteException {
         int i=programariRepository.nrProg(programari);
         if(i>=5)
+    public void planificare(Donator d, Programari programari) throws DonatorException, RemoteException {
+        int i = programariRepository.nrProg(programari);
+        if (i >= 5)
             throw new DonatorException("Nu mai sunt locuri disponibile in aceasta perioada");
         programari.setDonator(d);
         programariRepository.save(programari);
@@ -80,46 +95,48 @@ public class ServerImpl implements IServer {
 
     @Override
     public Programari cautaPlanifica(int id) throws DonatorException, RemoteException {
-        Programari programari=null;
-        programari= programariRepository.findProg(id);
-        if(programari==null)
+        Programari programari = null;
+        programari = programariRepository.findProg(id);
+        if (programari == null)
             throw new DonatorException("Nu existaplanificare pentru acest id");
         return programari;
     }
 
     @Override
     public Donator cautareDonator(String mail) throws DonatorException, RemoteException {
-        Donator donator=null;
-        donator=donatorRepository.findMail(mail);
-        if(donator==null)
+        Donator donator = null;
+        donator = donatorRepository.findMail(mail);
+        if (donator == null)
             throw new DonatorException("Nu exista acest donator");
         return donator;
     }
 
     @Override
     public Personal cautarePersonal(String pass) throws DonatorException, RemoteException {
-        Personal personal=personalRepository.find(pass);
-        if(personal==null)
-            throw  new DonatorException("Parola invalida");
+        Personal personal = personalRepository.find(pass);
+        if (personal == null)
+            throw new DonatorException("Parola invalida");
         return personal;
     }
-/*
+
     @Override
     public List<String> getDonatori() throws DonatorException, RemoteException {
         List<Donator> donators=donatorRepository.findAll();
         List<String> list=new ArrayList<>();
         for(Donator donator :donators){
+        List<Donator> donators = donatorRepository.findAll();
+        List<String> list = new ArrayList<>();
+        for (Donator donator : donators) {
             String s;
-            if(donator.getCnp()==null) {
-                 s="-";
+            if (donator.getCnp() == null) {
+                s = "-";
             } else
-                s=donator.getCnp();
-            String line=donator.getNume()+"  "+donator.getPrenume()+"  "+s+"  "+donator.getNrTelefon();
+                s = donator.getCnp();
+            String line = donator.getNume() + "  " + donator.getPrenume() + "  " + s + "  " + donator.getNrTelefon();
             list.add(line);
         }
         return list;
     }
-    */
 
     @Override
     public void recoltare(Donator donator, DateSange dateSange) throws DonatorException, RemoteException {
@@ -140,13 +157,73 @@ public class ServerImpl implements IServer {
     @Override
     public List<Observatie> listaObservatii(int idSange) throws DonatorException, RemoteException {
         return observatiiRepository.listaObservatii(idSange);
+    public void trimitereMail(String mailto) throws DonatorException, RemoteException {
+        exportPDF(mailto);
+        String to = mailto;
+        String subject = "subject";
+        String msg = "email text....";
+        final String from = "balanpaul16@gmail.com";
+        final String password = "Manchester1918";
+
+        String attachmentPath="E:\\Donator\\Istoric.pdf";
+        Properties props = new Properties();
+        props.put("mail.smtp.starttls.enable", "true");
+        props.setProperty("mail.host", "smtp.gmail.com");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.port", "465");
+        props.put("mail.debug", "true");
+        props.put("mail.smtp.socketFactory.port", "465");
+        props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        props.put("mail.smtp.socketFactory.fallback", "false");
+        Session session = Session.getDefaultInstance(props,
+                new javax.mail.Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(from, password);
+                    }
+                });
+
+        //session.setDebug(true);
+        try {
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress("maplabs@scs.ubbcluj.ro"));
+            message.setRecipients(Message.RecipientType.CC,
+                    InternetAddress.parse(mailto));
+            message.setSubject(subject);
+            message.setText("Istoicul donatii");
+
+            MimeBodyPart messageBodyPart = new MimeBodyPart();
+            Multipart multipart = new MimeMultipart();
+
+            File att = new File(attachmentPath);
+            messageBodyPart.attachFile(att);
+
+            DataSource source = new FileDataSource(att);
+            messageBodyPart.setDataHandler(new DataHandler(source));
+            messageBodyPart.setFileName("Istoricul donatiilor");
+            multipart.addBodyPart(messageBodyPart);
+            message.setContent(multipart);
+
+            System.out.println("Sending");
+            Transport.send(message);
+            System.out.println("Done");
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
-    public void exportPDF(String mail) throws DonatorException, RemoteException {
-       /*Donator donator=donatorRepository.findMail(mail);
-       DateSange dateSange=dateSangeRepository.getSangeD(donator.getIdDonator());
+    public List<Observatie> listaObservatii(int idSange) throws DonatorException, RemoteException {
+        return null;
+    }
 
+
+    private void exportPDF(String mail) throws DonatorException, RemoteException {
+       Donator donator=donatorRepository.findMail(mail);
+       DateSange dateSange=dateSangeRepository.getSangeD(donator.getIdDonator());
+        Document document = new Document();
         Paragraph paragraph;
 
         for(DateSange student : dateSangeRepository.getAllSange(donator.getIdDonator())){
@@ -160,6 +237,24 @@ public class ServerImpl implements IServer {
 
 
         }*/
+        try {
+            PdfWriter.getInstance(document, new FileOutputStream("E:\\Donator\\Istoric.pdf"));
+
+            document.open();
+            Font font = FontFactory.getFont(FontFactory.COURIER, 14, BaseColor.BLACK);
+
+            for(DateSange sange : dateSangeRepository.getAllSange(donator.getIdDonator())) {
+
+                paragraph = new Paragraph(" GRUPA SANGUINA : " + sange.getGrupaSanguina() + ", SANATOS: " + sange.getSanatos() + ",Data prelevari : " + sange.getDataRecolta().toString() + "\n", font);
+                document.add(paragraph);
+               // paragraph =new Paragraph()
+            }
+            document.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        }
     }
 
 
