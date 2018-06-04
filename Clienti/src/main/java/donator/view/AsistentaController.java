@@ -205,50 +205,47 @@ public class AsistentaController extends UnicastRemoteObject implements IClient{
                     textFieldDoneazaPentru.setDisable(true);
             }
         });
-    }
 
-    @FXML
-    public void handleFilterAfterName(){
         textFieldNumePrenume.selectionProperty().addListener(new ChangeListener<IndexRange>() {
             @Override
             public void changed(ObservableValue<? extends IndexRange> observable, IndexRange oldValue, IndexRange newValue) {
                 if (newValue.getStart() != 0 && newValue.getEnd() != 0) {
                     Boolean bool = checkBoxDatePicker.selectedProperty().getValue();
-                        //fara date picker
-                        String str = "";
-                        String[] aux = textFieldNumePrenume.getText().split(" ");
-                        if(aux.length == 2) {
-                            for (int i = 0; i < aux.length; i++)
-                                str = str + " " + aux[i].substring(0, 1).toUpperCase() + aux[i].substring(1);
-                            str = str.substring(1);
-                            aux = str.split(" ");
-                            try {
-                                if(bool) {
-                                    //cu date picker
-                                    tableDonator.setItems(FXCollections.observableArrayList(service.filtrareDonatorDupaNumeSiData(aux[0], aux[1], (Date.valueOf(datePicker.getValue())))));
-                                } else {
-                                    //fara date picker
-                                    tableDonator.setItems(FXCollections.observableArrayList(service.filtrareDonatorDupaNume(aux[0], aux[1])));
-                                }
-                            } catch (DonatorException e){
-                                System.out.println(e);
-                            } catch (RemoteException e){
-                                e.printStackTrace();
+                    //fara date picker
+                    String str = "";
+                    String[] aux = textFieldNumePrenume.getText().split(" ");
+                    if(aux.length == 2) {
+                        for (int i = 0; i < aux.length; i++)
+                            str = str + " " + aux[i].substring(0, 1).toUpperCase() + aux[i].substring(1);
+                        str = str.substring(1);
+                        aux = str.split(" ");
+                        try {
+                            if(bool) {
+                                //cu date picker
+                                tableDonator.setItems(FXCollections.observableArrayList(service.filtrareDonatorDupaNumeSiData(aux[0], aux[1], (Date.valueOf(datePicker.getValue())))));
+                            } else {
+                                //fara date picker
+                                tableDonator.setItems(FXCollections.observableArrayList(service.filtrareDonatorDupaNume(aux[0], aux[1])));
                             }
-                        } else {
-                            try {
-                                if(bool) {
-                                    //cu date picker
-                                    tableDonator.setItems(FXCollections.observableArrayList(service.filtrareDonatorDupaNumeSiData(" ", " ", (Date.valueOf(datePicker.getValue())))));
-                                } else {
-                                    //fara date picker
-                                    tableDonator.setItems(FXCollections.observableArrayList(service.filtrareDonatorDupaNume(" "," ")));
-                                }
-                            } catch (DonatorException e){
-                                System.out.println(e);
-                            } catch (RemoteException e){
-                                e.printStackTrace();
+                        } catch (DonatorException e){
+                            System.out.println(e);
+                        } catch (RemoteException e){
+                            e.printStackTrace();
+                        }
+                    } else {
+                        try {
+                            if(bool) {
+                                //cu date picker
+                                tableDonator.setItems(FXCollections.observableArrayList(service.filtrareDonatorDupaNumeSiData(" ", " ", (Date.valueOf(datePicker.getValue())))));
+                            } else {
+                                //fara date picker
+                                tableDonator.setItems(FXCollections.observableArrayList(service.filtrareDonatorDupaNume(" "," ")));
                             }
+                        } catch (DonatorException e){
+                            System.out.println(e);
+                        } catch (RemoteException e){
+                            e.printStackTrace();
+                        }
                     }
                 } else {
                     try {
