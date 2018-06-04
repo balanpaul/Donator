@@ -68,8 +68,8 @@ public class LoginView extends UnicastRemoteObject implements IClient {
                 Scene scene = new Scene(anchorPane);
                 Stage stage = new Stage();
                 stage.setScene(scene);
-                stage.setTitle("Donator Vechi");
-                //doctorController.setService(stage);
+                stage.setTitle("Medic");
+                doctorController.setService(service);
                 stage.show();
 
 
@@ -108,8 +108,8 @@ public class LoginView extends UnicastRemoteObject implements IClient {
                 Scene scene = new Scene(anchorPane);
                 Stage stage = new Stage();
                 stage.setScene(scene);
-                stage.setTitle("Donator Vechi");
-                laborantViewController.setService(service, stage);
+                stage.setTitle("Laborant");
+                laborantViewController.setService(service);
                 stage.show();
 
             } catch (IOException e) {

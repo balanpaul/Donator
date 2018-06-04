@@ -23,6 +23,7 @@ public interface IServer {
     Personal cautarePersonal(String pass)throws DonatorException,RemoteException;
     Chestionar cautareChestionar(String email) throws DonatorException, RemoteException;
     List<Donator> getAll()throws DonatorException,RemoteException;
+    List<DateSange> getNeverificati() throws DonatorException, RemoteException;
     List<String> getDonatori()throws DonatorException,RemoteException;
     void recoltare(Donator donator, DateSange dateSange)throws DonatorException,RemoteException;
     List<DateSange> getSange()throws DonatorException,RemoteException;
@@ -30,4 +31,5 @@ public interface IServer {
     List<Observatie> listaObservatii(int idSange) throws DonatorException, RemoteException;
     //boolean verificareDonator(Donator donator) throws DonatorException,RemoteException;
     List<Donator> filtrareDonatorDupaNume(String nume, String prenume)throws DonatorException,RemoteException;
+    List<Centru> listaCentre() throws DonatorException, RemoteException;
 }

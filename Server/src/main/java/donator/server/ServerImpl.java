@@ -33,6 +33,8 @@ import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import java.util.Properties;
 
 
@@ -44,15 +46,17 @@ public class ServerImpl implements IServer {
     private ChestionarRepository chestionarRepository;
     private DateSangeRepository dateSangeRepository;
     private ObservatiiRepository observatiiRepository;
+    private CentreRepository centreRepository;
 
 
-    public ServerImpl(DonatorRepository donatorRepository, ProgramariRepository programariRepository, PersonalRepository personalRepository, ChestionarRepository chestionarRepository, DateSangeRepository dateSangeRepository, ObservatiiRepository observatiiRepository) {
+    public ServerImpl(DonatorRepository donatorRepository, ProgramariRepository programariRepository, PersonalRepository personalRepository, ChestionarRepository chestionarRepository, DateSangeRepository dateSangeRepository, ObservatiiRepository observatiiRepository, CentreRepository centreRepository) {
         this.donatorRepository = donatorRepository;
         this.programariRepository = programariRepository;
         this.personalRepository = personalRepository;
         this.chestionarRepository = chestionarRepository;
         this.dateSangeRepository = dateSangeRepository;
         this.observatiiRepository = observatiiRepository;
+        this.centreRepository = centreRepository;
     }
 
     @Override
@@ -135,6 +139,20 @@ public class ServerImpl implements IServer {
     }
 
     @Override
+    public List<DateSange> getNeverificati() throws DonatorException, RemoteException {
+        List<DateSange> dateSanges = dateSangeRepository.getSange();
+        List<DateSange> list = new ArrayList<>();
+        for(DateSange ds : dateSanges){
+            if(ds.getSanatos() == 0){
+                list.add(ds);
+            }
+        }
+        return list;
+
+    }
+
+
+    @Override
     public List<String> getDonatori() throws DonatorException, RemoteException {
         return null;
     }
@@ -150,6 +168,12 @@ public class ServerImpl implements IServer {
         return dateSangeRepository.getSange();
     }
 
+
+    @Override
+    public List<Observatie> listaObservatii(int idSange) throws DonatorException, RemoteException {
+        return observatiiRepository.listaObservatii(idSange);
+    }
+
     @Override
     public void trimitereMail(String mailto) throws DonatorException, RemoteException {
         exportPDF(mailto);
@@ -159,7 +183,7 @@ public class ServerImpl implements IServer {
         final String from = "balanpaul16@gmail.com";
         final String password = "Manchester1918";
 
-        String attachmentPath="E:\\Donator\\Istoric.pdf";
+        String attachmentPath="Istoric.pdf";
         Properties props = new Properties();
         props.put("mail.smtp.starttls.enable", "true");
         props.setProperty("mail.host", "smtp.gmail.com");
@@ -208,10 +232,6 @@ public class ServerImpl implements IServer {
 
     }
 
-    @Override
-    public List<Observatie> listaObservatii(int idSange) throws DonatorException, RemoteException {
-        return null;
-    }
 
 
     private void exportPDF(String mail)  {
@@ -219,8 +239,10 @@ public class ServerImpl implements IServer {
        DateSange dateSange=dateSangeRepository.getSangeD(donator.getIdDonator());
         Document document = new Document();
         Paragraph paragraph;
+
+
         try {
-            PdfWriter.getInstance(document, new FileOutputStream("E:\\Donator\\Istoric.pdf"));
+            PdfWriter.getInstance(document, new FileOutputStream("Istoric.pdf"));
 
             document.open();
             Font font = FontFactory.getFont(FontFactory.COURIER, 14, BaseColor.BLACK);
@@ -248,10 +270,7 @@ public class ServerImpl implements IServer {
     }
 
 
-    @Override
-    public List<String> getDonatori() throws DonatorException, RemoteException {
-        return null;
-    }
+
 
     @Override
     public List<Donator> filtrareDonatorDupaNume(String nume, String prenume)throws DonatorException, RemoteException{
@@ -266,10 +285,6 @@ public class ServerImpl implements IServer {
         return lista;
     }
 
-    @Override
-    public List<String> getAll() throws DonatorException, RemoteException {
-        return null;
-    }
     public static String[] getCordinates(String address) throws IOException, ParserConfigurationException, SAXException, DonatorException, XPathExpressionException {
         int responseCode = 0;
         String api = "http://maps.googleapis.com/maps/api/geocode/xml?address=" + URLEncoder.encode(address, "UTF-8") + "&sensor=true";
@@ -307,5 +322,10 @@ public class ServerImpl implements IServer {
             }
         }
         return null;
+    }
+
+    @Override
+    public List<Centru> listaCentre() throws DonatorException, RemoteException{
+        return centreRepository.findAll();
     }
 }
