@@ -59,7 +59,7 @@ public class ServerImpl implements IServer {
     }
 
     @Override
-    public void adaugaChestionar(Chestionar chestionar) throws DonatorException, RemoteException {
+    public void adaugaChestionar(Chestionar chestionar)throws DonatorException, RemoteException{
         chestionarRepository.save(chestionar);
         System.out.println("Sunt in server " + chestionar.getIdDonator().getNume());
     }
@@ -235,7 +235,10 @@ public class ServerImpl implements IServer {
         return ch;
     }
 
-
+    @Override
+    public List<String> getDonatori() throws DonatorException, RemoteException {
+        return null;
+    }
 
     @Override
     public List<String> filtrareDonatorDupaNume(String nume, String prenume)throws DonatorException, RemoteException{
@@ -248,5 +251,10 @@ public class ServerImpl implements IServer {
                 lista.add(donator.getNume() + "  " + donator.getPrenume() + "  " + donator.getCnp() + "  " + donator.getNrTelefon());
         }
         return lista;
+    }
+
+    @Override
+    public List<String> getAll() throws DonatorException, RemoteException {
+        return null;
     }
 }
