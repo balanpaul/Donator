@@ -7,24 +7,26 @@ import donator.persistence.*;
 
 import donator.service.DonatorException;
 import donator.service.IServer;
+import org.xml.sax.SAXException;
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
 import javax.activation.FileDataSource;
 import javax.mail.*;
 import javax.mail.internet.*;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.*;
+import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.rmi.RemoteException;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 import java.util.Properties;
 
 
@@ -61,7 +63,7 @@ public class ServerImpl implements IServer {
     }
 
     @Override
-    public void adaugaChestionar(Chestionar chestionar) throws DonatorException, RemoteException {
+    public void adaugaChestionar(Chestionar chestionar)throws DonatorException, RemoteException{
         chestionarRepository.save(chestionar);
         System.out.println("Sunt in server " + chestionar.getIdDonator().getNume());
     }
@@ -245,7 +247,6 @@ public class ServerImpl implements IServer {
     }
 
 
-
     @Override
     public List<Donator> filtrareDonatorDupaNume(String nume, String prenume)throws DonatorException, RemoteException{
         List<Donator> lista = new ArrayList<>();
@@ -279,6 +280,49 @@ public class ServerImpl implements IServer {
                 }
         }
         return lista;
+    }
+
+    @Override
+    public List<String> getAll() throws DonatorException, RemoteException {
+        return null;
+    }
+    public static String[] getCordinates(String address) throws IOException, ParserConfigurationException, SAXException, DonatorException, XPathExpressionException {
+        int responseCode = 0;
+        String api = "http://maps.googleapis.com/maps/api/geocode/xml?address=" + URLEncoder.encode(address, "UTF-8") + "&sensor=true";
+        System.out.println("URL : "+api);
+        URL url = new URL(api);
+        HttpURLConnection httpConnection = (HttpURLConnection)url.openConnection();
+        httpConnection.connect();
+        responseCode = httpConnection.getResponseCode();
+        String status = null;
+        if(responseCode == 200)
+        {
+            DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();;
+            Document document = (Document) builder.parse(httpConnection.getInputStream());
+            XPathFactory xPathfactory = XPathFactory.newInstance();
+            XPath xpath = xPathfactory.newXPath();
+            XPathExpression expr = null;
+            try {
+                expr = xpath.compile("/GeocodeResponse/status");
+                status= (String)expr.evaluate(document, XPathConstants.STRING);
+            } catch (XPathExpressionException e) {
+                e.printStackTrace();
+            }
+
+            if(status.equals("OK"))
+            {
+                expr = xpath.compile("//geometry/location/lat");
+                String latitude = (String)expr.evaluate(document, XPathConstants.STRING);
+                expr = xpath.compile("//geometry/location/lng");
+                String longitude = (String)expr.evaluate(document, XPathConstants.STRING);
+                return new String[] {latitude, longitude};
+            }
+            else
+            {
+                throw new DonatorException("Error from the API - response status: "+status);
+            }
+        }
+        return null;
     }
 
 

@@ -119,7 +119,6 @@ public class DonatorNouViewController extends UnicastRemoteObject implements ICl
 
             java.sql.Date p= java.sql.Date.valueOf(localDate);
             Programari programari=new Programari(Integer.valueOf(intervalOrar1),p);
-
             service.adaugaDonator(donator,programari);
 
             System.out.println("Donator adaugat!!");
@@ -130,20 +129,6 @@ public class DonatorNouViewController extends UnicastRemoteObject implements ICl
         }
 
 
-        /**
-        try {
-            Student s=new Student(id,nume,Integer.parseInt(grupa),email,profesor);
-            studentService.save(id,s);
-
-            MessageAlert.showMessage(dialogStage, Alert.AlertType.INFORMATION, "Salvare cu succes", "Studentul a fost adaugat!");
-            clearFields();
-        } catch (RepositoryException e1) {
-            MessageAlert.showMessage(dialogStage, Alert.AlertType.INFORMATION, "Datele nu sunt bune", "Studentul nu a fost adaugat!");
-            clearFields();
-        }catch(ValidationException | NumberFormatException  el){
-            MessageAlert.showErrorMessage(dialogStage, "Exista deja un student cu acest id!");
-            //el.printStackTrace();
-        }**/
 
     }
 
