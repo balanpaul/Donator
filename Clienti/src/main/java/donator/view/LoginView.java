@@ -90,7 +90,7 @@ public class LoginView extends UnicastRemoteObject implements IClient {
                 stage.setTitle("Asistenta");
                 //doctorController.setService(stage);
                 AsistentaController asistentaController =loader.getController();
-                asistentaController.setService(service);
+                asistentaController.setService(service, asistentaController, stage);
                 stage.show();
 
                 ((Node) (actionEvent.getSource())).getScene().getWindow().hide();

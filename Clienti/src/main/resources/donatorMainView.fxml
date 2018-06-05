@@ -35,7 +35,7 @@
                   <Font name="Impact" size="48.0" />
                </font>
             </Button>
-            <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onClickDonatorVechi" prefHeight="100.0" prefWidth="400.0" text="donator vechi" textAlignment="CENTER">
+            <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onClickDonatorVechi" prefHeight="100.0" prefWidth="400.0" text="donează din nou" textAlignment="CENTER">
                <font>
                   <Font name="Impact" size="48.0" />
                </font>

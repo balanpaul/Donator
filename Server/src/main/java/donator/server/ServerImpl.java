@@ -31,7 +31,10 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.rmi.RemoteException;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -161,6 +164,11 @@ public class ServerImpl implements IServer {
         return dateSangeRepository.getSange();
     }
 
+    @Override
+    public DateSange getDateSangeDonator(int id) throws DonatorException, RemoteException {
+        return dateSangeRepository.getSangeD(id);
+    }
+
 
     @Override
     public List<Observatie> listaObservatii(int idSange) throws DonatorException, RemoteException {
@@ -225,9 +233,13 @@ public class ServerImpl implements IServer {
 
     }
 
+    @Override
+    public List<Observatie> listaObservatii(int idSange) throws DonatorException, RemoteException {
+        return observatiiRepository.listaObservatii(idSange);
+    }
 
 
-    private void exportPDF(String mail)  {
+    public void exportPDF(String mail) throws DonatorException, RemoteException {
        Donator donator=donatorRepository.findMail(mail);
        DateSange dateSange=dateSangeRepository.getSangeD(donator.getIdDonator());
         Document document = new Document();
@@ -274,6 +286,27 @@ public class ServerImpl implements IServer {
         return lista;
     }
 
+    @Override
+    public List<Programari> getProgramari(int id) throws DonatorException, RemoteException{
+        return programariRepository.findAllProg(id);
+    }
+
+
+    @Override
+    public List<Donator> filtrareDonatorDupaNumeSiData(String nume, String prenume, Date date)throws DonatorException, RemoteException{
+        List<Donator> lista = new ArrayList<>();
+
+        for(Donator donator : donatorRepository.findOne(nume, prenume)) {
+            for(Programari programari : programariRepository.findAllProg(donator.getIdDonator()))
+                if(programari.getDataD() == date) {
+                    if (donator.getCnp() == null)
+                        donator.setCnp("-");
+
+                    lista.add(donator);
+                }
+        }
+        return lista;
+    }
     public static String[] getCordinates(String address) throws IOException, ParserConfigurationException, SAXException, DonatorException, XPathExpressionException {
         int responseCode = 0;
         address="Galati 24 Cluj Napoca";
@@ -314,6 +347,7 @@ public class ServerImpl implements IServer {
         }
         return null;
     }
+
 
     @Override
     public List<Centru> listaCentre() throws DonatorException, RemoteException{

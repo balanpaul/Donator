@@ -37,6 +37,14 @@ public class DateSange {
         this.dataRecolta = dataRecolta;
     }
 
+    public DateSange(String grupaSanguina, Boolean sanatos, String rh, int globuleRosii, int plasma, int trombocite) {
+        GrupaSanguina = grupaSanguina;
+        Sanatos = sanatos;
+        this.globuleRosii = globuleRosii;
+        this.plasma = plasma;
+        this.trombocite = trombocite;
+    }
+
     public DateSange() {
     }
 
