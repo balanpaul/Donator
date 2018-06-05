@@ -63,8 +63,9 @@ public class LoginView extends UnicastRemoteObject implements IClient {
                 FXMLLoader loader = new FXMLLoader();
                 AnchorPane anchorPane;
                 loader.setLocation(getClass().getResource("/medicView.fxml"));
-                DoctorController doctorController = loader.getController();
+
                 anchorPane = (AnchorPane) loader.load();
+                DoctorController doctorController = loader.getController();
                 Scene scene = new Scene(anchorPane);
                 Stage stage = new Stage();
                 stage.setScene(scene);

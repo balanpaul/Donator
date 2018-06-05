@@ -12,6 +12,7 @@
     <bean id="sangeRepo" class="donator.persistence.DateSangeRepository"/>
     <bean id="obsRepo" class="donator.persistence.ObservatiiRepository"/>
     <bean id="centreRepo" class="donator.persistence.CentreRepository"/>
+    <bean id="datesangeCentreRepo" class="donator.persistence.DateSangeCentreRepository"/>
 
 
     <bean id="service" class="donator.server.ServerImpl">
@@ -23,6 +24,7 @@
         <constructor-arg ref="sangeRepo"/>
         <constructor-arg ref="obsRepo"/>
         <constructor-arg ref="centreRepo"/>
+        <constructor-arg ref="datesangeCentreRepo"/>
 
     </bean>
 

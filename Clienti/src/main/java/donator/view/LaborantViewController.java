@@ -140,7 +140,7 @@ public class LaborantViewController {
                     z.setSanatos(1);
                 else
                     z.setSanatos(2);
-                service.recoltare(z.getDonator(),z);
+                service.verificare(z.getDonator(),z);
             }
 
         }catch (Exception e){

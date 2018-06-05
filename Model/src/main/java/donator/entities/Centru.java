@@ -6,8 +6,18 @@ import java.io.Serializable;
 public class Centru implements Serializable{
     private int idCentru;
     private String nume;
+    private String adresa;
+    private String telefon;
+    private String email;
+    private double latitudine;
+    private double longitudine;
+
+
+    public Centru() {
+    }
 
     public Centru(int idCentru, String nume, String adresa, String telefon, String email, double latitudine, double longitudine) {
+
         this.idCentru = idCentru;
         this.nume = nume;
         this.adresa = adresa;
@@ -17,8 +27,7 @@ public class Centru implements Serializable{
         this.longitudine = longitudine;
     }
 
-    public Centru() {
-    }
+
 
     public int getIdCentru() {
 
@@ -77,10 +86,5 @@ public class Centru implements Serializable{
         this.longitudine = longitudine;
     }
 
-    private String adresa;
-    private String telefon;
-    private String email;
-    private double latitudine;
-    private double longitudine;
 
 }

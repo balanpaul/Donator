@@ -1,10 +1,16 @@
 package donator.view;
 
 import donator.entities.Centru;
+import donator.service.DonatorException;
 import donator.service.IServer;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 public class DoctorController {
     @FXML
@@ -27,15 +33,79 @@ public class DoctorController {
 
     }
 
+    private ObservableList<Centru> model;
+
     public void setService(IServer service){
         this.service=service;
+        /*try{
+            model = FXCollections.observableArrayList(service.listaCentre());
+            centreTable.setItems(model);
+        }catch(DonatorException | RemoteException ex){}*/
+        loadTable();
     }
 
     @FXML
-    public void initialize(){
-        numeColumn.setCellValueFactory(new PropertyValueFactory<Centru, String>("nume"));
-        adresaColumn.setCellValueFactory(new PropertyValueFactory<Centru, String>("adresa"));
-        telefonColumn.setCellValueFactory(new PropertyValueFactory<Centru, String>("telefon"));
-        emailColumn.setCellValueFactory(new PropertyValueFactory<Centru, String>("email"));
+    public void initialize(){}
+
+    @FXML
+    public void onCickCautaCentru(){
+        String grupaSange = grupaSangeField.getText();
+        int unitatiSanguine;
+        boolean trombocite = false;
+        boolean plasma = false;
+        boolean globuleRosii = false;
+
+        unitatiSanguine = Integer.parseInt(cantitateField.getText());
+
+        if(trombociteRadio.isSelected()){
+            trombocite = true;
+        }
+        else if(plasmaRadio.isSelected()){
+            plasma = true;
+        }
+        else if(globuleRosiiRadio.isSelected()){
+            globuleRosii = true;
+        }
+        ArrayList<Centru> listaSpecificatii = null;
+
+        if(prioritateComboBox.getValue().toString().compareTo("URGENTA") == 0){
+            try {
+                listaSpecificatii = (ArrayList<Centru>) service.cautaCentreUrgenta(grupaSange, unitatiSanguine, trombocite, plasma, globuleRosii);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            } catch (DonatorException e) {
+                e.printStackTrace();
+            }
+        }
+        else if(prioritateComboBox.getValue().toString().compareTo("NORMALA") == 0){
+            try {
+                listaSpecificatii = (ArrayList<Centru>) service.cautaCentreNormala(grupaSange, unitatiSanguine, trombocite, plasma, globuleRosii);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            } catch (DonatorException e) {
+                e.printStackTrace();
+            }
+        }
+        loadTableSpecific(listaSpecificatii);
+    }
+
+    private void loadTable() {
+        try {
+            this.model = FXCollections.observableArrayList(service.listaCentre());
+            centreTable.setItems(model);
+            centreTable.getSelectionModel().selectFirst();
+        } catch (DonatorException e) {
+            e.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void loadTableSpecific(ArrayList<Centru> list) {
+
+            this.model = FXCollections.observableArrayList(list);
+            centreTable.setItems(model);
+            centreTable.getSelectionModel().selectFirst();
+
     }
 }

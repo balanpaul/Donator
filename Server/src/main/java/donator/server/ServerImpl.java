@@ -46,9 +46,10 @@ public class ServerImpl implements IServer {
     private DateSangeRepository dateSangeRepository;
     private ObservatiiRepository observatiiRepository;
     private CentreRepository centreRepository;
+    private DateSangeCentreRepository dateSangeCentreRepository;
 
 
-    public ServerImpl(DonatorRepository donatorRepository, ProgramariRepository programariRepository, PersonalRepository personalRepository, ChestionarRepository chestionarRepository, DateSangeRepository dateSangeRepository, ObservatiiRepository observatiiRepository, CentreRepository centreRepository) {
+    public ServerImpl(DonatorRepository donatorRepository, ProgramariRepository programariRepository, PersonalRepository personalRepository, ChestionarRepository chestionarRepository, DateSangeRepository dateSangeRepository, ObservatiiRepository observatiiRepository, CentreRepository centreRepository, DateSangeCentreRepository dateSangeCentreRepository) {
         this.donatorRepository = donatorRepository;
         this.programariRepository = programariRepository;
         this.personalRepository = personalRepository;
@@ -56,6 +57,7 @@ public class ServerImpl implements IServer {
         this.dateSangeRepository = dateSangeRepository;
         this.observatiiRepository = observatiiRepository;
         this.centreRepository = centreRepository;
+        this.dateSangeCentreRepository = dateSangeCentreRepository;
     }
 
     @Override
@@ -348,7 +350,114 @@ public class ServerImpl implements IServer {
 
     @Override
     public List<Centru> listaCentre() throws DonatorException, RemoteException{
-        return centreRepository.findAll();
+        ArrayList<Centru> lista = (ArrayList<Centru>) centreRepository.findAll();
+        return lista;
+    }
+
+
+
+    boolean isInList(ArrayList<String> list, String string){
+        for(String str:list){
+            if(str.compareTo(string) == 0){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public List<Centru> cautaCentre(String grupaSange, int unitatiSanguine, boolean trombocite, boolean plasma, boolean globuleRosii) throws RemoteException, DonatorException {
+        ArrayList<DatesangeCentre> listaSangeCentre = (ArrayList<DatesangeCentre>) dateSangeCentreRepository.findAll();
+        ArrayList<String> listaGrupeCompatibile = (ArrayList<String>)grupeCompatibile(grupaSange);
+        ArrayList<Centru> rezultat = new ArrayList<>();
+        for(DatesangeCentre dsc:listaSangeCentre){
+            DateSange sange = dsc.getIdDateSange();
+            if(isInList(listaGrupeCompatibile, sange.getGrupaSanguina())){
+                if(sange.getPlasma() == 1 && sange.getGlobuleRosii() == 1 && sange.getTrombocite() == 1){
+                    rezultat.add(dsc.getIdCentru());
+                }
+            }
+        }
+        return rezultat;
+    }
+
+    @Override
+    public List<Centru> cautaCentreUrgenta(String grupaSange, int unitatiSanguine, boolean trombocite, boolean plasma, boolean globuleRosii) throws RemoteException, DonatorException {
+        return cautaCentre(grupaSange, unitatiSanguine, trombocite, plasma, globuleRosii);
+    }
+
+    @Override
+    public List<Centru> cautaCentreNormala(String grupaSange, int unitatiSanguine, boolean trombocite, boolean plasma, boolean globuleRosii) throws RemoteException, DonatorException {
+        ArrayList<Centru> list = (ArrayList<Centru>) cautaCentre(grupaSange, unitatiSanguine, trombocite, plasma, globuleRosii);
+        ArrayList<Centru> rezultat = new ArrayList<>();
+        int cont;
+        for(int i=0;i<list.size();i++){
+            cont=0;
+            for(int j=0;j<list.size();j++){
+                if(list.get(i).getIdCentru() == list.get(j).getIdCentru() && i != j) {
+                    cont++;
+                    list.remove(j);
+                }
+            }
+            rezultat.add(list.get(i));
+        }
+        return rezultat;
+    }
+
+    @Override
+    public List<String> grupeCompatibile(String grupaSanguina) throws DonatorException, RemoteException{
+        ArrayList<String> list = new ArrayList<>();
+        if(grupaSanguina.compareTo("0+") == 0){
+            list.add("0+");
+            list.add("0-");
+            return list;
+        }
+        if (grupaSanguina.compareTo("A+") == 0){
+            list.add("A+");
+            list.add("A-");
+            list.add("0+");
+            list.add("0-");
+            return list;
+        }
+        if (grupaSanguina.compareTo("B+") == 0){
+            list.add("B+");
+            list.add("B-");
+            list.add("0+");
+            list.add("0-");
+            return list;
+        }
+        if (grupaSanguina.compareTo("AB+") == 0){
+            list.add("A+");
+            list.add("A-");
+            list.add("0+");
+            list.add("0-");
+            list.add("AB+");
+            list.add("AB-");
+            list.add("B+");
+            list.add("B-");
+            return list;
+        }
+        if(grupaSanguina.compareTo("0-") == 0){
+            list.add("0-");
+            return list;
+        }
+        if(grupaSanguina.compareTo("A-") == 0){
+            list.add("A-");
+            list.add("0-");
+            return list;
+        }
+        if(grupaSanguina.compareTo("B-") == 0){
+            list.add("B-");
+            list.add("0-");
+            return list;
+        }
+        if(grupaSanguina.compareTo("A-") == 0){
+            list.add("A-");
+            list.add("B-");
+            list.add("AB-");
+            list.add("0-");
+            return list;
+        }
+        return null;
     }
 
     @Override

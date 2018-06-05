@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.cell.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -19,7 +20,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 
+<?import javafx.collections.FXCollections?>
 <AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="donator.view.DoctorController">
    <children>
       <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
@@ -55,13 +58,13 @@
             <Font name="Calibri" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="820.0" layoutY="279.0" prefHeight="50.0" prefWidth="227.0" text="Cantitate:" textAlignment="CENTER">
+      <Label layoutX="820.0" layoutY="279.0" prefHeight="50.0" prefWidth="150.0" text="Unit Sanguine:" textAlignment="CENTER">
          <font>
             <Font name="Calibri" size="18.0" />
          </font>
       </Label>
       <TextField fx:id="cantitateField" layoutX="937.0" layoutY="291.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="221.0" />
-      <Button layoutX="894.0" layoutY="494.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Trimite">
+      <Button layoutX="894.0" layoutY="494.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" onAction="#onCickCautaCentru" text="Cauta">
          <font>
             <Font name="Impact" size="24.0" />
          </font>
@@ -71,7 +74,14 @@
             <Font name="Calibri" size="18.0" />
          </font>
       </Label>
-      <ComboBox fx:id="prioritateComboBox" layoutX="937.0" layoutY="337.0" prefWidth="221.0" />
+      <ComboBox fx:id="prioritateComboBox" layoutX="937.0" layoutY="337.0"  prefWidth="221.0" >
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="URGENTA" />
+               <String fx:value="NORMALA" />
+            </FXCollections>
+         </items>
+      </ComboBox>
       <RadioButton fx:id="trombociteRadio" layoutX="938.0" layoutY="223.0" mnemonicParsing="false" text="Trombocite">
          <font>
             <Font name="Calibri" size="14.0" />
@@ -102,10 +112,26 @@
       <TextField fx:id="grupaSangeField" alignment="CENTER" layoutX="937.0" layoutY="182.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="221.0" />
       <TableView fx:id="centreTable" layoutX="200.0" layoutY="162.0" prefHeight="469.0" prefWidth="521.0">
         <columns>
-          <TableColumn fx:id="numeColumn" prefWidth="130.0" text="Nume" />
-          <TableColumn fx:id="adresaColumn" minWidth="8.0" prefWidth="111.0" text="Adresa" />
-            <TableColumn fx:id="telefonColumn" minWidth="5.0" prefWidth="128.0" text="Telefon" />
-            <TableColumn fx:id="emailColumn" minWidth="8.0" prefWidth="151.0" text="Email" />
+          <TableColumn fx:id="numeColumn" prefWidth="111.0" text="Nume">
+           <cellValueFactory>
+              <PropertyValueFactory property="Nume" />
+           </cellValueFactory>
+          </TableColumn>
+          <TableColumn fx:id="adresaColumn" minWidth="8.0" prefWidth="111.0" text="Adresa">
+           <cellValueFactory>
+              <PropertyValueFactory property="Adresa" />
+           </cellValueFactory>
+           </TableColumn>
+            <TableColumn fx:id="telefonColumn" minWidth="5.0" prefWidth="123.0" text="Telefon">
+           <cellValueFactory>
+              <PropertyValueFactory property="Telefon" />
+           </cellValueFactory>
+           </TableColumn>
+            <TableColumn fx:id="emailColumn" minWidth="8.0" prefWidth="175.0" text="Email">
+           <cellValueFactory>
+              <PropertyValueFactory property="Email" />
+           </cellValueFactory>
+           </TableColumn>
         </columns>
       </TableView>
    </children>
