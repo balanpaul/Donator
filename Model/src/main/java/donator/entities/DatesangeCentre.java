@@ -16,6 +16,9 @@ public class DatesangeCentre implements Serializable {
         centru = idCentru;
     }
 
+    public DatesangeCentre() {
+    }
+
     public int getIdDatesangeCentre() {
         return IdDatesangeCentre;
     }
