@@ -10,8 +10,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.rmi.RemoteException;
@@ -44,9 +47,10 @@ public class LaborantViewController {
     public LaborantViewController(){
     }
 
-    public void setService(IServer service, Personal personal){
+    public void setService(IServer service, Personal personal,Stage stage){
         this.service=service;
         this.personal=personal;
+        this.dialogStage=stage;
         loadTable();
 
 
@@ -167,6 +171,30 @@ public class LaborantViewController {
         }catch (RemoteException e) {
             e.printStackTrace();
         } catch (DonatorException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    public void handleGoBack(){
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            AnchorPane anchorPane;
+
+            loader.setLocation(getClass().getResource("/loginView.fxml"));
+            anchorPane = (AnchorPane)loader.load();
+            Scene scene = new Scene(anchorPane);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("Login");
+
+            LoginView loginView = loader.getController();
+            loginView.setService(service);
+
+            stage.show();
+
+            dialogStage.hide();
+        } catch (Exception e){
+            System.err.println("Initialization  exception:"+e);
             e.printStackTrace();
         }
     }

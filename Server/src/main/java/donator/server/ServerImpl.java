@@ -7,6 +7,8 @@ import donator.persistence.*;
 
 import donator.service.DonatorException;
 import donator.service.IServer;
+import donator.validatori.DonatorValidare;
+import donator.validatori.ValidationException;
 import org.xml.sax.SAXException;
 
 import javax.mail.Message;
@@ -47,7 +49,7 @@ public class ServerImpl implements IServer {
     private ObservatiiRepository observatiiRepository;
     private CentreRepository centreRepository;
     private DateSangeCentreRepository dateSangeCentreRepository;
-
+    private DonatorValidare donatorValidare=new DonatorValidare();
 
     public ServerImpl(DonatorRepository donatorRepository, ProgramariRepository programariRepository, PersonalRepository personalRepository, ChestionarRepository chestionarRepository, DateSangeRepository dateSangeRepository, ObservatiiRepository observatiiRepository, CentreRepository centreRepository, DateSangeCentreRepository dateSangeCentreRepository) {
         this.donatorRepository = donatorRepository;
@@ -61,10 +63,12 @@ public class ServerImpl implements IServer {
     }
 
     @Override
-    public void adaugaDonator(Donator donator, Programari programari) throws DonatorException, RemoteException {
+    public void adaugaDonator(Donator donator, Programari programari) throws DonatorException, RemoteException, ValidationException {
+        donatorValidare.validate(donator);
         int i = programariRepository.nrProg(programari);
         if (i == 5)
             throw new DonatorException("Nu mai sunt locuri disponibile in aceasta perioada");
+
         long id = donatorRepository.save(donator);
         Donator d = donatorRepository.findMail(donator.getEmail());
         programari.setDonator(d);

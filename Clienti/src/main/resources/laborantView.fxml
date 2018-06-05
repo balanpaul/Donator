@@ -47,7 +47,7 @@
                 <Image url="@syringe-icon-63444.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="117.0" fitWidth="113.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView onMouseClicked="#handleGoBack" fitHeight="117.0" fitWidth="113.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@home_logo_white_v2.png" />
             </image>

@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Clienti/Clienti.iml" filepath="$PROJECT_DIR$/.idea/modules/Clienti/Clienti.iml" group="Clienti" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Clienti/Clienti_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Clienti/Clienti_main.iml" group="Clienti" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Clienti/Clienti_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Clienti/Clienti_test.iml" group="Clienti" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Server/Donator-Server_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Server/Donator-Server_main.iml" group="Server" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Server/Donator-Server_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Server/Donator-Server_test.iml" group="Server" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/KillerBas.iml" filepath="$PROJECT_DIR$/.idea/modules/KillerBas.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/KillerBas_main.iml" filepath="$PROJECT_DIR$/.idea/modules/KillerBas_main.iml" group="KillerBas" />

@@ -5,6 +5,7 @@ import donator.entities.Programari;
 import donator.service.DonatorException;
 import donator.service.IClient;
 import donator.service.IServer;
+import donator.validatori.ValidationException;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -126,8 +127,9 @@ public class DonatorNouViewController extends UnicastRemoteObject implements ICl
             showErrorMessage(e.getMessage());
         } catch (RemoteException e) {
             e.printStackTrace();
+        } catch (ValidationException e) {
+            showErrorMessage(e.getMessage());
         }
-
 
 
     }

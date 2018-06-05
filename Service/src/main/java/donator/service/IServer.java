@@ -2,6 +2,7 @@ package donator.service;
 
 
 import donator.entities.*;
+import donator.validatori.ValidationException;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -17,7 +18,7 @@ public interface IServer {
     //DateSange[] getSange() throws DonatorException;
     //  DateSange[] cautareSange() throws DonatorException;
 
-    void adaugaDonator(Donator donator, Programari programari) throws DonatorException,RemoteException;
+    void adaugaDonator(Donator donator, Programari programari) throws DonatorException, RemoteException, ValidationException;
     void adaugaChestionar(Chestionar chestionar) throws DonatorException,RemoteException;
     void adaugaObservatie(Observatii observatie) throws DonatorException, RemoteException;
     void planificare(Donator d,Programari donator)throws DonatorException,RemoteException;
