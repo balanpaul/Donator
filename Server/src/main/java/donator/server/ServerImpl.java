@@ -32,7 +32,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.sql.Date;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -64,7 +66,23 @@ public class ServerImpl implements IServer {
 
     @Override
     public void adaugaDonator(Donator donator, Programari programari) throws DonatorException, RemoteException, ValidationException {
-        donatorValidare.validate(donator);
+       // donatorValidare.validate(donator);
+        try {
+            String[] cor=getCordinates(donator.getOras()+" "+donator.getStrada()).split(" ");
+            Double la=Double.valueOf(cor[0]);
+            Double lo=Double.valueOf(cor[1]);
+            donator.setLatitudine(la);
+            donator.setLongitudine(lo);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        } catch (XPathExpressionException e) {
+            e.printStackTrace();
+        }
+
         int i = programariRepository.nrProg(programari);
         if (i == 5)
             throw new DonatorException("Nu mai sunt locuri disponibile in aceasta perioada");
@@ -267,7 +285,9 @@ public class ServerImpl implements IServer {
         }
     }
 
-
+    public List<DateSange> getByDonator(int id){
+        return dateSangeRepository.getAllSange(id);
+    }
     @Override
     public Chestionar cautareChestionar(String mail) throws DonatorException, RemoteException {
         Donator donator = donatorRepository.findMail(mail);
@@ -312,7 +332,7 @@ public class ServerImpl implements IServer {
     }
     public String getCordinates(String address) throws IOException, ParserConfigurationException, SAXException, DonatorException, XPathExpressionException {
         int responseCode = 0;
-        String api = "http://maps.googleapis.com/maps/api/geocode/xml?address=" + URLEncoder.encode(address, "UTF-8") + "&sensor=true";
+        String api = "http://maps.googleapis.com/maps/api/geocode/xml?address=AIzaSyDKKKzVlcKpIYOSUkFU5KyF17lvpmkjqG4" + URLEncoder.encode(address, "UTF-8") + "&sensor=true";
         System.out.println("URL : "+api);
         URL url = new URL(api);
         HttpURLConnection httpConnection = (HttpURLConnection)url.openConnection();
@@ -370,6 +390,14 @@ public class ServerImpl implements IServer {
 
     public List<Centru> cautaCentre(String grupaSange, int unitatiSanguine, boolean trombocite, boolean plasma, boolean globuleRosii) throws RemoteException, DonatorException {
         ArrayList<DatesangeCentre> listaSangeCentre = (ArrayList<DatesangeCentre>) dateSangeCentreRepository.findAll();
+        Comparator<DatesangeCentre> comparator=(s1,s2)->{
+            if( distance(s1.getIdCentru().getLatitudine(),s1.getIdCentru().getLongitudine(),s1.getIdDateSange().getDonator().getLatitudine(),s1.getIdDateSange().getDonator().getLongitudine())<=
+                    distance(s1.getIdCentru().getLatitudine(),s1.getIdCentru().getLongitudine(),s1.getIdDateSange().getDonator().getLatitudine(),s1.getIdDateSange().getDonator().getLongitudine())){
+                return 1;
+            }
+            else return -1;
+        };
+        listaSangeCentre.sort(comparator);
         ArrayList<String> listaGrupeCompatibile = (ArrayList<String>)grupeCompatibile(grupaSange);
         ArrayList<Centru> rezultat = new ArrayList<>();
         for(DatesangeCentre dsc:listaSangeCentre){
@@ -384,12 +412,15 @@ public class ServerImpl implements IServer {
 
 
 
+
         return rezultat;
     }
 
     @Override
     public List<Centru> cautaCentreUrgenta(String grupaSange, int unitatiSanguine, boolean trombocite, boolean plasma, boolean globuleRosii) throws RemoteException, DonatorException {
-        return cautaCentre(grupaSange, unitatiSanguine, trombocite, plasma, globuleRosii);
+        List<Centru> centrus= cautaCentre(grupaSange, unitatiSanguine, trombocite, plasma, globuleRosii);
+
+        return centrus;
     }
 
     @Override
@@ -487,4 +518,38 @@ public class ServerImpl implements IServer {
         dateSange.setDonator(d);
         dateSangeRepository.update(dateSange);
     }
+    private DecimalFormat format = new DecimalFormat("##.######");
+
+
+    /**
+     * @param degrees degrees which will be convert to radians
+     * @return value in radians of degrees
+     */
+    double degreesToRadians(double degrees) {
+        double radius = degrees * Math.PI / 180;
+
+        return Double.valueOf(format.format(radius));
+
+
+    }
+
+
+
+    public double distance(double centrulatitudine, double centruLonggitudine, double dontatola, double donatorlo) {
+
+        final int R = 6371; // Radius of the earth in km
+
+        //delta latitude and longitude
+        double dLat = degreesToRadians(dontatola - centrulatitudine);
+        double dLon = degreesToRadians(donatorlo - centruLonggitudine);
+
+        //haversine formula
+        double a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(centrulatitudine) * Math.cos(dontatola);
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+        return Double.valueOf(format.format(R * c));
+
+
+    }
+
 }

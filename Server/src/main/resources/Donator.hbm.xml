@@ -22,6 +22,8 @@
         <property name="scara" column="Scara" type="string"/>
         <property name="numar" column="Numar" type="string"/>
         <property name="codPostal" column="CodPostal" type="int"/>
+        <property name="latitudine" column="latitudine" type="double"/>
+        <property name="longitudine" column="longitudine" type="double"/>
 
     </class>
 </hibernate-mapping>

@@ -122,7 +122,10 @@ public class DonatorNouViewController extends UnicastRemoteObject implements ICl
             Programari programari=new Programari(Integer.valueOf(intervalOrar1),p);
             service.adaugaDonator(donator,programari);
 
-            System.out.println("Donator adaugat!!");
+            Alert message = new Alert(Alert.AlertType.CONFIRMATION);
+            message.setTitle("Trimitere");
+            message.setContentText("ai fost programat");
+            message.showAndWait();
         }catch (DonatorException e){
             showErrorMessage(e.getMessage());
         } catch (RemoteException e) {

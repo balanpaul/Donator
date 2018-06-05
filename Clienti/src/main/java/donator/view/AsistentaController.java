@@ -32,9 +32,8 @@ import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Random;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class AsistentaController extends UnicastRemoteObject implements IClient{
 
@@ -57,7 +56,7 @@ public class AsistentaController extends UnicastRemoteObject implements IClient{
     private ListView<Observatii> listViewBoli;
 
     @FXML
-    private ListView<Programari> listViewIstoric;
+    private ListView<String> listViewIstoric;
 
     @FXML
     private TextField textFieldNumePrenume, textFieldDoneazaPentru;
@@ -127,18 +126,18 @@ public class AsistentaController extends UnicastRemoteObject implements IClient{
                             try {
                                 //sortare cu text si date picker
                                 tableDonator.setItems(FXCollections.observableArrayList(service.filtrareDonatorDupaNumeSiData(aux[0], aux[1], (Date.valueOf(datePicker.getValue())))));
-                            } catch (DonatorException e){
+                            } catch (DonatorException e) {
                                 System.out.println(e);
-                            } catch (RemoteException e){
+                            } catch (RemoteException e) {
                                 e.printStackTrace();
                             }
                         } else {
                             try {
                                 //sortare numai cu date picker
                                 tableDonator.setItems(FXCollections.observableArrayList(service.filtrareDonatorDupaNumeSiData(" ", " ", (Date.valueOf(datePicker.getValue())))));
-                            } catch (DonatorException e){
+                            } catch (DonatorException e) {
                                 System.out.println(e);
-                            } catch (RemoteException e){
+                            } catch (RemoteException e) {
                                 e.printStackTrace();
                             }
                         }
@@ -149,14 +148,18 @@ public class AsistentaController extends UnicastRemoteObject implements IClient{
 
                             model = FXCollections.observableArrayList(service.getAll());
                             tableDonator.setItems(model);
-                        } catch (DonatorException e){
+                        } catch (DonatorException e) {
                             System.out.println(e);
-                        } catch (RemoteException e){
+                        } catch (RemoteException e) {
                             e.printStackTrace();
                         }
                     }
+                }else {
+                        refresh();
+                        datePicker.setValue(NOW_LOCAL_DATE());
+                    }
                 }
-            }
+
         });
 
 
@@ -294,13 +297,11 @@ public class AsistentaController extends UnicastRemoteObject implements IClient{
     }
 
     public void listaIstoric(Donator donator){
-        try {
-            listViewIstoric.setItems(FXCollections.observableArrayList(service.getProgramari(donator.getIdDonator())));
-        } catch (DonatorException e){
-            System.out.println(e);
-        } catch (RemoteException ex) {
-            ex.printStackTrace();
-        }
+        List<DateSange> dateSanges=service.getByDonator(donator.getIdDonator());
+        List<String> strings = dateSanges.stream()
+                .map(object -> Objects.toString(object))
+                .collect(Collectors.toList());
+        listViewIstoric.setItems(FXCollections.observableArrayList(strings));
 
     }
 

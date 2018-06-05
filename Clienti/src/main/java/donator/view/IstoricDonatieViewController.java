@@ -5,6 +5,7 @@ import donator.service.IServer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -41,6 +42,10 @@ public class IstoricDonatieViewController extends UnicastRemoteObject{
         try {
            // service.getCordinates("sa");
             service.trimitereMail(email.getText().toString());
+            Alert message = new Alert(Alert.AlertType.CONFIRMATION);
+            message.setTitle("Email");
+            message.setContentText("S-a trimis email cu istoricul donatiilor.");
+            message.showAndWait();
         } catch (DonatorException e) {
             e.printStackTrace();
         } catch (RemoteException e) {

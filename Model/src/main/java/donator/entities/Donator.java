@@ -20,14 +20,52 @@ public class Donator implements Serializable{
     private String Scara;
     private String Numar;
     private int CodPostal;
+    private double latitudine;
+    private double longitudine;
 
     public Donator() {
+    }
+
+    public Donator(int idDonator, String cnp, String nume, String prenume, String dataNasterii, String nrTelefon, String email, String judet, String oras, String strada, String apartament, String bloc, String scara, String numar, int codPostal, double latitudine, double longitudine) {
+        IdDonator = idDonator;
+        Cnp = cnp;
+        Nume = nume;
+        Prenume = prenume;
+        DataNasterii = dataNasterii;
+        NrTelefon = nrTelefon;
+        Email = email;
+        Judet = judet;
+        Oras = oras;
+        Strada = strada;
+        Apartament = apartament;
+        Bloc = bloc;
+        Scara = scara;
+        Numar = numar;
+        CodPostal = codPostal;
+        this.latitudine = latitudine;
+        this.longitudine = longitudine;
     }
 
     public Donator(String nume, String prenume, String email) {
         Nume = nume;
         Prenume = prenume;
         Email = email;
+    }
+
+    public double getLatitudine() {
+        return latitudine;
+    }
+
+    public void setLatitudine(double latitudine) {
+        this.latitudine = latitudine;
+    }
+
+    public double getLongitudine() {
+        return longitudine;
+    }
+
+    public void setLongitudine(double longitudine) {
+        this.longitudine = longitudine;
     }
 
     public int getIdDonator() {

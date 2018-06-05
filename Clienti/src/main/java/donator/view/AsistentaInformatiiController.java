@@ -6,7 +6,9 @@ import donator.entities.Programari;
 import donator.service.DonatorException;
 import donator.service.IClient;
 import donator.service.IServer;
+import donator.validatori.ValidationException;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -115,6 +117,11 @@ public class AsistentaInformatiiController extends UnicastRemoteObject implement
                     System.out.println(e);
                 } catch (RemoteException e) {
                     e.printStackTrace();
+                } catch (ValidationException e) {
+                    Alert message = new Alert(Alert.AlertType.ERROR);
+                    message.setTitle("Whoops");
+                    message.setContentText(e.getMessage());
+                    message.showAndWait();
                 }
             } else {
                 try {

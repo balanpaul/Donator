@@ -130,4 +130,8 @@ public class DateSange implements Serializable {
         this.donator = donator;
     }
 
+    @Override
+    public String toString() {
+        return dataRecolta.toString();
+    }
 }
