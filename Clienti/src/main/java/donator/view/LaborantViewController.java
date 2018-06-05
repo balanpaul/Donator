@@ -1,7 +1,9 @@
 package donator.view;
 
 import donator.entities.DateSange;
+import donator.entities.DatesangeCentre;
 import donator.entities.Observatii;
+import donator.entities.Personal;
 import donator.service.DonatorException;
 import donator.service.IServer;
 import javafx.collections.FXCollections;
@@ -33,6 +35,7 @@ public class LaborantViewController {
     @FXML
     TextField nume, prenume, grupaSange, adaugaObservatii;
 
+    private Personal personal;
     private Stage dialogStage;
     private IServer service;
     private ObservableList<String> modelObservatie;
@@ -41,8 +44,9 @@ public class LaborantViewController {
     public LaborantViewController(){
     }
 
-    public void setService(IServer service){
+    public void setService(IServer service, Personal personal){
         this.service=service;
+        this.personal=personal;
         loadTable();
 
 
@@ -136,8 +140,11 @@ public class LaborantViewController {
                 z.setPlasma(1);
                 z.setTrombocite(1);
                 z.setGrupaSanguina(grupaSange.getText().toString());
-                if(service.listaObservatii(z.getIdSange()).size()==0)
+                if(service.listaObservatii(z.getIdSange()).size()==0) {
                     z.setSanatos(1);
+                    DatesangeCentre datesangeCentre=new DatesangeCentre(z,this.personal.getCentru());
+                    service.adaugareCentruRecoltare(datesangeCentre);
+                }
                 else
                     z.setSanatos(2);
                 service.verificare(z.getDonator(),z);

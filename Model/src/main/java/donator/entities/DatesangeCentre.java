@@ -16,6 +16,11 @@ public class DatesangeCentre implements Serializable {
         centru = idCentru;
     }
 
+    public DatesangeCentre(DateSange dateSange, Centru centru) {
+        this.dateSange = dateSange;
+        this.centru = centru;
+    }
+
     public DatesangeCentre() {
     }
 

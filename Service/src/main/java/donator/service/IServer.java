@@ -48,4 +48,5 @@ public interface IServer {
     List<Centru> cautaCentreUrgenta(String grupaSange, int unitatiSanguine, boolean trombocite, boolean plasma, boolean globuleRosii) throws RemoteException, DonatorException;
     List<Centru> cautaCentreNormala(String grupaSange, int unitatiSanguine, boolean trombocite, boolean plasma, boolean globuleRosii) throws RemoteException, DonatorException;
     List<String> grupeCompatibile(String grupaSanguina) throws DonatorException, RemoteException;
+    void adaugareCentruRecoltare(DatesangeCentre datesangeCentre)throws DonatorException, RemoteException;
 }

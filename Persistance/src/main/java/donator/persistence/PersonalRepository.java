@@ -45,7 +45,7 @@ public class PersonalRepository {
         Transaction tx=null;
         try{
             tx=session.beginTransaction();
-            z= (Personal) session.createQuery("select P from Personal P where P.parola= :par").setParameter("par",par).getSingleResult();
+            z= (Personal) session.createQuery("select P from Personal P join fetch P.centru C where P.parola= :par").setParameter("par",par).getSingleResult();
             tx.commit();
             return z;
         }catch (RuntimeException ex){

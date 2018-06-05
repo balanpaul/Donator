@@ -105,7 +105,7 @@ public class LoginView extends UnicastRemoteObject implements IClient {
                 loader.setLocation(getClass().getResource("/laborantView.fxml"));
                 anchorPane = (AnchorPane) loader.load();
                 LaborantViewController laborantViewController = loader.getController();
-                laborantViewController.setService(service);
+                laborantViewController.setService(service,p);
                 Scene scene = new Scene(anchorPane);
                 Stage stage = new Stage();
                 stage.setScene(scene);

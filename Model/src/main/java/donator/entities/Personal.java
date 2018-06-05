@@ -11,7 +11,16 @@ public class Personal implements Serializable {
     private String NrTelefon;
     private String parola;
     private String functie;
+    private Centru centru;
     public Personal() {
+    }
+
+    public Centru getCentru() {
+        return centru;
+    }
+
+    public void setCentru(Centru centru) {
+        this.centru = centru;
     }
 
     public int getIdPersonal() {

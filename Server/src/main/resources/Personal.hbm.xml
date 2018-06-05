@@ -12,5 +12,8 @@
         <property name="nrTelefon" column="NumarTelefon" type="string"/>
         <property name="parola" column="Parola" type="string"/>
         <property name="functie" column="Functie" type="string"/>
+        <many-to-one name="centru" class="donator.entities.Centru"
+                     column="IdCentre" unique="false"
+                     cascade="all" />
     </class>
 </hibernate-mapping>

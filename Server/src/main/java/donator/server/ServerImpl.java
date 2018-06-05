@@ -180,8 +180,8 @@ public class ServerImpl implements IServer {
         String to = mailto;
         String subject = "subject";
         String msg = "email text....";
-        final String from = "balanpaul16@gmail.com";
-        final String password = "Manchester1918";
+        final String from = "killlerbas@gmail.com";
+        final String password = "issproiect";
 
         String attachmentPath="Istoric.pdf";
         Properties props = new Properties();
@@ -250,12 +250,12 @@ public class ServerImpl implements IServer {
             Font font = FontFactory.getFont(FontFactory.COURIER, 14, BaseColor.BLACK);
 
             for(DateSange sange : dateSangeRepository.getAllSange(donator.getIdDonator())) {
-
-                paragraph = new Paragraph(" GRUPA SANGUINA : " + sange.getGrupaSanguina() + ", SANATOS: " + sange.getSanatos() + ",Data prelevari : " + sange.getDataRecolta().toString() + "\n", font);
-                document.add(paragraph);
-               // paragraph =new Paragraph()
+                for (Observatii obs : observatiiRepository.listaObservatii(sange.getIdSange())) {
+                    paragraph = new Paragraph(" GRUPA SANGUINA : " + sange.getGrupaSanguina() + ", SANATOS: " + sange.getSanatos() + ",Data prelevari : " + sange.getDataRecolta().toString() + "\n", font);
+                    document.add(paragraph);
+                    // paragraph =new Paragraph()
+                }
             }
-            document.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (DocumentException e) {
@@ -318,7 +318,7 @@ public class ServerImpl implements IServer {
         if(responseCode == 200)
         {
             DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();;
-            Document document = (Document) builder.parse(httpConnection.getInputStream());
+            org.w3c.dom.Document document =  builder.parse(httpConnection.getInputStream());
             XPathFactory xPathfactory = XPathFactory.newInstance();
             XPath xpath = xPathfactory.newXPath();
             XPathExpression expr = null;
@@ -461,6 +461,11 @@ public class ServerImpl implements IServer {
             return list;
         }
         return null;
+    }
+
+    @Override
+    public void adaugareCentruRecoltare(DatesangeCentre datesangeCentre) throws DonatorException, RemoteException {
+        dateSangeCentreRepository.save(datesangeCentre);
     }
 
     @Override
