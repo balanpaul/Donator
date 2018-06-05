@@ -90,7 +90,7 @@ public class LoginView extends UnicastRemoteObject implements IClient {
                 stage.setTitle("Asistenta");
                 //doctorController.setService(stage);
                 AsistentaController asistentaController =loader.getController();
-                asistentaController.setService(service);
+                asistentaController.setService(service, asistentaController, stage);
                 stage.show();
 
                 ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
@@ -102,14 +102,14 @@ public class LoginView extends UnicastRemoteObject implements IClient {
                 FXMLLoader loader = new FXMLLoader();
                 AnchorPane anchorPane;
                 loader.setLocation(getClass().getResource("/laborantView.fxml"));
-                LaborantViewController laborantViewController = loader.getController();
                 anchorPane = (AnchorPane) loader.load();
-
+                LaborantViewController laborantViewController = loader.getController();
+                laborantViewController.setService(service);
                 Scene scene = new Scene(anchorPane);
                 Stage stage = new Stage();
                 stage.setScene(scene);
                 stage.setTitle("Laborant");
-                laborantViewController.setService(service);
+
                 stage.show();
 
             } catch (IOException e) {

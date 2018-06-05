@@ -5,11 +5,14 @@ import donator.entities.*;
 import donator.service.DonatorException;
 import donator.service.IClient;
 import donator.service.IServer;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
@@ -30,14 +33,44 @@ public class DonatorVechiController extends RemoteObject implements IClient {
     @FXML
     private DatePicker datePicker;
     private IServer service;
+    private Stage dialogStage;
 
 
-    public void setService(IServer service) {
+    public void setService(IServer service, Stage dialogStage) {
         this.service=service;
+        this.dialogStage = dialogStage;
     }
 
     public DonatorVechiController() throws RemoteException{
 
+    }
+
+    @FXML
+    private void initialize(){
+        sfOra.setDisable(true);
+
+        incOra.selectionProperty().addListener(new ChangeListener<IndexRange>() {
+            @Override
+            public void changed(ObservableValue<? extends IndexRange> observable, IndexRange oldValue, IndexRange newValue) {
+                if (newValue.getStart() != 0 && newValue.getEnd() != 0) {
+                    Integer number = Integer.parseInt(incOra.getText());
+                    number += 1;
+                    sfOra.setText(number.toString());
+                }
+                else{
+                    sfOra.setText("");
+                }
+            }
+        });
+
+        datePicker.setDayCellFactory(picker -> new DateCell() {
+            public void updateItem(LocalDate date, boolean empty) {
+                super.updateItem(date, empty);
+                LocalDate today = LocalDate.now();
+
+                setDisable(empty || date.compareTo(today) < 0 );
+            }
+        });
     }
 
 
@@ -69,5 +102,30 @@ public class DonatorVechiController extends RemoteObject implements IClient {
         message.setTitle("Whoops");
         message.setContentText(msg);
         message.showAndWait();
+    }
+
+    @FXML
+    private void handleGoBack(){
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            AnchorPane anchorPane;
+
+            loader.setLocation(getClass().getResource("/donatorMainView.fxml"));
+            anchorPane = (AnchorPane)loader.load();
+            Scene scene = new Scene(anchorPane);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("Donator main");
+
+            DonatorMainViewController donatorMainViewController = loader.getController();
+            donatorMainViewController.setService(service);
+
+            stage.show();
+
+            dialogStage.hide();
+        } catch (Exception e){
+            System.err.println("Initialization  exception:"+e);
+            e.printStackTrace();
+        }
     }
 }

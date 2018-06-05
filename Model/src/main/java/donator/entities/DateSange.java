@@ -1,9 +1,13 @@
 package donator.entities;
 
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
+import java.io.Serializable;
 import java.sql.Date;
 
-public class DateSange {
+public class DateSange implements Serializable {
 
     private int IdSange;
     private String GrupaSanguina;
@@ -37,13 +41,33 @@ public class DateSange {
         this.dataRecolta = dataRecolta;
     }
 
-    public DateSange() {
+    public DateSange(String grupaSanguina, int sanatos, String rh, int globuleRosii, int plasma, int trombocite) {
+        GrupaSanguina = grupaSanguina;
+        Sanatos = sanatos;
+        this.globuleRosii = globuleRosii;
+        this.plasma = plasma;
+        this.trombocite = trombocite;
     }
 
+    public DateSange() {
+    }
+    public  String getNume(){
+
+        return  donator.getNume();
+    }
+    public String getPrenume(){
+        return donator.getPrenume();
+    }
+    public  String getCNP(){
+        return  donator.getCnp();
+    }
     public int getGlobuleRosii() {
         return globuleRosii;
     }
 
+    public String getSDate(){
+        return dataRecolta.toString();
+    }
     public void setGlobuleRosii(int globuleRosii) {
         this.globuleRosii = globuleRosii;
     }

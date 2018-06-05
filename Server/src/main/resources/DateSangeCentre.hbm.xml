@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping >
+    <class name="donator.entities.DatesangeCentre" table="datesangecentre">
+        <id name="IdDatesangeCentre" column="idDatesangeCentre" type="int">
+           <generator class="identity"/>
+        </id>
+        <many-to-one name="IdDateSange" class="donator.entities.DateSange" column="idSange" unique="false"
+                     cascade="all"/>
+        <many-to-one name="IdCentru" class="donator.entities.Centru" column="idCentru" unique="false"
+                     cascade="all"/>
+    </class>
+</hibernate-mapping>

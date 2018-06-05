@@ -1,29 +1,31 @@
 package donator.view;
 
 import donator.entities.DateSange;
-import donator.entities.Donator;
+import donator.entities.Observatii;
 import donator.service.DonatorException;
 import donator.service.IServer;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
 import java.rmi.RemoteException;
-import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class LaborantViewController {
     @FXML
     TableView sangeVerificat;
 
     @FXML
-    TableColumn numeColumn, prenumeColumn, cnpColumn;
+    TableColumn<DateSange,String> numeColumn, prenumeColumn, cnpColumn;
 
     @FXML
     ListView observatii;
@@ -33,7 +35,7 @@ public class LaborantViewController {
 
     private Stage dialogStage;
     private IServer service;
-    private ObservableList<Donator> modelDonator;
+    private ObservableList<String> modelObservatie;
     private ObservableList<DateSange> modelDateSange;
 
     public LaborantViewController(){
@@ -41,71 +43,75 @@ public class LaborantViewController {
 
     public void setService(IServer service){
         this.service=service;
+        loadTable();
 
-        modelDonator = FXCollections.observableArrayList();
+
+
+    }
+
+
+    @FXML
+    public void initialize(){
+
+    }
+    private void loadTable(){
         try {
-            for(DateSange sange:service.getNeverificati()){
-                modelDonator.add(sange.getDonator());
-            }
-            sangeVerificat.setItems(modelDonator);
+            this.modelDateSange = FXCollections.observableArrayList(service.getSange());
+            sangeVerificat.setItems(modelDateSange);
+            sangeVerificat.getSelectionModel().selectFirst();
+        } catch (DonatorException e) {
+            e.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    public void clickItem(MouseEvent event)
+    {
+
+        try {
+            DateSange d= (DateSange) sangeVerificat.getSelectionModel().getSelectedItem();
+          //  wait(100);
+            nume.setText(d.getNume());
+            prenume.setText(d.getPrenume());
+            grupaSange.setText(d.getGrupaSanguina());
+            List<Observatii> observaties=service.listaObservatii(d.getIdSange());
+          List<String> strings = observaties.stream()
+                    .map(object -> Objects.toString(object))
+                    .collect(Collectors.toList());
+           // List<String> strings=new ArrayList<>();
+            this.modelObservatie = FXCollections.observableArrayList(strings);
+            observatii.setItems(modelObservatie);
         } catch (DonatorException e) {
             e.printStackTrace();
         } catch (RemoteException e) {
             e.printStackTrace();
         }
 
-        //modelDateSange = FXCollections.observableArrayList(service.getNeverificati());
-
 
     }
-
-    /*
-
-    TableColumn<Person,String> firstNameCol = new TableColumn<Person,String>("First Name");
- firstNameCol.setCellValueFactory(new Callback<CellDataFeatures<Person, String>, ObservableValue<String>>() {
-     public ObservableValue<String> call(CellDataFeatures<Person, String> p) {
-         // p.getValue() returns the Person instance for a particular TableView row
-         return p.getValue().firstNameProperty();
-     }
-  });
- }
-
-     */
-
     @FXML
-    private void initialize(){
-
-        numeColumn.setCellValueFactory(new PropertyValueFactory<Donator, String>("Nume"));
-        /*
-        numeColumn = new TableColumn<DateSange,Donator>("Donator");
-        numeColumn.setCellValueFactory(   new Callback<TableColumn.CellDataFeatures<DateSange, Donator>, ObservableValue<Donator>>(){
-
-            public ObservableValue<Donator> call(TableColumn.CellDataFeatures<DateSange,Donator> p) {
-                p.getValue().getDonator().getNume();
-                return null;
-            }
-        });
-        prenumeColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<DateSange,String>, ObservableValue<String>>() {
-            @Override
-            public ObservableValue<Donator> call(TableColumn.CellDataFeatures<DateSange,String> p) {
-                p.getValue().getDonator().getPrenume();
-            }
-        });
-        cnpColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<DateSange,String>, ObservableValue<String>>() {
-            @Override
-            public ObservableValue<Donator> call(TableColumn.CellDataFeatures<DateSange,String> p) {
-                p.getValue().getDonator().getCnp();
-            }
-        });*/
-        prenumeColumn.setCellValueFactory(new PropertyValueFactory<Donator,String>("Prenume"));
-        cnpColumn.setCellValueFactory(new PropertyValueFactory<Donator,String>("Cnp"));
-
+    public void onEnter(ActionEvent ae){
+        DateSange z= (DateSange) sangeVerificat.getSelectionModel().getSelectedItem();
+        Observatii observatie=new Observatii(adaugaObservatii.getText().toString(),z);
+        try {
+            service.adaugaObservatie(observatie);
+            ArrayList<Observatii> observaties= (ArrayList<Observatii>) service.listaObservatii(z.getIdSange());
+            List<String> strings = observaties.stream()
+                    .map(object -> Objects.toString(object))
+                    .collect(Collectors.toList());
+            this.modelObservatie = FXCollections.observableArrayList(strings);
+            observatii.setItems(modelObservatie);
+        } catch (DonatorException e) {
+            e.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
     }
-
     @FXML
     public void onClickSangeCeTrebuieVerificat(ActionEvent actionEvent) {
         try {
-            ArrayList<DateSange> dateSanges = (ArrayList)service.getSange();
+            ArrayList<DateSange> dateSanges = (ArrayList)service.sangeNerverificat();
             sangeVerificat.setItems(FXCollections.observableArrayList(dateSanges));
 
         } catch (DonatorException e) {
@@ -117,6 +123,45 @@ public class LaborantViewController {
 
 
     }
+    @FXML
+    public void trimitere(ActionEvent actionEvent){
+        try{
+            DateSange z= (DateSange) sangeVerificat.getSelectionModel().getSelectedItem();
+            if(z.getDataRecolta()==null){
+                String date = new SimpleDateFormat("dd-MM-yyyy").format(Calendar.getInstance().getTime());
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                LocalDate localDate = LocalDate.parse(date , formatter);
+                z.setDataRecolta(Date.valueOf(localDate));
+                z.setGlobuleRosii(1);
+                z.setPlasma(1);
+                z.setTrombocite(1);
+                z.setGrupaSanguina(grupaSange.getText().toString());
+                if(service.listaObservatii(z.getIdSange()).size()==0)
+                    z.setSanatos(1);
+                else
+                    z.setSanatos(2);
+                service.recoltare(z.getDonator(),z);
+            }
 
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void ultimele7(ActionEvent actionEvent){
+        try{
+            String date = new SimpleDateFormat("dd-MM-yyyy").format(Calendar.getInstance().getTime());
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+            LocalDate localDate ;
+            localDate=LocalDate.now().minusDays(7);
+            ArrayList<DateSange> dateSanges = (ArrayList)service.recent(Date.valueOf(localDate));
+            sangeVerificat.setItems(FXCollections.observableArrayList(dateSanges));
+        }catch (RemoteException e) {
+            e.printStackTrace();
+        } catch (DonatorException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

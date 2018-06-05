@@ -76,15 +76,15 @@
             <Image url="@syringe-icon-63444.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="117.0" fitWidth="113.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="117.0" fitWidth="113.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#handleGoBack" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@home_logo_white_v2.png" />
          </image>
       </ImageView>
       <DatePicker fx:id="datePicker" layoutX="411.0" layoutY="519.0" prefHeight="25.0" prefWidth="200.0" />
       <TextField fx:id="incOra" alignment="CENTER" layoutX="416.0" layoutY="576.0" prefHeight="25.0" prefWidth="40.0" />
-      <TextField alignment="CENTER" layoutX="553.0" layoutY="576.0" prefHeight="25.0" prefWidth="40.0" />
-      <Button layoutX="844.0" layoutY="569.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Trimite" onAction="#onClickTrimitere">
+      <TextField fx:id="sfOra" alignment="CENTER" layoutX="553.0" layoutY="576.0" prefHeight="25.0" prefWidth="40.0" />
+      <Button layoutX="844.0" layoutY="569.0" mnemonicParsing="false" onAction="#onClickTrimitere" prefHeight="50.0" prefWidth="200.0" text="Trimite">
          <font>
             <Font name="Impact" size="24.0" />
          </font>

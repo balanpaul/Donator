@@ -10,7 +10,7 @@
         <property name="dataD" column="DataD" type="java.sql.Date"/>
         <property name="ora" column="Ora" type="int"/>
         <many-to-one name="donator" class="donator.entities.Donator"
-                     column="iddonatori" unique="true"
+                     column="iddonatori" unique="false"
                      cascade="all" />
     </class>
 </hibernate-mapping>

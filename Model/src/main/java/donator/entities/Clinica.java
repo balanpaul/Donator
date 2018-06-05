@@ -1,7 +1,9 @@
 package donator.entities;
 
 
-public class Clinica {
+import java.io.Serializable;
+
+public class Clinica implements Serializable {
 
 
     private int IdClinica;
@@ -17,6 +19,9 @@ public class Clinica {
 
 
     private int IdSange;
+
+    public Clinica() {
+    }
 
     public Clinica(int IdClinica, int IdPersonal, String Contact, String Adresa, int IdSange){
         this.IdClinica=IdClinica;
