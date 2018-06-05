@@ -1,6 +1,6 @@
 package donator.persistence;
 
-import donator.entities.Observatie;
+import donator.entities.Observatii;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -44,7 +44,7 @@ public class ObservatiiRepository {
         }
     }
 
-    public  long save(Observatie entity){
+    public  long save(Observatii entity){
         long id= 0;
         try(Session session=sessionFactory.openSession()){
             Transaction tx=null;
@@ -66,10 +66,10 @@ public class ObservatiiRepository {
         return 1;
     }
 
-    public List<Observatie> listaObservatii(int idS) {
+    public List<Observatii> listaObservatii(int idS) {
         System.out.println("asdasd");
 
-        List<Observatie> obs = new ArrayList<>();
+        List<Observatii> obs = new ArrayList<>();
         Transaction tx = null;
         try
         {
@@ -79,8 +79,8 @@ public class ObservatiiRepository {
             tx = session.beginTransaction();
 
 
-            Query query = session.createQuery("SELECT A FROM Observatie A join fetch A.idSange B where B.IdDonator = :idS").setParameter("idS",idS);
-            obs = (ArrayList<Observatie>) query.getResultList();
+            Query query = session.createQuery("SELECT A FROM Observatii A join fetch A.dateSange B join fetch B.donator where B.idSange = :idS").setParameter("idS",idS);
+            obs = (ArrayList<Observatii>) query.getResultList();
 
             tx.commit();
         }
@@ -92,4 +92,31 @@ public class ObservatiiRepository {
         }
         return obs;
     }
+    public ArrayList<Observatii> listObs() {
+        System.out.println("asdasd");
+
+        List<Observatii> obs = new ArrayList<>();
+        Transaction tx = null;
+        try
+        {
+            Session session = sessionFactory.openSession();
+
+
+            tx = session.beginTransaction();
+
+
+            Query query = session.createQuery(" FROM Observatii ");
+            obs = (ArrayList<Observatii>) query.getResultList();
+
+            tx.commit();
+        }
+        catch (Exception ex)
+        {
+            if (tx != null)
+                tx.rollback();
+            ex.printStackTrace();
+        }
+        return (ArrayList<Observatii>) obs;
+    }
+
 }

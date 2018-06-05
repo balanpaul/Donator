@@ -10,7 +10,6 @@ import donator.service.IServer;
 import org.xml.sax.SAXException;
 
 import javax.mail.Message;
-import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.activation.DataHandler;
@@ -22,7 +21,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.*;
-import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -32,12 +30,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.sql.Date;
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 import java.util.Properties;
 
 
@@ -82,9 +76,9 @@ public class ServerImpl implements IServer {
     }
 
     @Override
-    public void adaugaObservatie(Observatie observatie) throws DonatorException, RemoteException {
+    public void adaugaObservatie(Observatii observatie) throws DonatorException, RemoteException {
         observatiiRepository.save(observatie);
-        System.out.println("Sunt in server " + observatie.getIdObservatie() + " " + observatie.getIdObservatie());
+        System.out.println("Sunt in server " + observatie.getIdObservatia() + " " );
     }
 
     @Override
@@ -107,7 +101,7 @@ public class ServerImpl implements IServer {
         Programari programari = null;
         programari = programariRepository.findProg(id);
         if (programari == null)
-            throw new DonatorException("Nu existaplanificare pentru acest id");
+            throw new DonatorException("Nu exista planificare pentru acest id");
         return programari;
     }
 
@@ -171,8 +165,9 @@ public class ServerImpl implements IServer {
 
 
     @Override
-    public List<Observatie> listaObservatii(int idSange) throws DonatorException, RemoteException {
-        return observatiiRepository.listaObservatii(idSange);
+    public ArrayList<Observatii> listaObservatii(int idSange) throws DonatorException, RemoteException {
+       ArrayList<Observatii> observaties= (ArrayList<Observatii>) observatiiRepository.listaObservatii(idSange);
+        return  observaties;
     }
 
     @Override
@@ -233,10 +228,10 @@ public class ServerImpl implements IServer {
 
     }
 
-    @Override
-    public List<Observatie> listaObservatii(int idSange) throws DonatorException, RemoteException {
+    /*@Override
+    public List<Observatii> listaObservatii(int idSange) throws DonatorException, RemoteException {
         return observatiiRepository.listaObservatii(idSange);
-    }
+    }*/
 
 
     public void exportPDF(String mail) throws DonatorException, RemoteException {
@@ -307,7 +302,7 @@ public class ServerImpl implements IServer {
         }
         return lista;
     }
-    public static String[] getCordinates(String address) throws IOException, ParserConfigurationException, SAXException, DonatorException, XPathExpressionException {
+    public String getCordinates(String address) throws IOException, ParserConfigurationException, SAXException, DonatorException, XPathExpressionException {
         int responseCode = 0;
         address="Galati 24 Cluj Napoca";
         String api = "http://maps.googleapis.com/maps/api/geocode/xml?address=" + URLEncoder.encode(address, "UTF-8") + "&sensor=true";
@@ -352,5 +347,21 @@ public class ServerImpl implements IServer {
     @Override
     public List<Centru> listaCentre() throws DonatorException, RemoteException{
         return centreRepository.findAll();
+    }
+
+    @Override
+    public List<DateSange> sangeNerverificat() throws DonatorException, RemoteException {
+        return dateSangeRepository.dateSanges();
+    }
+
+    @Override
+    public List<DateSange> recent(Date date) throws DonatorException, RemoteException {
+        return dateSangeRepository.recent(date);
+    }
+
+    @Override
+    public void verificare(Donator d, DateSange dateSange) throws DonatorException, RemoteException {
+        dateSange.setDonator(d);
+        dateSangeRepository.update(dateSange);
     }
 }

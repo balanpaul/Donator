@@ -8,6 +8,7 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -116,6 +117,40 @@ public class DateSangeRepository {
         try {
             tx = session.beginTransaction();
             dateSange = (List<DateSange>) session.createQuery("SELECT A FROM  DateSange A join fetch A.donator B ").getResultList();
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null)
+                tx.rollback();
+            ;
+        } finally {
+            session.close();
+        }
+        return dateSange;
+    }
+    public List<DateSange> dateSanges(){
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        List<DateSange> dateSange = null;
+        try {
+            tx = session.beginTransaction();
+            dateSange = (List<DateSange>) session.createQuery("SELECT A FROM  DateSange A join fetch A.donator where A.dataRecolta=NULL ").getResultList();
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null)
+                tx.rollback();
+            ;
+        } finally {
+            session.close();
+        }
+        return dateSange;
+    }
+    public List<DateSange> recent(Date date){
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        List<DateSange> dateSange = null;
+        try {
+            tx = session.beginTransaction();
+            dateSange = (List<DateSange>) session.createQuery("SELECT A FROM  DateSange A join fetch A.donator where A.dataRecolta>= :d ").setParameter("d",date).getResultList();
             tx.commit();
         } catch (Exception e) {
             if (tx != null)

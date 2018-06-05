@@ -1,8 +1,9 @@
 package donator.entities;
 
 
+import java.io.Serializable;
 
-public class Centru {
+public class Centru implements Serializable{
     private int idCentru;
     private String nume;
 
@@ -14,6 +15,9 @@ public class Centru {
         this.email = email;
         this.latitudine = latitudine;
         this.longitudine = longitudine;
+    }
+
+    public Centru() {
     }
 
     public int getIdCentru() {

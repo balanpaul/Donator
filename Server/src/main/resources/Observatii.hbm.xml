@@ -3,14 +3,14 @@
         "-//Hibernate/Hibernate Mapping DTD//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping >
-    <class name="donator.entities.Observatie" table="observatii">
-        <id name="idObservatie" column="idObservatie" type="int">
-            <generator class="increment"></generator>
+    <class name="donator.entities.Observatii" table="observatii">
+        <id name="idObservatie" column="IdObservatie" type="int">
+            <generator class="identity"></generator>
         </id>
-        <many-to-one name="idSange" class="donator.entities.DateSange"
-                     column="idSange" unique="true"
+        <many-to-one name="dateSange" class="donator.entities.DateSange"
+                     column="IdSange" unique="false"
                      cascade="all" />
-        <property name="observatie" column="observatie" type="string"/>
+        <property name="boala" column="Observatia" type="string"/>
 
     </class>
 </hibernate-mapping>

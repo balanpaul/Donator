@@ -84,7 +84,7 @@ public class AsistentaInformatiiController extends UnicastRemoteObject implement
 
             if(dateSange != null){
                 grupaSange.setText(dateSange.getGrupaSanguina());
-                if (dateSange.getSanatos() == Boolean.TRUE) {
+                if (dateSange.getSanatos() == 1) {
                     respectaNormEU.setSelected(true);
                 }
             }
@@ -107,7 +107,7 @@ public class AsistentaInformatiiController extends UnicastRemoteObject implement
                 try {
                     service.adaugaDonator(donator, programari);
                     donator = service.cautareDonator(donator.getEmail());
-                    DateSange dateSange = new DateSange("", false, "0",0,0,0);
+                    DateSange dateSange = new DateSange("", 0, "0",0,0,0);
                     service.recoltare(donator, dateSange);
 
                     System.out.println("Donator adaugat!!");
@@ -119,7 +119,7 @@ public class AsistentaInformatiiController extends UnicastRemoteObject implement
             } else {
                 try {
                     service.planificare(donator, programari);
-                    DateSange dateSange = new DateSange("", false, "0",0,0,0);
+                    DateSange dateSange = new DateSange("", 0, "0",0,0,0);
                     service.recoltare(donator, dateSange);
 
 

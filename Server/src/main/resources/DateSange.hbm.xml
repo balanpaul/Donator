@@ -5,7 +5,7 @@
 <hibernate-mapping >
     <class name="donator.entities.DateSange" table="datesange">
         <id name="idSange" column="IdSange" type="int">
-           <generator class="increment"/>
+           <generator class="identity"/>
         </id>
         <property name="grupaSanguina" column="Grupa" type="string"/>
         <property name="sanatos" column="Sanatos" type="int"/>
@@ -13,7 +13,7 @@
         <property name="plasma" column="Plasma" type="int"/>
         <property name="trombocite" column="Trombocite" type="int"/>
         <property name="dataRecolta" column="DataRecoltare" type="date"/>
-        <many-to-one name="donator" class="donator.entities.Donator" column="IdDonator" unique="true"
+        <many-to-one name="donator" class="donator.entities.Donator" column="IdDonator" unique="false"
                      cascade="all"/>
     </class>
 </hibernate-mapping>
