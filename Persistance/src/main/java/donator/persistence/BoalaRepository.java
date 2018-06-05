@@ -20,11 +20,6 @@ public class BoalaRepository {
         }
     }
 
-    private void close() {
-        if (sessionFactory != null) {
-            sessionFactory.close();
-        }
-    }
 
     private void initialize() {
         final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
