@@ -1,6 +1,6 @@
 package donator.persistence;
 
-import donator.entities.Observatii;
+import donator.entities.Centru;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -12,10 +12,10 @@ import org.hibernate.query.Query;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ObservatiiRepository {
+public class CentreRepository {
     private SessionFactory sessionFactory;
 
-    public ObservatiiRepository() {
+    public CentreRepository() {
         try {
             initialize();
         }catch (Exception e){
@@ -23,6 +23,51 @@ public class ObservatiiRepository {
             e.printStackTrace();
             close();
         }
+    }
+
+    private void close() {
+        if (sessionFactory != null) {
+            sessionFactory.close();
+        }
+    }
+
+    public  void save(Centru entity){
+        try(Session session=sessionFactory.openSession()){
+            Transaction tx=null;
+            try{
+                tx=session.beginTransaction();
+                session.save(entity);
+                System.out.println("asd");
+                tx.commit();
+            }catch (RuntimeException ex){
+                if(tx!=null)
+                    tx.rollback();
+                ex.printStackTrace();
+            }
+            finally {
+                session.close();
+            }
+        }
+    }
+
+    public Centru findCentru(int id) {
+        Session session =sessionFactory.openSession();
+        Centru z=null;
+        Transaction tx=null;
+        try{
+            tx=session.beginTransaction();
+            ArrayList<Centru> a = (ArrayList<Centru>) session.createQuery("SELECT A FROM Centru A join fetch A.idDonator B where B.IdDonator = :donator").setParameter("donator",id).getResultList();
+            z=a.get(a.size()-1);
+            tx.commit();
+            return z;
+        }catch (RuntimeException ex){
+            if(tx!=null)
+                tx.rollback();
+        }finally {
+            session.close();
+        }
+
+        return z;
     }
 
     private void initialize() {
@@ -38,38 +83,10 @@ public class ObservatiiRepository {
 
     }
 
-    private void close() {
-        if (sessionFactory != null) {
-            sessionFactory.close();
-        }
-    }
-
-    public  long save(Observatii entity){
-        long id= 0;
-        try(Session session=sessionFactory.openSession()){
-            Transaction tx=null;
-            try{
-                tx=session.beginTransaction();
-                session.save(entity);
-
-                tx.commit();
-            }catch (RuntimeException ex){
-                if(tx!=null)
-                    tx.rollback();
-                ex.printStackTrace();
-            }
-            finally {
-                session.close();
-            }
-        }
-
-        return 1;
-    }
-
-    public List<Observatii> listaObservatii(int idS) {
+    public List<Centru> findAll() {
         System.out.println("asdasd");
 
-        List<Observatii> obs = new ArrayList<>();
+        List<Centru> donators = new ArrayList<>();
         Transaction tx = null;
         try
         {
@@ -77,10 +94,8 @@ public class ObservatiiRepository {
 
 
             tx = session.beginTransaction();
-
-
-            Query query = session.createQuery("SELECT A FROM Observatii A join fetch A.dateSange B join fetch B.donator where B.idSange = :idS").setParameter("idS",idS);
-            obs = (ArrayList<Observatii>) query.getResultList();
+            Query query = session.createQuery("FROM donator.entities.Centru");
+            donators = (ArrayList<Centru>) query.getResultList();
 
             tx.commit();
         }
@@ -90,33 +105,6 @@ public class ObservatiiRepository {
                 tx.rollback();
             ex.printStackTrace();
         }
-        return obs;
+        return donators;
     }
-    public ArrayList<Observatii> listObs() {
-        System.out.println("asdasd");
-
-        List<Observatii> obs = new ArrayList<>();
-        Transaction tx = null;
-        try
-        {
-            Session session = sessionFactory.openSession();
-
-
-            tx = session.beginTransaction();
-
-
-            Query query = session.createQuery(" FROM Observatii ");
-            obs = (ArrayList<Observatii>) query.getResultList();
-
-            tx.commit();
-        }
-        catch (Exception ex)
-        {
-            if (tx != null)
-                tx.rollback();
-            ex.printStackTrace();
-        }
-        return (ArrayList<Observatii>) obs;
-    }
-
 }

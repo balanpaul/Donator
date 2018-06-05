@@ -2,7 +2,7 @@ package donator.view;
 
 import donator.entities.DateSange;
 import donator.entities.Donator;
-import donator.entities.Observatie;
+import donator.entities.Observatii;
 import donator.entities.Programari;
 import donator.service.DonatorException;
 import donator.service.IClient;
@@ -54,7 +54,7 @@ public class AsistentaController extends UnicastRemoteObject implements IClient{
     private TableColumn<String, Donator> telefonColumn;
 
     @FXML
-    private ListView<Observatie> listViewBoli;
+    private ListView<Observatii> listViewBoli;
 
     @FXML
     private ListView<Programari> listViewIstoric;

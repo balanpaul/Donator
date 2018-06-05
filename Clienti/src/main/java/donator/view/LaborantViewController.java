@@ -1,21 +1,31 @@
 package donator.view;
 
 import donator.entities.DateSange;
+import donator.entities.Observatii;
 import donator.service.DonatorException;
 import donator.service.IServer;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.rmi.RemoteException;
-import java.util.ArrayList;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class LaborantViewController {
     @FXML
     TableView sangeVerificat;
+
+    @FXML
+    TableColumn<DateSange,String> numeColumn, prenumeColumn, cnpColumn;
 
     @FXML
     ListView observatii;
@@ -23,28 +33,135 @@ public class LaborantViewController {
     @FXML
     TextField nume, prenume, grupaSange, adaugaObservatii;
 
-    Stage stage;
+    private Stage dialogStage;
+    private IServer service;
+    private ObservableList<String> modelObservatie;
+    private ObservableList<DateSange> modelDateSange;
 
-    IServer service;
     public LaborantViewController(){
     }
 
-    public void setService(IServer service, Stage stage){
+    public void setService(IServer service){
         this.service=service;
-        this.stage = stage;
+        loadTable();
+
+
+
     }
 
+
     @FXML
-    public void onClickSangeCeTrebuieVerificat(ActionEvent actionEvent) {
+    public void initialize(){
+
+    }
+    private void loadTable(){
         try {
-            ArrayList<DateSange> dateSanges = (ArrayList)service.getSange();
+            this.modelDateSange = FXCollections.observableArrayList(service.getSange());
+            sangeVerificat.setItems(modelDateSange);
+            sangeVerificat.getSelectionModel().selectFirst();
+        } catch (DonatorException e) {
+            e.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    public void clickItem(MouseEvent event)
+    {
+
+        try {
+            DateSange d= (DateSange) sangeVerificat.getSelectionModel().getSelectedItem();
+          //  wait(100);
+            nume.setText(d.getNume());
+            prenume.setText(d.getPrenume());
+            grupaSange.setText(d.getGrupaSanguina());
+            List<Observatii> observaties=service.listaObservatii(d.getIdSange());
+          List<String> strings = observaties.stream()
+                    .map(object -> Objects.toString(object))
+                    .collect(Collectors.toList());
+           // List<String> strings=new ArrayList<>();
+            this.modelObservatie = FXCollections.observableArrayList(strings);
+            observatii.setItems(modelObservatie);
         } catch (DonatorException e) {
             e.printStackTrace();
         } catch (RemoteException e) {
             e.printStackTrace();
         }
 
+
+    }
+    @FXML
+    public void onEnter(ActionEvent ae){
+        DateSange z= (DateSange) sangeVerificat.getSelectionModel().getSelectedItem();
+        Observatii observatie=new Observatii(adaugaObservatii.getText().toString(),z);
+        try {
+            service.adaugaObservatie(observatie);
+            ArrayList<Observatii> observaties= (ArrayList<Observatii>) service.listaObservatii(z.getIdSange());
+            List<String> strings = observaties.stream()
+                    .map(object -> Objects.toString(object))
+                    .collect(Collectors.toList());
+            this.modelObservatie = FXCollections.observableArrayList(strings);
+            observatii.setItems(modelObservatie);
+        } catch (DonatorException e) {
+            e.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    public void onClickSangeCeTrebuieVerificat(ActionEvent actionEvent) {
+        try {
+            ArrayList<DateSange> dateSanges = (ArrayList)service.sangeNerverificat();
+            sangeVerificat.setItems(FXCollections.observableArrayList(dateSanges));
+
+        } catch (DonatorException e) {
+            e.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+
+
+
+    }
+    @FXML
+    public void trimitere(ActionEvent actionEvent){
+        try{
+            DateSange z= (DateSange) sangeVerificat.getSelectionModel().getSelectedItem();
+            if(z.getDataRecolta()==null){
+                String date = new SimpleDateFormat("dd-MM-yyyy").format(Calendar.getInstance().getTime());
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                LocalDate localDate = LocalDate.parse(date , formatter);
+                z.setDataRecolta(Date.valueOf(localDate));
+                z.setGlobuleRosii(1);
+                z.setPlasma(1);
+                z.setTrombocite(1);
+                z.setGrupaSanguina(grupaSange.getText().toString());
+                if(service.listaObservatii(z.getIdSange()).size()==0)
+                    z.setSanatos(1);
+                else
+                    z.setSanatos(2);
+                service.verificare(z.getDonator(),z);
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
+    @FXML
+    public void ultimele7(ActionEvent actionEvent){
+        try{
+            String date = new SimpleDateFormat("dd-MM-yyyy").format(Calendar.getInstance().getTime());
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+            LocalDate localDate ;
+            localDate=LocalDate.now().minusDays(7);
+            ArrayList<DateSange> dateSanges = (ArrayList)service.recent(Date.valueOf(localDate));
+            sangeVerificat.setItems(FXCollections.observableArrayList(dateSanges));
+        }catch (RemoteException e) {
+            e.printStackTrace();
+        } catch (DonatorException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

@@ -1,6 +1,7 @@
 package donator.persistence;
 
-import donator.entities.Observatii;
+import donator.entities.DateSange;
+import donator.entities.DatesangeCentre;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -12,10 +13,10 @@ import org.hibernate.query.Query;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ObservatiiRepository {
+public class DateSangeCentreRepository {
     private SessionFactory sessionFactory;
 
-    public ObservatiiRepository() {
+    public DateSangeCentreRepository() {
         try {
             initialize();
         }catch (Exception e){
@@ -24,7 +25,11 @@ public class ObservatiiRepository {
             close();
         }
     }
-
+    private void close() {
+        if (sessionFactory != null) {
+            sessionFactory.close();
+        }
+    }
     private void initialize() {
         final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .configure()
@@ -38,20 +43,13 @@ public class ObservatiiRepository {
 
     }
 
-    private void close() {
-        if (sessionFactory != null) {
-            sessionFactory.close();
-        }
-    }
-
-    public  long save(Observatii entity){
-        long id= 0;
+    public void save(DatesangeCentre entity){
         try(Session session=sessionFactory.openSession()){
             Transaction tx=null;
             try{
                 tx=session.beginTransaction();
                 session.save(entity);
-
+                System.out.println("asd");
                 tx.commit();
             }catch (RuntimeException ex){
                 if(tx!=null)
@@ -62,14 +60,12 @@ public class ObservatiiRepository {
                 session.close();
             }
         }
-
-        return 1;
     }
 
-    public List<Observatii> listaObservatii(int idS) {
+    public List<DatesangeCentre> findAll() {
         System.out.println("asdasd");
 
-        List<Observatii> obs = new ArrayList<>();
+        List<DatesangeCentre> donators = new ArrayList<>();
         Transaction tx = null;
         try
         {
@@ -77,10 +73,8 @@ public class ObservatiiRepository {
 
 
             tx = session.beginTransaction();
-
-
-            Query query = session.createQuery("SELECT A FROM Observatii A join fetch A.dateSange B join fetch B.donator where B.idSange = :idS").setParameter("idS",idS);
-            obs = (ArrayList<Observatii>) query.getResultList();
+            Query query = session.createQuery("SELECT A FROM DatesangeCentre  A join fetch A.IdCentru C join fetch A.IdDateSange S");
+            donators = (ArrayList<DatesangeCentre>) query.getResultList();
 
             tx.commit();
         }
@@ -90,33 +84,10 @@ public class ObservatiiRepository {
                 tx.rollback();
             ex.printStackTrace();
         }
-        return obs;
+        return donators;
     }
-    public ArrayList<Observatii> listObs() {
-        System.out.println("asdasd");
-
-        List<Observatii> obs = new ArrayList<>();
-        Transaction tx = null;
-        try
-        {
-            Session session = sessionFactory.openSession();
 
 
-            tx = session.beginTransaction();
 
-
-            Query query = session.createQuery(" FROM Observatii ");
-            obs = (ArrayList<Observatii>) query.getResultList();
-
-            tx.commit();
-        }
-        catch (Exception ex)
-        {
-            if (tx != null)
-                tx.rollback();
-            ex.printStackTrace();
-        }
-        return (ArrayList<Observatii>) obs;
-    }
 
 }

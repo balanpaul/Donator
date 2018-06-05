@@ -1,21 +1,25 @@
 package donator.entities;
 
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
+import java.io.Serializable;
 import java.sql.Date;
 
-public class DateSange {
+public class DateSange implements Serializable {
 
     private int IdSange;
     private String GrupaSanguina;
-    private Boolean Sanatos;
+    private int Sanatos;
     private int globuleRosii;
     private int plasma;
     private int trombocite;
     private Date dataRecolta;
-    Donator donator;
+    private Donator donator;
 
 
-    public DateSange(int idSange, String grupaSanguina, Boolean sanatos, String rh, int globuleRosii, int plasma, int trombocite, Date dataRecolta, Donator donator) {
+    public DateSange(int idSange, String grupaSanguina, int sanatos, String rh, int globuleRosii, int plasma, int trombocite, Date dataRecolta, Donator donator) {
         IdSange = idSange;
         GrupaSanguina = grupaSanguina;
         Sanatos = sanatos;
@@ -27,7 +31,7 @@ public class DateSange {
         this.donator = donator;
     }
 
-    public DateSange(int idSange, String grupaSanguina, Boolean sanatos, String rh, int globuleRosii, int plasma, int trombocite, Date dataRecolta) {
+    public DateSange(int idSange, String grupaSanguina, int sanatos, String rh, int globuleRosii, int plasma, int trombocite, Date dataRecolta) {
         IdSange = idSange;
         GrupaSanguina = grupaSanguina;
         Sanatos = sanatos;
@@ -37,7 +41,7 @@ public class DateSange {
         this.dataRecolta = dataRecolta;
     }
 
-    public DateSange(String grupaSanguina, Boolean sanatos, String rh, int globuleRosii, int plasma, int trombocite) {
+    public DateSange(String grupaSanguina, int sanatos, String rh, int globuleRosii, int plasma, int trombocite) {
         GrupaSanguina = grupaSanguina;
         Sanatos = sanatos;
         this.globuleRosii = globuleRosii;
@@ -47,11 +51,23 @@ public class DateSange {
 
     public DateSange() {
     }
+    public  String getNume(){
 
+        return  donator.getNume();
+    }
+    public String getPrenume(){
+        return donator.getPrenume();
+    }
+    public  String getCNP(){
+        return  donator.getCnp();
+    }
     public int getGlobuleRosii() {
         return globuleRosii;
     }
 
+    public String getSDate(){
+        return dataRecolta.toString();
+    }
     public void setGlobuleRosii(int globuleRosii) {
         this.globuleRosii = globuleRosii;
     }
@@ -96,11 +112,11 @@ public class DateSange {
         GrupaSanguina = grupaSanguina;
     }
 
-    public Boolean getSanatos() {
+    public int getSanatos() {
         return Sanatos;
     }
 
-    public void setSanatos(Boolean sanatos) {
+    public void setSanatos(int sanatos) {
         Sanatos = sanatos;
     }
 

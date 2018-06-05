@@ -63,13 +63,14 @@ public class LoginView extends UnicastRemoteObject implements IClient {
                 FXMLLoader loader = new FXMLLoader();
                 AnchorPane anchorPane;
                 loader.setLocation(getClass().getResource("/medicView.fxml"));
-                DoctorController doctorController = loader.getController();
+
                 anchorPane = (AnchorPane) loader.load();
+                DoctorController doctorController = loader.getController();
                 Scene scene = new Scene(anchorPane);
                 Stage stage = new Stage();
                 stage.setScene(scene);
-                stage.setTitle("Donator Vechi");
-                //doctorController.setService(stage);
+                stage.setTitle("Medic");
+                doctorController.setService(service);
                 stage.show();
 
 
@@ -102,14 +103,14 @@ public class LoginView extends UnicastRemoteObject implements IClient {
                 FXMLLoader loader = new FXMLLoader();
                 AnchorPane anchorPane;
                 loader.setLocation(getClass().getResource("/laborantView.fxml"));
-                LaborantViewController laborantViewController = loader.getController();
                 anchorPane = (AnchorPane) loader.load();
-
+                LaborantViewController laborantViewController = loader.getController();
+                laborantViewController.setService(service);
                 Scene scene = new Scene(anchorPane);
                 Stage stage = new Stage();
                 stage.setScene(scene);
-                stage.setTitle("Donator Vechi");
-                laborantViewController.setService(service, stage);
+                stage.setTitle("Laborant");
+
                 stage.show();
 
             } catch (IOException e) {

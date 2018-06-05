@@ -9,6 +9,9 @@ import donator.service.DonatorException;
 import donator.service.IServer;
 import org.xml.sax.SAXException;
 
+import javax.mail.Message;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
 import javax.activation.FileDataSource;
@@ -18,15 +21,19 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.*;
-import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.sql.Date;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import java.util.Properties;
 
 
@@ -38,15 +45,19 @@ public class ServerImpl implements IServer {
     private ChestionarRepository chestionarRepository;
     private DateSangeRepository dateSangeRepository;
     private ObservatiiRepository observatiiRepository;
+    private CentreRepository centreRepository;
+    private DateSangeCentreRepository dateSangeCentreRepository;
 
 
-    public ServerImpl(DonatorRepository donatorRepository, ProgramariRepository programariRepository, PersonalRepository personalRepository, ChestionarRepository chestionarRepository, DateSangeRepository dateSangeRepository, ObservatiiRepository observatiiRepository) {
+    public ServerImpl(DonatorRepository donatorRepository, ProgramariRepository programariRepository, PersonalRepository personalRepository, ChestionarRepository chestionarRepository, DateSangeRepository dateSangeRepository, ObservatiiRepository observatiiRepository, CentreRepository centreRepository, DateSangeCentreRepository dateSangeCentreRepository) {
         this.donatorRepository = donatorRepository;
         this.programariRepository = programariRepository;
         this.personalRepository = personalRepository;
         this.chestionarRepository = chestionarRepository;
         this.dateSangeRepository = dateSangeRepository;
         this.observatiiRepository = observatiiRepository;
+        this.centreRepository = centreRepository;
+        this.dateSangeCentreRepository = dateSangeCentreRepository;
     }
 
     @Override
@@ -59,19 +70,19 @@ public class ServerImpl implements IServer {
         programari.setDonator(d);
         programariRepository.save(programari);
         System.out.println("Sunt in server " + donator.getNume());
-        donatorRepository.save(donator);
+
     }
 
     @Override
-    public void adaugaChestionar(Chestionar chestionar)throws DonatorException, RemoteException{
+    public void adaugaChestionar(Chestionar chestionar) throws DonatorException, RemoteException {
         chestionarRepository.save(chestionar);
         System.out.println("Sunt in server " + chestionar.getIdDonator().getNume());
     }
 
     @Override
-    public void adaugaObservatie(Observatie observatie) throws DonatorException, RemoteException {
+    public void adaugaObservatie(Observatii observatie) throws DonatorException, RemoteException {
         observatiiRepository.save(observatie);
-        System.out.println("Sunt in server " + observatie.getIdObservatie() + " " + observatie.getIdObservatie());
+        System.out.println("Sunt in server " + observatie.getIdObservatia() + " " );
     }
 
     @Override
@@ -94,7 +105,7 @@ public class ServerImpl implements IServer {
         Programari programari = null;
         programari = programariRepository.findProg(id);
         if (programari == null)
-            throw new DonatorException("Nu existaplanificare pentru acest id");
+            throw new DonatorException("Nu exista planificare pentru acest id");
         return programari;
     }
 
@@ -129,8 +140,15 @@ public class ServerImpl implements IServer {
     }
 
     @Override
-    public List<String> getDonatori() throws DonatorException, RemoteException {
-        return null;
+    public List<DateSange> getNeverificati() throws DonatorException, RemoteException {
+        List<DateSange> dateSanges = dateSangeRepository.getSange();
+        List<DateSange> list = new ArrayList<>();
+        for(DateSange ds : dateSanges){
+            if(ds.getSanatos() == 0){
+                list.add(ds);
+            }
+        }
+        return list;
     }
 
     @Override
@@ -149,6 +167,13 @@ public class ServerImpl implements IServer {
         return dateSangeRepository.getSangeD(id);
     }
 
+
+    @Override
+    public ArrayList<Observatii> listaObservatii(int idSange) throws DonatorException, RemoteException {
+       ArrayList<Observatii> observaties= (ArrayList<Observatii>) observatiiRepository.listaObservatii(idSange);
+        return  observaties;
+    }
+
     @Override
     public void trimitereMail(String mailto) throws DonatorException, RemoteException {
         exportPDF(mailto);
@@ -158,7 +183,7 @@ public class ServerImpl implements IServer {
         final String from = "balanpaul16@gmail.com";
         final String password = "Manchester1918";
 
-        String attachmentPath="E:\\Donator\\Istoric.pdf";
+        String attachmentPath="Istoric.pdf";
         Properties props = new Properties();
         props.put("mail.smtp.starttls.enable", "true");
         props.setProperty("mail.host", "smtp.gmail.com");
@@ -178,11 +203,11 @@ public class ServerImpl implements IServer {
         //session.setDebug(true);
         try {
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("maplabs@scs.ubbcluj.ro"));
+            message.setFrom(new InternetAddress(from));
             message.setRecipients(Message.RecipientType.CC,
                     InternetAddress.parse(mailto));
-            message.setSubject(subject);
-            message.setText("Istoicul donatii");
+            message.setSubject("Istoricul donatiilor");
+            message.setText("Istoricul donatii");
 
             MimeBodyPart messageBodyPart = new MimeBodyPart();
             Multipart multipart = new MimeMultipart();
@@ -207,10 +232,10 @@ public class ServerImpl implements IServer {
 
     }
 
-    @Override
-    public List<Observatie> listaObservatii(int idSange) throws DonatorException, RemoteException {
+    /*@Override
+    public List<Observatii> listaObservatii(int idSange) throws DonatorException, RemoteException {
         return observatiiRepository.listaObservatii(idSange);
-    }
+    }*/
 
 
     public void exportPDF(String mail) throws DonatorException, RemoteException {
@@ -219,7 +244,7 @@ public class ServerImpl implements IServer {
         Document document = new Document();
         Paragraph paragraph;
         try {
-            PdfWriter.getInstance(document, new FileOutputStream("E:\\Donator\\Istoric.pdf"));
+            PdfWriter.getInstance(document, new FileOutputStream("Istoric.pdf"));
 
             document.open();
             Font font = FontFactory.getFont(FontFactory.COURIER, 14, BaseColor.BLACK);
@@ -281,12 +306,7 @@ public class ServerImpl implements IServer {
         }
         return lista;
     }
-
-    @Override
-    public List<String> getAll() throws DonatorException, RemoteException {
-        return null;
-    }
-    public static String[] getCordinates(String address) throws IOException, ParserConfigurationException, SAXException, DonatorException, XPathExpressionException {
+    public String getCordinates(String address) throws IOException, ParserConfigurationException, SAXException, DonatorException, XPathExpressionException {
         int responseCode = 0;
         String api = "http://maps.googleapis.com/maps/api/geocode/xml?address=" + URLEncoder.encode(address, "UTF-8") + "&sensor=true";
         System.out.println("URL : "+api);
@@ -315,7 +335,8 @@ public class ServerImpl implements IServer {
                 String latitude = (String)expr.evaluate(document, XPathConstants.STRING);
                 expr = xpath.compile("//geometry/location/lng");
                 String longitude = (String)expr.evaluate(document, XPathConstants.STRING);
-                return new String[] {latitude, longitude};
+                String co=latitude + " "+ longitude;
+                return  co ;
             }
             else
             {
@@ -326,4 +347,135 @@ public class ServerImpl implements IServer {
     }
 
 
+    @Override
+    public List<Centru> listaCentre() throws DonatorException, RemoteException{
+        ArrayList<Centru> lista = (ArrayList<Centru>) centreRepository.findAll();
+        return lista;
+    }
+
+
+
+    boolean isInList(ArrayList<String> list, String string){
+        for(String str:list){
+            if(str.compareTo(string) == 0){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public List<Centru> cautaCentre(String grupaSange, int unitatiSanguine, boolean trombocite, boolean plasma, boolean globuleRosii) throws RemoteException, DonatorException {
+        ArrayList<DatesangeCentre> listaSangeCentre = (ArrayList<DatesangeCentre>) dateSangeCentreRepository.findAll();
+        ArrayList<String> listaGrupeCompatibile = (ArrayList<String>)grupeCompatibile(grupaSange);
+        ArrayList<Centru> rezultat = new ArrayList<>();
+        for(DatesangeCentre dsc:listaSangeCentre){
+            DateSange sange = dsc.getIdDateSange();
+            if(isInList(listaGrupeCompatibile, sange.getGrupaSanguina())){
+                if(sange.getPlasma() == 1 && sange.getGlobuleRosii() == 1 && sange.getTrombocite() == 1){
+                    rezultat.add(dsc.getIdCentru());
+                }
+            }
+        }
+
+
+
+
+        return rezultat;
+    }
+
+    @Override
+    public List<Centru> cautaCentreUrgenta(String grupaSange, int unitatiSanguine, boolean trombocite, boolean plasma, boolean globuleRosii) throws RemoteException, DonatorException {
+        return cautaCentre(grupaSange, unitatiSanguine, trombocite, plasma, globuleRosii);
+    }
+
+    @Override
+    public List<Centru> cautaCentreNormala(String grupaSange, int unitatiSanguine, boolean trombocite, boolean plasma, boolean globuleRosii) throws RemoteException, DonatorException {
+        ArrayList<Centru> list = (ArrayList<Centru>) cautaCentre(grupaSange, unitatiSanguine, trombocite, plasma, globuleRosii);
+        ArrayList<Centru> rezultat = new ArrayList<>();
+        int cont;
+        for(int i=0;i<list.size();i++){
+            cont=0;
+            for(int j=0;j<list.size();j++){
+                if(list.get(i).getIdCentru() == list.get(j).getIdCentru() && i != j) {
+                    cont++;
+                    list.remove(j);
+                }
+            }
+            rezultat.add(list.get(i));
+        }
+        return rezultat;
+    }
+
+    @Override
+    public List<String> grupeCompatibile(String grupaSanguina) throws DonatorException, RemoteException{
+        ArrayList<String> list = new ArrayList<>();
+        if(grupaSanguina.compareTo("0+") == 0){
+            list.add("0+");
+            list.add("0-");
+            return list;
+        }
+        if (grupaSanguina.compareTo("A+") == 0){
+            list.add("A+");
+            list.add("A-");
+            list.add("0+");
+            list.add("0-");
+            return list;
+        }
+        if (grupaSanguina.compareTo("B+") == 0){
+            list.add("B+");
+            list.add("B-");
+            list.add("0+");
+            list.add("0-");
+            return list;
+        }
+        if (grupaSanguina.compareTo("AB+") == 0){
+            list.add("A+");
+            list.add("A-");
+            list.add("0+");
+            list.add("0-");
+            list.add("AB+");
+            list.add("AB-");
+            list.add("B+");
+            list.add("B-");
+            return list;
+        }
+        if(grupaSanguina.compareTo("0-") == 0){
+            list.add("0-");
+            return list;
+        }
+        if(grupaSanguina.compareTo("A-") == 0){
+            list.add("A-");
+            list.add("0-");
+            return list;
+        }
+        if(grupaSanguina.compareTo("B-") == 0){
+            list.add("B-");
+            list.add("0-");
+            return list;
+        }
+        if(grupaSanguina.compareTo("A-") == 0){
+            list.add("A-");
+            list.add("B-");
+            list.add("AB-");
+            list.add("0-");
+            return list;
+        }
+        return null;
+    }
+
+    @Override
+    public List<DateSange> sangeNerverificat() throws DonatorException, RemoteException {
+        return dateSangeRepository.dateSanges();
+    }
+
+    @Override
+    public List<DateSange> recent(Date date) throws DonatorException, RemoteException {
+        return dateSangeRepository.recent(date);
+    }
+
+    @Override
+    public void verificare(Donator d, DateSange dateSange) throws DonatorException, RemoteException {
+        dateSange.setDonator(d);
+        dateSangeRepository.update(dateSange);
+    }
 }

@@ -15,6 +15,7 @@
       <module name="Donator" target="1.5" />
       <module name="Donator-Model_main" target="1.8" />
       <module name="Donator-Model_test" target="1.8" />
+      <module name="Donator-Server_main" target="1.8" />
       <module name="Donator-Server_test" target="1.8" />
       <module name="KillerBas" target="1.5" />
       <module name="KillerBas_main" target="1.8" />

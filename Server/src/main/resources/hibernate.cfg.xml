@@ -18,11 +18,14 @@
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">false</property>
 
-        <mapping resource="Donator.hbm.xml"/>
+       <mapping resource="Donator.hbm.xml"/>
         <mapping resource="Programari.hbm.xml"/>
         <mapping resource="Personal.hbm.xml"/>
-        <mapping resource="Chestionar.hbm.xml"></mapping>
-        <mapping resource="DateSange.hbm.xml"></mapping>
-        <mapping resource="Observatii.hbm.xml"></mapping>
+        <mapping resource="Chestionar.hbm.xml"/>
+        <mapping resource="DateSange.hbm.xml"/>
+        <mapping resource="Observatii.hbm.xml"/>
+        <mapping resource="Centru.hbm.xml"/>
+        <mapping resource="Observatii.hbm.xml"/>
+        <mapping resource="DateSangeCentre.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

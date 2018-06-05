@@ -4,18 +4,43 @@
     <bookmark url="file://$PROJECT_DIR$/Server/src/main/java/donator/server/ServerStart.java" line="5" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8411861-bb33-4958-b0ec-fdec51abe863" name="Default" comment="">
+    <list default="true" id="c8411861-bb33-4958-b0ec-fdec51abe863" name="Default" comment="verific ceva">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/src/main/java/donator/entities/DatesangeCentre.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/src/main/java/donator/entities/Observatii.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Persistance/src/main/java/donator/persistence/CentreRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Persistance/src/main/java/donator/persistence/DateSangeCentreRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Server/src/main/resources/Centru.hbm.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Server/src/main/resources/DateSangeCentre.hbm.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Model/src/main/java/donator/entities/Boala.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Model/src/main/java/donator/entities/Observatie.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.0/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.0/fileHashes/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.0/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.0/fileHashes/fileHashes.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/Clienti/Clienti_main.iml" afterPath="$PROJECT_DIR$/.idea/modules/Clienti/Clienti_main.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/Clienti/Clienti_test.iml" afterPath="$PROJECT_DIR$/.idea/modules/Clienti/Clienti_test.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/Service/Service_main.iml" afterPath="$PROJECT_DIR$/.idea/modules/Service/Service_main.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/Service/Service_test.iml" afterPath="$PROJECT_DIR$/.idea/modules/Service/Service_test.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Clienti/src/main/java/donator/view/AsistentaController.java" afterPath="$PROJECT_DIR$/Clienti/src/main/java/donator/view/AsistentaController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Clienti/src/main/java/donator/view/AsistentaInformatiiController.java" afterPath="$PROJECT_DIR$/Clienti/src/main/java/donator/view/AsistentaInformatiiController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Clienti/src/main/java/donator/view/DoctorController.java" afterPath="$PROJECT_DIR$/Clienti/src/main/java/donator/view/DoctorController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Clienti/src/main/java/donator/view/IstoricDonatieViewController.java" afterPath="$PROJECT_DIR$/Clienti/src/main/java/donator/view/IstoricDonatieViewController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Clienti/src/main/java/donator/view/LaborantViewController.java" afterPath="$PROJECT_DIR$/Clienti/src/main/java/donator/view/LaborantViewController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Clienti/src/main/java/donator/view/LoginView.java" afterPath="$PROJECT_DIR$/Clienti/src/main/java/donator/view/LoginView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Clienti/src/main/resources/laborantView.fxml" afterPath="$PROJECT_DIR$/Clienti/src/main/resources/laborantView.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Clienti/src/main/resources/medicView.fxml" afterPath="$PROJECT_DIR$/Clienti/src/main/resources/medicView.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/src/main/java/donator/entities/Centru.java" afterPath="$PROJECT_DIR$/Model/src/main/java/donator/entities/Centru.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/src/main/java/donator/entities/Clinica.java" afterPath="$PROJECT_DIR$/Model/src/main/java/donator/entities/Clinica.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/src/main/java/donator/entities/DateSange.java" afterPath="$PROJECT_DIR$/Model/src/main/java/donator/entities/DateSange.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/src/main/java/donator/entities/Donator.java" afterPath="$PROJECT_DIR$/Model/src/main/java/donator/entities/Donator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Persistance/src/main/java/donator/persistence/DateSangeRepository.java" afterPath="$PROJECT_DIR$/Persistance/src/main/java/donator/persistence/DateSangeRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Persistance/src/main/java/donator/persistence/ObservatiiRepository.java" afterPath="$PROJECT_DIR$/Persistance/src/main/java/donator/persistence/ObservatiiRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Persistance/src/main/java/donator/persistence/ProgramariRepository.java" afterPath="$PROJECT_DIR$/Persistance/src/main/java/donator/persistence/ProgramariRepository.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/src/main/java/donator/server/ServerImpl.java" afterPath="$PROJECT_DIR$/Server/src/main/java/donator/server/ServerImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/src/main/resources/Chestionar.hbm.xml" afterPath="$PROJECT_DIR$/Server/src/main/resources/Chestionar.hbm.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/src/main/resources/DateSange.hbm.xml" afterPath="$PROJECT_DIR$/Server/src/main/resources/DateSange.hbm.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/src/main/resources/Observatii.hbm.xml" afterPath="$PROJECT_DIR$/Server/src/main/resources/Observatii.hbm.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/src/main/resources/Personal.hbm.xml" afterPath="$PROJECT_DIR$/Server/src/main/resources/Personal.hbm.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/src/main/resources/Programari.hbm.xml" afterPath="$PROJECT_DIR$/Server/src/main/resources/Programari.hbm.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/src/main/resources/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/Server/src/main/resources/hibernate.cfg.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/src/main/resources/server-spring.xml" afterPath="$PROJECT_DIR$/Server/src/main/resources/server-spring.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Service/src/main/java/donator/service/IServer.java" afterPath="$PROJECT_DIR$/Service/src/main/java/donator/service/IServer.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -108,150 +133,7 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="LaborantViewController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Clienti/src/main/java/donator/view/LaborantViewController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="28" column="36" lean-forward="false" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AsistentaController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Clienti/src/main/java/donator/view/AsistentaController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="49" column="79" lean-forward="false" selection-start-line="49" selection-start-column="79" selection-end-line="49" selection-end-column="79" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="loginView.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Clienti/src/main/resources/loginView.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Clienti/src/main/java/donator/view/LoginView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
-              <caret line="109" column="38" lean-forward="false" selection-start-line="109" selection-start-column="16" selection-end-line="109" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="laborantView.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Clienti/src/main/resources/laborantView.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1176">
-              <caret line="56" column="111" lean-forward="false" selection-start-line="56" selection-start-column="81" selection-end-line="56" selection-end-column="111" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="medicView.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Clienti/src/main/resources/medicView.fxml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1528058559511" expanded="true" signature="767:4601" ph="..." />
-                <marker date="1528058559511" expanded="true" signature="862:954" ph="..." />
-                <marker date="1528058559511" expanded="true" signature="879:935" ph="..." />
-                <marker date="1528058559511" expanded="true" signature="1064:1231" ph="..." />
-                <marker date="1528058559511" expanded="true" signature="1081:1143" ph="..." />
-                <marker date="1528058559511" expanded="true" signature="1163:1212" ph="..." />
-                <marker date="1528058559511" expanded="true" signature="1342:1440" ph="..." />
-                <marker date="1528058559511" expanded="true" signature="1359:1421" ph="..." />
-                <marker date="1528058559511" expanded="true" signature="1567:1673" ph="..." />
-                <marker date="1528058559511" expanded="true" signature="1584:1654" ph="..." />
-                <marker date="1528058559511" expanded="true" signature="1797:1903" ph="..." />
-                <marker date="1528058559511" expanded="true" signature="1814:1884" ph="..." />
-                <marker date="1528058559511" expanded="true" signature="2058:2154" ph="..." />
-                <marker date="1528058559511" expanded="true" signature="2074:2139" ph="..." />
-                <marker date="1528058559511" expanded="true" signature="2277:2373" ph="..." />
-                <marker date="1528058559511" expanded="true" signature="2293:2358" ph="..." />
-                <marker date="1528058559511" expanded="true" signature="2669:2765" ph="..." />
-                <marker date="1528058559511" expanded="true" signature="2685:2749" ph="..." />
-                <marker date="1528058559511" expanded="true" signature="2889:2985" ph="..." />
-                <marker date="1528058559511" expanded="true" signature="2905:2970" ph="..." />
-                <marker date="1528058559511" expanded="true" signature="3148:3250" ph="..." />
-                <marker date="1528058559511" expanded="true" signature="3164:3229" ph="..." />
-                <marker date="1528058559511" expanded="true" signature="3368:3464" ph="..." />
-                <marker date="1528058559511" expanded="true" signature="3384:3449" ph="..." />
-                <marker date="1528058559511" expanded="true" signature="3562:3664" ph="..." />
-                <marker date="1528058559511" expanded="true" signature="3578:3643" ph="..." />
-                <marker date="1528058559511" expanded="true" signature="3754:3856" ph="..." />
-                <marker date="1528058559511" expanded="true" signature="3770:3835" ph="..." />
-                <marker date="1528058559511" expanded="true" signature="4297:4393" ph="..." />
-                <marker date="1528058559511" expanded="true" signature="4313:4378" ph="..." />
-              </folding>
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IServer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Service/src/main/java/donator/service/IServer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="31" column="67" lean-forward="false" selection-start-line="31" selection-start-column="67" selection-end-line="31" selection-end-column="67" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ObservatiiRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Persistance/src/main/java/donator/persistence/ObservatiiRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-656">
-              <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ServerImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/src/main/java/donator/server/ServerImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="107" column="73" lean-forward="false" selection-start-line="107" selection-start-column="11" selection-end-line="107" selection-end-column="73" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChestionarView2Controller.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Clienti/src/main/java/donator/view/ChestionarView2Controller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="44" column="65" lean-forward="true" selection-start-line="32" selection-start-column="3" selection-end-line="44" selection-end-column="65" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -262,6 +144,14 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Chestionar</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>Centru</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="UPDATE_TYPE" value="MERGE" />
@@ -300,7 +190,7 @@
   <component name="GradleLocalSettings">
     <option name="myGradleHomes">
       <map>
-        <entry key="$PROJECT_DIR$" value="C:\Users\catal\.gradle\wrapper\dists\gradle-4.0-all\ac27o8rbd0ic8ih41or9l32mv\gradle-4.0" />
+        <entry key="$PROJECT_DIR$" value="C:\Users\Alex\.gradle\wrapper\dists\gradle-4.0-all\ac27o8rbd0ic8ih41or9l32mv\gradle-4.0" />
       </map>
     </option>
     <option name="myGradleVersions">
@@ -1150,11 +1040,11 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="12222703354356" />
+        <entry key="$PROJECT_DIR$" value="12223436827441" />
         <entry key="$PROJECT_DIR$/Clienti/build.gradle" value="837432404" />
         <entry key="$PROJECT_DIR$/Model/build.gradle" value="3576114346" />
         <entry key="$PROJECT_DIR$/Persistance/build.gradle" value="2148345695" />
-        <entry key="$PROJECT_DIR$/Server/build.gradle" value="3436955730" />
+        <entry key="$PROJECT_DIR$/Server/build.gradle" value="4022183907" />
         <entry key="$PROJECT_DIR$/Service/build.gradle" value="4031324831" />
         <entry key="$PROJECT_DIR$/build.gradle" value="3576114346" />
         <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="566444372" />
@@ -1363,9 +1253,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Clienti/src/main/java/donator/view/asistentaInformatiiController.java" />
-        <option value="$PROJECT_DIR$/Clienti/src/main/resources/asistentaInformatiiView.fxml" />
-        <option value="$PROJECT_DIR$/Persistance/src/main/java/Donator/IRepository.java" />
         <option value="$PROJECT_DIR$/Persistance/src/main/java/Donator/DonatorRepository.java" />
         <option value="$PROJECT_DIR$/Clienti/src/main/java/donator/view/AsistentaInformatiiController.java" />
         <option value="$PROJECT_DIR$/Persistance/src/main/java/donator/DonatorRepository.java" />
@@ -1373,16 +1260,13 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/Clienti/build.gradle" />
         <option value="$PROJECT_DIR$/Model/src/main/java/donator/entities/Clinica.java" />
-        <option value="$PROJECT_DIR$/Model/src/main/java/donator/entities/Centru.java" />
         <option value="$PROJECT_DIR$/Model/src/main/java/donator/entities/Personal.java" />
-        <option value="$PROJECT_DIR$/Model/src/main/java/donator/entities/DateSange.java" />
         <option value="$PROJECT_DIR$/Model/src/main/java/donator/entities/Boala.java" />
         <option value="$PROJECT_DIR$/Service/src/main/java/donator/service/DonatorException.java" />
         <option value="$PROJECT_DIR$/Server/src/main/java/donator/server/ServerStart.java" />
         <option value="$PROJECT_DIR$/Service/src/main/java/donator/service/IClient.java" />
         <option value="$PROJECT_DIR$/Persistance/build.gradle" />
         <option value="$PROJECT_DIR$/Persistance/src/main/java/Donator/persistence/DonatorRepository.java" />
-        <option value="$PROJECT_DIR$/Clienti/src/main/java/donator/view/DoctorController.java" />
         <option value="$PROJECT_DIR$/Clienti/src/main/resources/istoricDonatieView.fxml" />
         <option value="$PROJECT_DIR$/Clienti/src/main/resources/donatorMainView.fxml" />
         <option value="$PROJECT_DIR$/Clienti/src/main/resources/donatorNouView.fxml" />
@@ -1396,10 +1280,8 @@
         <option value="$PROJECT_DIR$/Server/src/main/resources/Entities.hbm.xml" />
         <option value="$PROJECT_DIR$/Persistance/src/main/java/donator/persistence/Programari.java" />
         <option value="$PROJECT_DIR$/Clienti/src/main/java/donator/view/DonatorNouViewController.java" />
-        <option value="$PROJECT_DIR$/Server/src/main/resources/server-spring.xml" />
         <option value="$PROJECT_DIR$/Server/src/main/resources/Donator.hbm.xml" />
         <option value="$PROJECT_DIR$/Model/src/main/java/donator/entities/Programari.java" />
-        <option value="$PROJECT_DIR$/Server/src/main/resources/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/Server/src/main/resources/Programari.hbm.xml" />
         <option value="$PROJECT_DIR$/Clienti/src/main/java/donator/view/DonatorMainViewController.java" />
         <option value="$PROJECT_DIR$/Clienti/src/main/resources/donatorVechiView.fxml" />
@@ -1408,11 +1290,20 @@
         <option value="$PROJECT_DIR$/Persistance/src/main/java/donator/persistence/ProgramariRepository.java" />
         <option value="$PROJECT_DIR$/Clienti/src/main/java/donator/view/DonatorVechiController.java" />
         <option value="$PROJECT_DIR$/Clienti/src/main/resources/spring-client.xml" />
-        <option value="$PROJECT_DIR$/Clienti/src/main/java/donator/view/LoginView.java" />
         <option value="$PROJECT_DIR$/Clienti/src/main/resources/laborantView.fxml" />
-        <option value="$PROJECT_DIR$/Server/src/main/java/donator/server/ServerImpl.java" />
-        <option value="$PROJECT_DIR$/Service/src/main/java/donator/service/IServer.java" />
+        <option value="$PROJECT_DIR$/Server/src/main/resources/DateSange.hbm.xml" />
+        <option value="$PROJECT_DIR$/Model/src/main/java/donator/entities/DateSange.java" />
         <option value="$PROJECT_DIR$/Clienti/src/main/java/donator/view/LaborantViewController.java" />
+        <option value="$PROJECT_DIR$/Clienti/src/main/resources/medicView.fxml" />
+        <option value="$PROJECT_DIR$/Clienti/src/main/java/donator/view/LoginView.java" />
+        <option value="$PROJECT_DIR$/Model/src/main/java/donator/entities/Centru.java" />
+        <option value="$PROJECT_DIR$/Clienti/src/main/java/donator/view/DoctorController.java" />
+        <option value="$PROJECT_DIR$/Server/src/main/resources/Centru.hbm.xml" />
+        <option value="$PROJECT_DIR$/Server/src/main/resources/hibernate.cfg.xml" />
+        <option value="$PROJECT_DIR$/Service/src/main/java/donator/service/IServer.java" />
+        <option value="$PROJECT_DIR$/Server/src/main/resources/server-spring.xml" />
+        <option value="$PROJECT_DIR$/Persistance/src/main/java/donator/persistence/CentreRepository.java" />
+        <option value="$PROJECT_DIR$/Server/src/main/java/donator/server/ServerImpl.java" />
       </list>
     </option>
   </component>
@@ -1466,8 +1357,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -1509,6 +1400,14 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KillerBas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Donator" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="Clienti" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="KillerBas" type="b2602c69:ProjectViewProjectNode" />
@@ -1604,38 +1503,6 @@
             <path>
               <item name="KillerBas" type="b2602c69:ProjectViewProjectNode" />
               <item name="Donator" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="Server" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="KillerBas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Donator" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="Server" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KillerBas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Donator" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="Server" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KillerBas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Donator" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="Server" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KillerBas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Donator" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="Service" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
@@ -1672,8 +1539,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1686,12 +1553,16 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.build.tools" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL&#10;com.mysql.cj.jdbc.Driver" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Donator\Server\src\main\resources" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Donator\Server\src\main\java" />
       <recent name="E:\Donator\Server\src\main\resources" />
       <recent name="F:\KillerBas\Donator\Server\src\main\resources" />
       <recent name="F:\KillerBas\Donator\Clienti\src\main\resources" />
@@ -1709,7 +1580,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.StartAsistenta">
+  <component name="RunManager" selected="Application.ServerStart">
     <configuration name="ClientStart" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="ClientStart" />
@@ -1723,23 +1594,6 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="Clienti_main" />
       <envs />
-    </configuration>
-    <configuration name="D:/l3ai/KillerBas/Clienti [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="D:/KillerBas/Clienti" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" value="" />
-      </ExternalSystemSettings>
     </configuration>
     <configuration name="ServerStart" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
@@ -1777,6 +1631,20 @@
     <configuration name="StartChestionar" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="StartChestionar" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Clienti_main" />
+      <envs />
+    </configuration>
+    <configuration name="StartClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="StartClient" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -1903,15 +1771,15 @@
       <item index="2" class="java.lang.String" itemvalue="Application.ClientStart" />
       <item index="3" class="java.lang.String" itemvalue="Application.StartChestionar" />
       <item index="4" class="java.lang.String" itemvalue="Application.StartAsistenta" />
-      <item index="5" class="java.lang.String" itemvalue="Gradle.D:/l3ai/KillerBas/Clienti [build]" />
+      <item index="5" class="java.lang.String" itemvalue="Application.StartClient" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.StartAsistenta" />
-        <item index="1" class="java.lang.String" itemvalue="Application.StartChestionar" />
-        <item index="2" class="java.lang.String" itemvalue="Application.ServerStart" />
-        <item index="3" class="java.lang.String" itemvalue="Application.ClientStart" />
-        <item index="4" class="java.lang.String" itemvalue="Gradle.D:/l3ai/KillerBas/Clienti [build]" />
+        <item index="0" class="java.lang.String" itemvalue="Application.ServerStart" />
+        <item index="1" class="java.lang.String" itemvalue="Application.StartAsistenta" />
+        <item index="2" class="java.lang.String" itemvalue="Application.StartClient" />
+        <item index="3" class="java.lang.String" itemvalue="Application.StartChestionar" />
+        <item index="4" class="java.lang.String" itemvalue="Application.ClientStart" />
       </list>
     </recent_temporary>
   </component>
@@ -1940,6 +1808,8 @@
       <workItem from="1527877183503" duration="670000" />
       <workItem from="1527927609593" duration="11923000" />
       <workItem from="1527954236831" duration="11159000" />
+      <workItem from="1528061406728" duration="4340000" />
+      <workItem from="1528172772694" duration="289000" />
     </task>
     <task id="LOCAL-00001" summary="repo donator">
       <created>1527859937774</created>
@@ -2025,77 +1895,58 @@
       <option name="project" value="LOCAL" />
       <updated>1528056503367</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="programare donator implementat">
+      <created>1528060348992</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1528060348992</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56645000" />
+    <option name="totallyTimeSpent" value="72947000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5430839" sideWeight="0.5046875" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18769883" sideWeight="0.5046875" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20139635" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39581096" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19739583" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44331065" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.331813" sideWeight="0.4935553" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31698975" sideWeight="0.4953125" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27448747" sideWeight="0.4953125" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2056928" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20520833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24777777" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5430839" sideWeight="0.5046875" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20139635" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39581096" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44331065" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33219954" sideWeight="0.4935553" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33085898" sideWeight="0.49166667" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31746033" sideWeight="0.4953125" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20300752" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32879817" sideWeight="0.4935553" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24777777" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -2151,7 +2002,8 @@
     <MESSAGE value="hibernate mapping&#10;server running" />
     <MESSAGE value="ceva update minor" />
     <MESSAGE value="programare donator implementat" />
-    <option name="LAST_COMMIT_MESSAGE" value="programare donator implementat" />
+    <MESSAGE value="verific ceva" />
+    <option name="LAST_COMMIT_MESSAGE" value="verific ceva" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2180,59 +2032,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Clienti/src/main/java/ClientStart.java" />
-    <entry file="file://$PROJECT_DIR$/Clienti/src/main/java/donator/view/LaborantController.java" />
-    <entry file="file://$PROJECT_DIR$/Clienti/src/main/resources/asistentaView.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Clienti/src/main/resources/asistentaInformatiiView2.fxml" />
-    <entry file="file://$PROJECT_DIR$/Clienti/src/main/resources/chestionarStyle.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/736113ae-f6bb-4fdd-970c-b46fd719c043/console.sql" />
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Persistance/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="9" column="1" lean-forward="false" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Persistance/src/main/java/donator/persistence/BoalaRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -2245,7 +2044,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2253,15 +2051,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="12" column="27" lean-forward="false" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/main/java/donator/server/ServerStart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2270,7 +2059,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="17" lean-forward="false" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2279,7 +2067,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="5" column="53" lean-forward="false" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2287,11 +2074,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="38" column="33" lean-forward="false" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
-          <folding>
-            <element signature="e#934#935#0" expanded="false" />
-            <element signature="e#981#982#0" expanded="false" />
-            <element signature="e#1019#1020#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2306,7 +2088,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="11" column="34" lean-forward="false" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2325,7 +2106,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2333,22 +2113,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="268">
           <caret line="78" column="13" lean-forward="true" selection-start-line="78" selection-start-column="13" selection-end-line="78" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/src/main/java/donator/entities/Donator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="27" column="63" lean-forward="false" selection-start-line="27" selection-start-column="63" selection-end-line="27" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Clienti/src/main/resources/spring-client.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="61" lean-forward="false" selection-start-line="7" selection-start-column="61" selection-end-line="7" selection-end-column="61" />
           <folding />
         </state>
       </provider>
@@ -2372,15 +2136,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/main/resources/DateSange.hbm.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2388,15 +2143,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="141" column="0" lean-forward="false" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Persistance/src/main/java/donator/persistence/ChestionarRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2405,7 +2151,7 @@
         <state relative-caret-position="331">
           <caret line="57" column="29" lean-forward="true" selection-start-line="57" selection-start-column="29" selection-end-line="57" selection-end-column="29" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2414,7 +2160,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2434,14 +2179,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Clienti/src/main/java/donator/view/DoctorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Clienti/src/main/java/donator/view/DonatorMainViewController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-215">
@@ -2450,94 +2187,78 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/main/resources/server-spring.xml">
+    <entry file="file://$PROJECT_DIR$/Clienti/src/main/java/donator/view/ChestionarView2Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding>
-            <marker date="1528058559514" expanded="true" signature="1071:1090" ph="..." />
-            <marker date="1528058559514" expanded="true" signature="1162:1406" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/main/resources/hibernate.cfg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" column="65" lean-forward="true" selection-start-line="15" selection-start-column="65" selection-end-line="15" selection-end-column="65" />
+        <state relative-caret-position="588">
+          <caret line="44" column="65" lean-forward="false" selection-start-line="32" selection-start-column="3" selection-end-line="44" selection-end-column="65" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Persistance/src/main/java/donator/persistence/DonatorRepository.java">
+    <entry file="file://$PROJECT_DIR$/Clienti/src/main/resources/spring-client.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3470">
-          <caret line="186" column="0" lean-forward="false" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
+        <state relative-caret-position="147">
+          <caret line="7" column="58" lean-forward="false" selection-start-line="7" selection-start-column="58" selection-end-line="7" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Clienti/src/main/resources/medicView.fxml">
+    <entry file="file://$PROJECT_DIR$/Clienti/src/main/java/StartChestionar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f35578f3-caa1-425e-aaa1-a72d74cea2ff/console.sql" />
+    <entry file="das://table:/a0bcef93/f35578f3-caa1-425e-aaa1-a72d74cea2ff/donator.donatori" />
+    <entry file="file://$PROJECT_DIR$/Model/src/main/java/donator/entities/Donator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="27" column="20" lean-forward="true" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Clienti/src/main/resources/laborantView.fxml">
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1528058559511" expanded="true" signature="767:4601" ph="..." />
-            <marker date="1528058559511" expanded="true" signature="862:954" ph="..." />
-            <marker date="1528058559511" expanded="true" signature="879:935" ph="..." />
-            <marker date="1528058559511" expanded="true" signature="1064:1231" ph="..." />
-            <marker date="1528058559511" expanded="true" signature="1081:1143" ph="..." />
-            <marker date="1528058559511" expanded="true" signature="1163:1212" ph="..." />
-            <marker date="1528058559511" expanded="true" signature="1342:1440" ph="..." />
-            <marker date="1528058559511" expanded="true" signature="1359:1421" ph="..." />
-            <marker date="1528058559511" expanded="true" signature="1567:1673" ph="..." />
-            <marker date="1528058559511" expanded="true" signature="1584:1654" ph="..." />
-            <marker date="1528058559511" expanded="true" signature="1797:1903" ph="..." />
-            <marker date="1528058559511" expanded="true" signature="1814:1884" ph="..." />
-            <marker date="1528058559511" expanded="true" signature="2058:2154" ph="..." />
-            <marker date="1528058559511" expanded="true" signature="2074:2139" ph="..." />
-            <marker date="1528058559511" expanded="true" signature="2277:2373" ph="..." />
-            <marker date="1528058559511" expanded="true" signature="2293:2358" ph="..." />
-            <marker date="1528058559511" expanded="true" signature="2669:2765" ph="..." />
-            <marker date="1528058559511" expanded="true" signature="2685:2749" ph="..." />
-            <marker date="1528058559511" expanded="true" signature="2889:2985" ph="..." />
-            <marker date="1528058559511" expanded="true" signature="2905:2970" ph="..." />
-            <marker date="1528058559511" expanded="true" signature="3148:3250" ph="..." />
-            <marker date="1528058559511" expanded="true" signature="3164:3229" ph="..." />
-            <marker date="1528058559511" expanded="true" signature="3368:3464" ph="..." />
-            <marker date="1528058559511" expanded="true" signature="3384:3449" ph="..." />
-            <marker date="1528058559511" expanded="true" signature="3562:3664" ph="..." />
-            <marker date="1528058559511" expanded="true" signature="3578:3643" ph="..." />
-            <marker date="1528058559511" expanded="true" signature="3754:3856" ph="..." />
-            <marker date="1528058559511" expanded="true" signature="3770:3835" ph="..." />
-            <marker date="1528058559511" expanded="true" signature="4297:4393" ph="..." />
-            <marker date="1528058559511" expanded="true" signature="4313:4378" ph="..." />
-          </folding>
+        <state relative-caret-position="531">
+          <caret line="56" column="111" lean-forward="false" selection-start-line="56" selection-start-column="81" selection-end-line="56" selection-end-column="111" />
+          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Persistance/src/main/java/donator/persistence/ObservatiiRepository.java">
+    <entry file="file://$PROJECT_DIR$/Clienti/src/main/java/donator/view/AsistentaController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-656">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        <state relative-caret-position="-882">
+          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Clienti/src/main/java/donator/view/ChestionarView2Controller.java">
+    <entry file="file://$PROJECT_DIR$/Server/src/main/resources/DateSange.hbm.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="44" column="65" lean-forward="true" selection-start-line="32" selection-start-column="3" selection-end-line="44" selection-end-column="65" />
+        <state relative-caret-position="378">
+          <caret line="18" column="20" lean-forward="true" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Model/src/main/java/donator/entities/DateSange.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="29" column="59" lean-forward="false" selection-start-line="29" selection-start-column="59" selection-end-line="29" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/a0bcef93/f35578f3-caa1-425e-aaa1-a72d74cea2ff/donator.personal" />
     <entry file="file://$PROJECT_DIR$/Clienti/src/main/resources/loginView.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="-189">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -2546,55 +2267,149 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Clienti/src/main/resources/laborantView.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1176">
-          <caret line="56" column="111" lean-forward="false" selection-start-line="56" selection-start-column="81" selection-end-line="56" selection-end-column="111" />
+    <entry file="file://$PROJECT_DIR$/Clienti/src/main/resources/medicView.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Clienti/src/main/java/donator/view/AsistentaController.java">
+    <entry file="file://$PROJECT_DIR$/Clienti/src/main/java/donator/view/LaborantViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="49" column="79" lean-forward="false" selection-start-line="49" selection-start-column="79" selection-end-line="49" selection-end-column="79" />
+        <state relative-caret-position="155">
+          <caret line="72" column="7" lean-forward="true" selection-start-line="72" selection-start-column="7" selection-end-line="72" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/main/java/donator/server/ServerImpl.java">
+    <entry file="file://$PROJECT_DIR$/Clienti/src/main/java/donator/view/LoginView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="107" column="73" lean-forward="false" selection-start-line="107" selection-start-column="11" selection-end-line="107" selection-end-column="73" />
+        <state relative-caret-position="256">
+          <caret line="71" column="51" lean-forward="false" selection-start-line="71" selection-start-column="51" selection-end-line="71" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Clienti/src/main/java/donator/view/DoctorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="39" column="5" lean-forward="false" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/src/main/resources/Chestionar.hbm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="18" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/src/main/resources/Centru.hbm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="40" lean-forward="false" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/src/main/resources/hibernate.cfg.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="20" column="45" lean-forward="true" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Persistance/src/main/java/donator/persistence/ChestionarRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="80" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Service/src/main/java/donator/service/IServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="31" column="67" lean-forward="false" selection-start-line="31" selection-start-column="67" selection-end-line="31" selection-end-column="67" />
+        <state relative-caret-position="609">
+          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Clienti/src/main/java/donator/view/LoginView.java">
+    <entry file="file://$PROJECT_DIR$/Server/src/main/java/donator/server/ServerStart.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="109" column="38" lean-forward="false" selection-start-line="109" selection-start-column="16" selection-end-line="109" selection-end-column="38" />
+        <state relative-caret-position="126">
+          <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Clienti/src/main/java/donator/view/LaborantViewController.java">
+    <entry file="file://$PROJECT_DIR$/Server/src/main/resources/server-spring.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="28" column="36" lean-forward="false" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+        <state relative-caret-position="504">
+          <caret line="24" column="43" lean-forward="false" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Persistance/src/main/java/donator/persistence/DonatorRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="116" column="5" lean-forward="true" selection-start-line="93" selection-start-column="3" selection-end-line="116" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Persistance/src/main/java/donator/persistence/CentreRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="96" column="75" lean-forward="false" selection-start-line="96" selection-start-column="75" selection-end-line="96" selection-end-column="75" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/src/main/java/donator/server/ServerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="613">
+          <caret line="328" column="42" lean-forward="false" selection-start-line="328" selection-start-column="42" selection-end-line="328" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Persistance/src/main/java/donator/persistence/ObservatiiRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1792">
+          <caret line="122" column="0" lean-forward="false" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Persistance/src/main/java/donator/persistence/DateSangeRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2464">
+          <caret line="164" column="0" lean-forward="true" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/src/main/java/donator/entities/Centru.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="8" column="26" lean-forward="true" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
           <folding />
         </state>
       </provider>

@@ -9,7 +9,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.xml.sax.SAXException;
 
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.XPathExpressionException;
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
@@ -35,10 +39,19 @@ public class IstoricDonatieViewController extends UnicastRemoteObject{
     public void handleTrimitere (ActionEvent event) {
 
         try {
+           // service.getCordinates("sa");
             service.trimitereMail(email.getText().toString());
         } catch (DonatorException e) {
             e.printStackTrace();
         } catch (RemoteException e) {
+            e.printStackTrace();
+        /*} catch (SAXException e) {
+            e.printStackTrace();
+        } catch (XPathExpressionException e) {
+            e.printStackTrace();
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        */} catch (IOException e) {
             e.printStackTrace();
         }
 

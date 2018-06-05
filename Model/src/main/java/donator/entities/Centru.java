@@ -1,53 +1,90 @@
 package donator.entities;
 
 
+import java.io.Serializable;
 
-public class Centru {
+public class Centru implements Serializable{
+    private int idCentru;
+    private String nume;
+    private String adresa;
+    private String telefon;
+    private String email;
+    private double latitudine;
+    private double longitudine;
 
-    private int IdCentru;
 
-    private String Nume;
-
-
-    private int IdPersonal;
-
-
-    private int IdDonator;
-
-    public Centru(int IdCentru, String Nume, int IdPersonal, int IdDonator){
-        this.IdCentru=IdCentru;
-        this.Nume=Nume;
-        this.IdPersonal=IdPersonal;
-        this.IdDonator=IdDonator;
+    public Centru() {
     }
+
+    public Centru(int idCentru, String nume, String adresa, String telefon, String email, double latitudine, double longitudine) {
+
+        this.idCentru = idCentru;
+        this.nume = nume;
+        this.adresa = adresa;
+        this.telefon = telefon;
+        this.email = email;
+        this.latitudine = latitudine;
+        this.longitudine = longitudine;
+    }
+
+
 
     public int getIdCentru() {
-        return IdCentru;
-    }
-    public String getNume() {
-        return Nume;
-    }
-    public int getIdPersonal() {
-        return IdPersonal;
+
+        return idCentru;
     }
 
     public void setIdCentru(int idCentru) {
-        IdCentru = idCentru;
+        this.idCentru = idCentru;
+    }
+
+    public String getNume() {
+        return nume;
     }
 
     public void setNume(String nume) {
-        Nume = nume;
+        this.nume = nume;
     }
 
-    public void setIdPersonal(int idPersonal) {
-        IdPersonal = idPersonal;
+    public String getAdresa() {
+        return adresa;
     }
 
-    public void setIdDonator(int idDonator) {
-        IdDonator = idDonator;
+    public void setAdresa(String adresa) {
+        this.adresa = adresa;
     }
 
-    public int getIdDonator() {
-        return IdDonator;
+    public String getTelefon() {
+        return telefon;
     }
+
+    public void setTelefon(String telefon) {
+        this.telefon = telefon;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public double getLatitudine() {
+        return latitudine;
+    }
+
+    public void setLatitudine(double latitudine) {
+        this.latitudine = latitudine;
+    }
+
+    public double getLongitudine() {
+        return longitudine;
+    }
+
+    public void setLongitudine(double longitudine) {
+        this.longitudine = longitudine;
+    }
+
+
 }

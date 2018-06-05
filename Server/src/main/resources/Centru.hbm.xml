@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping >
+    <class name="donator.entities.Centru" table="centre">
+        <id name="idCentru" column="idCentru" type="int">
+                <generator class="increment"></generator>
+        </id>
+        <property name="nume" column="nume" type="string"/>
+        <property name="adresa" column="adresa" type="string"/>
+        <property name="telefon" column="telefon" type="string"/>
+        <property name="email" column="email" type="string"/>
+        <property name="latitudine" column="latitudine" type="double"/>
+        <property name="longitudine" column="longitudine" type="double"/>
+    </class>
+</hibernate-mapping>
